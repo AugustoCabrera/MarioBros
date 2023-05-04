@@ -19,25 +19,31 @@ public class InputManager implements KeyListener, MouseListener{
         GameStatus status = engine.getGameStatus();
         ButtonAction currentAction = ButtonAction.NO_ACTION;
 
+            //Pregunto si lo que se presiono es ← ↑ → ↓ SPACE SCAPE ENTER
         if (keyCode == KeyEvent.VK_UP) {
-            if(status == GameStatus.START_SCREEN || status == GameStatus.MAP_SELECTION)
+            if(status == GameStatus.START_SCREEN || status == GameStatus.MAP_SELECTION) //Si el mapa todavia no se selecciono o todavia estoy en el menu
                 currentAction = ButtonAction.GO_UP;
             else
-                currentAction = ButtonAction.JUMP;
+                currentAction = ButtonAction.JUMP;  //si ya estoy adentro del juego
         }
+
         else if(keyCode == KeyEvent.VK_DOWN){
-            if(status == GameStatus.START_SCREEN || status == GameStatus.MAP_SELECTION)
+            if(status == GameStatus.START_SCREEN || status == GameStatus.MAP_SELECTION) //Si el mapa todavia no se selecciono o todavia estoy en el menu
                 currentAction = ButtonAction.GO_DOWN;
         }
+
         else if (keyCode == KeyEvent.VK_RIGHT) {
             currentAction = ButtonAction.M_RIGHT;
         }
+
         else if (keyCode == KeyEvent.VK_LEFT) {
             currentAction = ButtonAction.M_LEFT;
         }
+
         else if (keyCode == KeyEvent.VK_ENTER) {
             currentAction = ButtonAction.SELECT;
         }
+
         else if (keyCode == KeyEvent.VK_ESCAPE) {
             if(status == GameStatus.RUNNING || status == GameStatus.PAUSED )
                 currentAction = ButtonAction.PAUSE_RESUME;
@@ -45,6 +51,7 @@ public class InputManager implements KeyListener, MouseListener{
                 currentAction = ButtonAction.GO_TO_START_SCREEN;
 
         }
+
         else if (keyCode == KeyEvent.VK_SPACE){
             currentAction = ButtonAction.FIRE;
         }
@@ -55,7 +62,7 @@ public class InputManager implements KeyListener, MouseListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if(engine.getGameStatus() == GameStatus.MAP_SELECTION){
+        if(engine.getGameStatus() == GameStatus.MAP_SELECTION){  //el mouse solo sirve para cuando estoy en el menu
             engine.selectMapViaMouse();
         }
     }

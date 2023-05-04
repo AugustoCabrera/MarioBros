@@ -113,7 +113,7 @@ class MapCreator {
             }
         }
 
-        System.out.println("Map is created..");
+        System.out.println("El mapa esta creado!! 🕺"); //Imprimo por consola
         return createdMap;
     }
 

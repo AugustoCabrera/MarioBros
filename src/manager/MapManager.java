@@ -55,7 +55,7 @@ public class MapManager {
         Fireball fireball = getMario().fire();
         if (fireball != null) {
             map.addFireball(fireball);
-            engine.playFireball();
+            engine.playFireball(); //es el sonido del fuego
         }
     }
 

@@ -30,10 +30,10 @@ public class Camera {
     }
 
     public void shakeCamera() {
-        shaking = true;
+        shaking = true; //Activo el Modo "Temblar"
         frameNumber = 60;
     }
-
+    //metodo para mover la camara cuando se sale del Up Mushroom
     public void moveCam(double xAmount, double yAmount){
         if(shaking && frameNumber > 0){
             int direction = (frameNumber%2 == 0)? 1 : -1;

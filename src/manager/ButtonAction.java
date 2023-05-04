@@ -1,5 +1,5 @@
 package manager;
-
+//es solamente el enumerado de las Acciones por Boton
 public enum ButtonAction {
     JUMP,
     M_RIGHT,

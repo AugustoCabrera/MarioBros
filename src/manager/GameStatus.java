@@ -1,5 +1,5 @@
 package manager;
-
+//enumerado de en que estado del juego estoy
 public enum GameStatus {
     GAME_OVER,
     PAUSED,

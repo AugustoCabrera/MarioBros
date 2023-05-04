@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class GameEngine implements Runnable {
 
-    private final static int WIDTH = 1268, HEIGHT = 708;
+    private final static int WIDTH = 1268, HEIGHT = 708; //Dimensiones de la Ventana
 
     private MapManager mapManager;
     private UIManager uiManager;
@@ -30,13 +30,14 @@ public class GameEngine implements Runnable {
     private void init() {
         imageLoader = new ImageLoader();
         InputManager inputManager = new InputManager(this);
-        gameStatus = GameStatus.START_SCREEN;
+        gameStatus = GameStatus.START_SCREEN; //estoy en el menu de seleccion
+        System.out.println("Estoy en el estado " + getGameStatus());
         camera = new Camera();
         uiManager = new UIManager(this, WIDTH, HEIGHT);
         soundManager = new SoundManager();
         mapManager = new MapManager();
 
-        JFrame frame = new JFrame("Super Mario Bros.");
+        JFrame frame = new JFrame("Super Mario Bros ✨🍄"); //Jframe es la Clase consola emergente
         frame.add(uiManager);
         frame.addKeyListener(inputManager);
         frame.addMouseListener(inputManager);
@@ -46,7 +47,7 @@ public class GameEngine implements Runnable {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        start();
+        start(); //llamo al run
     }
 
     private synchronized void start() {
@@ -61,14 +62,16 @@ public class GameEngine implements Runnable {
     private void reset(){
         resetCamera();
         setGameStatus(GameStatus.START_SCREEN);
+        System.out.println("Estoy en el estado " + getGameStatus());
     }
 
     public void resetCamera(){
         camera = new Camera();
-        soundManager.restartBackground();
+        soundManager.restartBackground(); //vuelve a reproducir el Himno
     }
 
     public void selectMapViaMouse() {
+        System.out.println("Hice click para elegir mapa");
         String path = uiManager.selectMapViaMouse(uiManager.getMousePosition());
         if (path != null) {
             createMap(path);
@@ -76,6 +79,7 @@ public class GameEngine implements Runnable {
     }
 
     public void selectMapViaKeyboard(){
+        System.out.println("Aprete ENTER para elegir mapa");
         String path = uiManager.selectMapViaKeyboard(selectedMap);
         if (path != null) {
             createMap(path);
@@ -83,14 +87,16 @@ public class GameEngine implements Runnable {
     }
 
     public void changeSelectedMap(boolean up){
+        System.out.println("Estoy moviendo el cursor para seleccionar el mapa");
         selectedMap = uiManager.changeSelectedMap(selectedMap, up);
     }
 
     private void createMap(String path) {
+        System.out.println("Se creo el mapa");
         boolean loaded = mapManager.createMap(imageLoader, path);
         if(loaded){
             setGameStatus(GameStatus.RUNNING);
-            soundManager.restartBackground();
+            soundManager.restartBackground(); //resetea el himno
         }
 
         else
@@ -98,7 +104,7 @@ public class GameEngine implements Runnable {
     }
 
     @Override
-    public void run() {
+    public void run() { //llamo al hilo (Concurrente)
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
