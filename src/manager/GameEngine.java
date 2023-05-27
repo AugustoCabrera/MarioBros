@@ -23,6 +23,15 @@ public class GameEngine implements Runnable {
     private StartScreenSelection startScreenSelection = StartScreenSelection.START_GAME;
     private int selectedMap = 0;
 
+    //Constructor para uso en test
+    public GameEngine(String msj){
+        System.out.println(msj);
+        this.mapManager= new MapManager();
+        this.imageLoader= new ImageLoader();
+        mapManager.createMap(imageLoader,"Map 1.png");
+        this.soundManager=new SoundManager();
+
+    }
     private GameEngine() {
         init();
     }

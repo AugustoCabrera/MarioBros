@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class CoinTest {
     @Test
     public void onTouchTest(){
-        GameEngine engine=new GameEngine();
+        GameEngine engine=new GameEngine("CoinTest");
         Mario mario = new Mario(0, 0);
         Coin coin = new Coin(0, 0, null, 50);
         coin.onTouch(mario, engine);
