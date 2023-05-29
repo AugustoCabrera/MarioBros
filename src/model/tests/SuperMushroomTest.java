@@ -12,10 +12,8 @@ public class SuperMushroomTest {
         Mario mario = new Mario(0, 0);
         SuperMushroom mushroom = new SuperMushroom(0, 0, null);
         mushroom.onTouch(mario, engine);
-        assertSame(mario.getPoints(), 125);
-        if(48!=mario.getDimension().getWidth()) System.out.print("AssertionError");
-        if(96!=mario.getDimension().getHeight()) System.out.print("AssertionError");
-        //assertSame(mario.getDimension().getWidth(), 48);
-        //assertSame(mario.getDimension().getHeight(), 96);
+        assertEquals(mario.getPoints(), 125);
+        assertEquals(mario.getDimension().getWidth(), 48, 0.0);
+        assertEquals(mario.getDimension().getHeight(), 96, 0.0);
     }
 }

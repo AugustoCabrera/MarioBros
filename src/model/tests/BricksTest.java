@@ -16,13 +16,13 @@ public class BricksTest {
     public void revealTest(){
         GameEngine engine = new GameEngine("BrickTest");
         //Mario mario = engine.getMapManager().getMario();
-        OrdinaryBrick ordinary=new OrdinaryBrick(0, 0, null);
-        SurpriseBrick surprise=new SurpriseBrick(0, 0, null, (Prize) new Coin(0, 0, null, 3));
-            Object prizeOrdinary = ordinary.reveal(engine);
-            assertNull(prizeOrdinary);
-        Prize prizeSuprise= surprise.reveal(engine);
-        assertNotSame(prizeSuprise, null);
-        assertSame(prizeSuprise.getPoint(), 3);
+        OrdinaryBrick ordinary=new OrdinaryBrick(0, 0, null); //Creo brick ordinario
+        SurpriseBrick surprise=new SurpriseBrick(0, 0, null, (Prize) new Coin(0, 0, null, 3));// Creo brick sorpresa
+            Object prizeOrdinary = ordinary.reveal(engine); // como es un bloque ordinario no tiene sorpresa
+            assertNull(prizeOrdinary); //verifico si me da alguna sorpresa, cosa
+        Prize prizeS= surprise.reveal(engine); // Obtengo la sorpresa en el bloque sorpresa
+        assertNotSame(prizeS, null); // verifico que no sea null
+        assertEquals(prizeS.getPoint(), 3); // verifico que valga lo que definido
     }
 
 }

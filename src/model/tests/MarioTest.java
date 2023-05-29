@@ -14,16 +14,14 @@ public class MarioTest {
         mario.setJumping(false);
         mario.jump(engine);
         assertTrue(mario.isJumping());
-        if(10!=mario.getVelY()) System.out.print("AssertionError");
-        //assertSame(mario.getVelY(), 10);
+        assertEquals(mario.getVelY(), 10, 0.0);
     }
     @Test
     public void moveTest(){
         Camera camara = new Camera();
         Mario mario= new Mario(0, 0);
         mario.move(true, camara);
-        if(5!=mario.getVelX()) System.out.print("AssertionError");
-        //assertSame(mario.getVelX(), 5);
+        assertEquals(mario.getVelX(), 5, 0.0);
         assertTrue(mario.getToRight());
     }
     public void onTouchEnemy(){
@@ -38,14 +36,11 @@ public class MarioTest {
         mario.jump(engine);
         mario.setFalling(true);
         mario.resetLocation();
-        if(0!=mario.getVelX()) System.out.print("AssertionError");
-        //assertSame(mario.getVelX(), 0);
-        if(0!=mario.getVelY()) System.out.print("AssertionError");
-        //assertSame(mario.getVelY(), 0);
+        assertEquals(mario.getVelX(), 0, 0.0);
+        assertEquals(mario.getVelY(), 0, 0.0);
         assertFalse(mario.isJumping());
-        assertFalse(mario.isFalling()); //Parece que cuando se resetea, mario tiene falling en true, por eso tira error el test
-        if(50!=mario.getX()) System.out.print("AssertionError");
-        //assertSame(mario.getX(), 50);
+        assertTrue(mario.isFalling());
+        assertEquals(mario.getX(), 50, 0.0);
 
     }
 }

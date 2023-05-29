@@ -19,9 +19,11 @@ public class CoinTest {
     }
     @Test
     public void revealTest(){
-        Coin coin = new Coin(0, 10, null, 0); //comienza en posicion y=10
+        double pos = 10;
+        double pos_mod= 5;
+        Coin coin = new Coin(0, pos, null, 0); //comienza en posicion y=10
         coin.reveal();
         coin.updateLocation(); //actualiza y de manera que decrementa en 5
-        assertSame(coin.getY(), 5);
+        assertEquals(coin.getY(), pos_mod, 0.0);
     }
 }
