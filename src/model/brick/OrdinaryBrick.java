@@ -3,6 +3,7 @@ package model.brick;
 import manager.GameEngine;
 import manager.MapManager;
 import model.Map;
+import model.hero.MarioSuper;
 import model.prize.Prize;
 import view.Animation;
 import view.ImageLoader;
@@ -36,9 +37,8 @@ public class OrdinaryBrick extends Brick {
     @Override
     public Prize reveal(GameEngine engine){
         MapManager manager = engine.getMapManager();
-        if(!manager.getMario().isSuper())
+        if(!(manager.getMario().getMarioForm() instanceof MarioSuper))
             return null;
-
         breaking = true;
         manager.addRevealedBrick(this);
 

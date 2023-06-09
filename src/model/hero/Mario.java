@@ -15,7 +15,7 @@ public class Mario extends GameObject{
     private int coins;
     private int points;
     private double invincibilityTimer;
-    private MarioForm marioForm;
+    private MarioFormAll marioForm;
     private boolean toRight = true;
 
     public Mario(double x, double y){
@@ -32,7 +32,7 @@ public class Mario extends GameObject{
         BufferedImage[] rightFrames = imageLoader.getRightFrames(MarioForm.SMALL);
 
         Animation animation = new Animation(leftFrames, rightFrames);
-        marioForm = new MarioForm(animation, false, false);
+        marioForm= new MarioNormal(animation, this);
         setStyle(marioForm.getCurrentStyle(toRight, false, false));
     }
 
@@ -67,22 +67,33 @@ public class Mario extends GameObject{
 
     public boolean onTouchEnemy(GameEngine engine){
 
-        if(!marioForm.isSuper() && !marioForm.isFire()){
+        if(marioForm instanceof MarioNormal)
+        {
             remainingLives--;
             engine.playMarioDies();
             return true;
         }
+
         else{
             engine.shakeCamera();
-            marioForm = marioForm.onTouchEnemy(engine.getImageLoader());
-            setDimension(48, 48);
+            marioForm = (MarioFormAll) marioForm.onTouchEnemy(engine.getImageLoader(), this);
             return false;
         }
     }
 
     public Fireball fire(){
-        return marioForm.fire(toRight, getX(), getY());
+
+        if(marioForm instanceof  MarioFire){
+
+               MarioFire marioFire= (MarioFire) marioForm;
+
+                 return marioFire.fire(toRight, getX(), getY());
+        }
+        else{
+                  return null;
     }
+    }
+
 
     public void acquireCoin() {
         coins++;
@@ -108,16 +119,12 @@ public class Mario extends GameObject{
         return coins;
     }
 
-    public MarioForm getMarioForm() {
+    public MarioFormAll getMarioForm() {
         return marioForm;
     }
 
-    public void setMarioForm(MarioForm marioForm) {
+    public void setMarioForm(MarioFormAll marioForm) {
         this.marioForm = marioForm;
-    }
-
-    public boolean isSuper() {
-        return marioForm.isSuper();
     }
 
     public boolean getToRight() {

@@ -5,24 +5,18 @@ import view.ImageLoader;
 
 import java.awt.image.BufferedImage;
 
-public class MarioForm {
+public class MarioFire implements MarioFormAll {
 
-    //Comportamientos Fuego , Normal y Grande
-
-    public static final int SMALL = 0, SUPER = 1, FIRE = 2;  //son enteros que se utilizan para delimitar que tipo de columna estoy trabajando en los marios
-
-    private Animation animation;
-    private boolean isSuper, isFire;            //note: fire form has priority over super form
     private BufferedImage fireballStyle;
+    private Animation animation;
 
-    public MarioForm(Animation animation, boolean isSuper, boolean isFire){
-        this.animation = animation;
-        this.isSuper = isSuper;
-        this.isFire = isFire;
-
+    public MarioFire(Animation animation , Mario mario) {
+        mario.setDimension(48, 96);
+        this.animation=animation;
         ImageLoader imageLoader = new ImageLoader();
         BufferedImage fireball = imageLoader.loadImage("/sprite.png");
         fireballStyle = imageLoader.getSubImage(fireball, 3, 4, 24, 24);
+
     }
 
     public BufferedImage getCurrentStyle(boolean toRight, boolean movingInX, boolean movingInY){
@@ -49,32 +43,21 @@ public class MarioForm {
         return style;
     }
 
-    public MarioForm onTouchEnemy(ImageLoader imageLoader) {
+    public MarioNormal onTouchEnemy(ImageLoader imageLoader , Mario mario){
+
         BufferedImage[] leftFrames = imageLoader.getLeftFrames(MarioForm.SMALL);
         BufferedImage[] rightFrames= imageLoader.getRightFrames(MarioForm.SMALL);
 
         Animation newAnimation = new Animation(leftFrames, rightFrames);
+        return new MarioNormal(newAnimation, mario);
 
-        return new MarioForm(newAnimation, false, false);
     }
 
-   //Va en el MarioFire
-  /*  public Fireball fire(boolean toRight, double x, double y) {
-        if(isFire){
+
+    public Fireball fire(boolean toRight, double x, double y) {
+
             return new Fireball(x, y + 48, fireballStyle, toRight);
-        }
-        return null;
-    }*/
-
-    public boolean isSuper() {
-        return isSuper;
     }
 
-    public void setSuper(boolean aSuper) {
-        isSuper = aSuper;
-    }
 
-    public boolean isFire() {
-        return isFire;
-    }
 }
