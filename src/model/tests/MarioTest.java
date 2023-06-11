@@ -9,7 +9,7 @@ public class MarioTest {
     @Test
     public void jumpTest(){
         GameEngine engine=new GameEngine("MarioTest");
-        Mario mario= new Mario(0, 0);
+        Mario mario= new Mario(0, 0, null);
         mario.setFalling(false);
         mario.setJumping(false);
         mario.jump(engine);
@@ -19,7 +19,7 @@ public class MarioTest {
     @Test
     public void moveTest(){
         Camera camara = new Camera();
-        Mario mario= new Mario(0, 0);
+        Mario mario= new Mario(0, 0, null);
         mario.move(true, camara);
         assertEquals(mario.getVelX(), 5, 0.0);
         assertTrue(mario.getToRight());
@@ -30,7 +30,7 @@ public class MarioTest {
     @Test
     public void resetTest(){
         GameEngine engine=new GameEngine("CoinTest");
-        Mario mario= new Mario(40, 0);
+        Mario mario= new Mario(40, 0, null);
         mario.setVelX(50);
         mario.setVelY(60);
         mario.jump(engine);

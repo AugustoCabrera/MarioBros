@@ -1,15 +1,20 @@
 package model.enemy;
 
+import model.Difficulty;
+import model.Observer;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Goomba extends Enemy{
+public class Goomba extends Enemy implements Observer {
 
     private BufferedImage rightImage;
+    private Difficulty difficulty;
 
     public Goomba(double x, double y, BufferedImage style) {
         super(x, y, style);
         setVelX(3);
+
     }
 
     @Override
@@ -19,6 +24,14 @@ public class Goomba extends Enemy{
         }
         else
             super.draw(g);
+    }
+
+    @Override
+    public void update() {
+
+        double speed = getVelX() + 3;
+
+        setVelX(speed);
     }
 
     public void setRightImage(BufferedImage rightImage) {

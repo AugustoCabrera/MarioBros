@@ -1,11 +1,15 @@
 package model.enemy;
 
+import model.Difficulty;
+import model.Observer;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class KoopaTroopa extends Enemy{
+public class KoopaTroopa extends Enemy implements Observer {
 
     private BufferedImage rightImage;
+    private Difficulty difficulty;
 
     public KoopaTroopa(double x, double y, BufferedImage style) {
         super(x, y, style);
@@ -19,6 +23,14 @@ public class KoopaTroopa extends Enemy{
         }
         else
             super.draw(g);
+    }
+
+    @Override
+    public void update() {
+
+        double speed = getVelX() + 3;
+
+        setVelX(speed);
     }
 
     public void setRightImage(BufferedImage rightImage) {

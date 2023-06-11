@@ -11,7 +11,7 @@ public class CoinTest {
     @Test
     public void onTouchTest(){
         GameEngine engine=new GameEngine("CoinTest");
-        Mario mario = new Mario(0, 0);
+        Mario mario = new Mario(0, 0, null);
         Coin coin = new Coin(0, 0, null, 50);
         coin.onTouch(mario, engine);
         assertEquals(mario.getPoints(), 50);

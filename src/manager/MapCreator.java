@@ -1,6 +1,8 @@
 package manager;
 
+import model.Difficulty;
 import model.EndFlag;
+import model.Observer;
 import model.brick.*;
 import model.prize.*;
 import view.ImageLoader;
@@ -16,14 +18,14 @@ import java.awt.image.BufferedImage;
 class MapCreator {
 
     private ImageLoader imageLoader;
-
+    private Difficulty difficulty;
     private BufferedImage backgroundImage;
     private BufferedImage superMushroom, oneUpMushroom, fireFlower, coin;
     private BufferedImage ordinaryBrick, surpriseBrick, groundBrick, pipe;
     private BufferedImage goombaLeft, goombaRight, koopaLeft, koopaRight, endFlag;
 
 
-    MapCreator(ImageLoader imageLoader) {
+    MapCreator(ImageLoader imageLoader, Difficulty difficulty) {
 
         this.imageLoader = imageLoader;
         BufferedImage sprite = imageLoader.loadImage("/sprite.png");
@@ -42,6 +44,8 @@ class MapCreator {
         this.koopaLeft = imageLoader.getSubImage(sprite, 1, 3, 48, 64);
         this.koopaRight = imageLoader.getSubImage(sprite, 4, 3, 48, 64);
         this.endFlag = imageLoader.getSubImage(sprite, 5, 1, 48, 48);
+        this.difficulty= difficulty;
+
 
     }
 
@@ -95,15 +99,17 @@ class MapCreator {
                 else if (currentPixel == goomba) {
                     Enemy enemy = new Goomba(xLocation, yLocation, this.goombaLeft);
                     ((Goomba)enemy).setRightImage(goombaRight);
+                    this.difficulty.registerObserver((Observer) enemy);
                     createdMap.addEnemy(enemy);
                 }
                 else if (currentPixel == koopa) {
                     Enemy enemy = new KoopaTroopa(xLocation, yLocation, this.koopaLeft);
                     ((KoopaTroopa)enemy).setRightImage(koopaRight);
+                    this.difficulty.registerObserver((Observer) enemy);
                     createdMap.addEnemy(enemy);
                 }
                 else if (currentPixel == mario) {
-                    Mario marioObject = new Mario(xLocation, yLocation);
+                    Mario marioObject = new Mario(xLocation, yLocation , difficulty);
                     createdMap.setMario(marioObject);
                 }
                 else if(currentPixel == end){

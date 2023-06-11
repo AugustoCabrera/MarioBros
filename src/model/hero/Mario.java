@@ -2,6 +2,7 @@ package model.hero;
 
 import manager.Camera;
 import manager.GameEngine;
+import model.Difficulty;
 import view.Animation;
 import model.GameObject;
 import view.ImageLoader;
@@ -17,8 +18,8 @@ public class Mario extends GameObject{
     private double invincibilityTimer;
     private MarioFormAll marioForm;
     private boolean toRight = true;
-
-    public Mario(double x, double y){
+    private Difficulty difficulty;
+    public Mario(double x, double y , Difficulty difficulty){
         super(x, y, null);
         setDimension(48,48);
 
@@ -34,6 +35,7 @@ public class Mario extends GameObject{
         Animation animation = new Animation(leftFrames, rightFrames);
         marioForm= new MarioNormal(animation, this);
         setStyle(marioForm.getCurrentStyle(toRight, false, false));
+        this.difficulty = difficulty;
     }
 
     @Override
@@ -65,7 +67,7 @@ public class Mario extends GameObject{
         this.toRight = toRight;
     }
 
-    public boolean onTouchEnemy(GameEngine engine){
+    public boolean onTouchEnemy(GameEngine engine , Difficulty difficulty){
 
         if(marioForm instanceof MarioNormal)
         {
@@ -100,7 +102,14 @@ public class Mario extends GameObject{
     }
 
     public void acquirePoints(int point){
+
         points = points + point;
+
+        if(points > 50){
+            difficulty.setDifficulty();
+        }
+
+
     }
 
     public int getRemainingLives() {
@@ -138,4 +147,5 @@ public class Mario extends GameObject{
         setJumping(false);
         setFalling(true);
     }
+
 }

@@ -1,5 +1,6 @@
 package manager;
 
+import model.Difficulty;
 import model.GameObject;
 import model.Map;
 import model.brick.Brick;
@@ -18,8 +19,12 @@ import java.util.ArrayList;
 public class MapManager {
 
     private Map map;
+    private Difficulty difficulty;
 
-    public MapManager() {}
+    public MapManager() {
+
+        difficulty = new Difficulty();
+    }
 
     public void updateLocations() {
         if (map == null)
@@ -37,7 +42,7 @@ public class MapManager {
     }
 
     public boolean createMap(ImageLoader loader, String path) {
-        MapCreator mapCreator = new MapCreator(loader);
+        MapCreator mapCreator = new MapCreator(loader, difficulty);
         map = mapCreator.createMap("/maps/" + path, 400);
 
         return map != null;
@@ -187,7 +192,7 @@ public class MapManager {
         for(Enemy enemy : enemies){
             Rectangle enemyBounds = !toRight ? enemy.getRightBounds() : enemy.getLeftBounds();
             if (marioBounds.intersects(enemyBounds)) {
-                marioDies = mario.onTouchEnemy(engine);
+                marioDies = mario.onTouchEnemy(engine , difficulty );
                 toBeRemoved.add(enemy);
             }
         }

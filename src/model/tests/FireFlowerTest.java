@@ -11,7 +11,7 @@ public class FireFlowerTest {
     @Test
     public void onTouchTest(){
         GameEngine engine = new GameEngine("CoinTest"); //creo una instancia de juego
-        Mario mario = new Mario(0, 0); // creo un mario que se va a jugar en esa instancia
+        Mario mario = new Mario(0, 0, null); // creo un mario que se va a jugar en esa instancia
         FireFlower flower = new FireFlower(0, 0, null); //creo una flor
         assertEquals(0, mario.getPoints());
         flower.setPoint(3);             // asigno que la flor de 3 puntos

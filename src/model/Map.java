@@ -30,6 +30,7 @@ public class Map {
     private String path;
 
 
+
     public Map(double remainingTime, BufferedImage backgroundImage) {
         this.backgroundImage = backgroundImage;
         this.remainingTime = remainingTime;
