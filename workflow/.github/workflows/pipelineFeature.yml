@@ -24,4 +24,3 @@ jobs:
       - name: Run unit tests
         run: java -cp build org.junit.runner.JUnitCore src.test.TestSuite
 
-
