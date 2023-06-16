@@ -1,4 +1,4 @@
-package model.tests;
+package model.testsModel;
 
 import manager.Camera;
 import manager.GameEngine;

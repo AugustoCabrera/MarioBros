@@ -1,10 +1,8 @@
-package model.tests;
+package model.testsModel;
 
 import manager.GameEngine;
-import manager.MapManager;
 import model.brick.OrdinaryBrick;
 import model.brick.SurpriseBrick;
-import model.hero.Mario;
 import model.prize.Coin;
 import model.prize.Prize;
 import org.junit.Test;

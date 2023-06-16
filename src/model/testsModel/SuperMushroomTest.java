@@ -1,4 +1,4 @@
-package model.tests;
+package model.testsModel;
 import manager.GameEngine;
 import model.hero.Mario;
 import model.prize.SuperMushroom;
