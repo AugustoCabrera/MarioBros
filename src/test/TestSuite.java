@@ -12,4 +12,5 @@ import org.junit.runners.Suite;
         model.testsModel.SuperMushroomTest.class
 })
 public class TestSuite {
+    //no es necesario un contenido aqui
 }
