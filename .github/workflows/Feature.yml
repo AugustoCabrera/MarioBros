@@ -23,6 +23,6 @@ jobs:
         run: javac -cp lib/junit-4.13.1.jar -d out src/manager/*.java src/model/*.java src/model/**/*.java src/test/*.java src/view/*.java
 
       - name: Run unit tests
-        run: java -cp lib/junit-4.13.1.jar org.junit.runner.JUnitCore src.test.TestSuite
+        run: java -cp .:lib/junit-4.13.1.jar:out org.junit.runner.JUnitCore src.test.TestSuite
 
       
