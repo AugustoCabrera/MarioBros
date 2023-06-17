@@ -22,5 +22,5 @@ jobs:
         run: javac -d out/ src/*.java
 
       - name: Run unit tests
-        run: java -cp build org.junit.runner.JUnitCore src.test.TestSuite
+        run: java -cp out org.junit.runner.JUnitCore src.test.TestSuite
 
