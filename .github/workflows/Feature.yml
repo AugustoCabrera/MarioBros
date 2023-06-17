@@ -22,7 +22,7 @@ jobs:
       - name: Compile
         run: |
              mkdir -p out
-             javac -cp .lib/junit-4.13.1.jar -d out src/*.java
+             javac -cp .lib/junit-4.13.1.jar -d out src/manager/*.java src/model/*.java src/model/**/*.java src/test/*.java src/view/*.java
 
       - name: Run unit tests
         run: java -cp out org.junit.runner.JUnitCore src.test.TestSuite
