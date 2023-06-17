@@ -1,4 +1,4 @@
-name: pipelineFeature
+name: Feature
 
 on:
   pull_request:
