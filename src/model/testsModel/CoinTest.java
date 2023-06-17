@@ -1,4 +1,4 @@
-package model.testModel;
+package model.testsModel;
 
 import manager.GameEngine;
 import model.prize.Coin;
