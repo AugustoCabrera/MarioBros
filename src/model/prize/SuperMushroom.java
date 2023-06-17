@@ -19,7 +19,6 @@ public class SuperMushroom extends BoostItem implements MagicObject{
 
     @Override
     public void onTouch(Mario mario, GameEngine engine) {
-
         mario.acquirePoints(getPoint());
         setChangeMarioForm(mario);
         engine.playSuperMushroom();
@@ -30,13 +29,10 @@ public class SuperMushroom extends BoostItem implements MagicObject{
     @Override
     public void setChangeMarioForm(Mario mario) {
         ImageLoader imageLoader = new ImageLoader();
-
         BufferedImage[] leftFrames = imageLoader.getLeftFrames(MarioForm.SUPER);
         BufferedImage[] rightFrames = imageLoader.getRightFrames(MarioForm.SUPER);
-
         Animation animation = new Animation(leftFrames, rightFrames);
         // MarioForm newForm = new MarioForm(animation, true, true); // new MarioFire
-
         MarioFormAll newForm =(MarioFormAll) new MarioSuper(animation, mario); // new MarioFire
         mario.setMarioForm(newForm);
 
