@@ -22,6 +22,7 @@ jobs:
       - name: Compile
         run: javac -cp . src/manager/*.java src/model/*.java src/model/**/*.java src/test/*.java src/view/*.java
 
-      - name: Run unit tests
-        run: java -cp out org.junit.runner.JUnitCore src.test.TestSuite
-
+      - run: |
+             javac -cp lib/*:out -d testout test/*.java
+             java -cp lib/*:out:testout org.junit.runner.JUnitCore TestSuite
+      
