@@ -7,7 +7,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         model.testsModel.BricksTest.class,
         model.testModel.CoinTest.class,
-        model.testsModel.FireFlowerTest.class,
+        FireFlowerTest.class,
         model.testsModel.MarioTest.class,
         model.testsModel.SuperMushroomTest.class
 })
