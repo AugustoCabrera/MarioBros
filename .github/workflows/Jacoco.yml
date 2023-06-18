@@ -30,11 +30,20 @@ jobs:
         with:
           name: coverage-report
           path: target/site/jacoco
+
       - name: Check coverage threshold
         run: |
-             coverage_report=$(cat target/site/jacoco/index.html)
-             coverage_percentage=$(echo "$coverage_report" | grep -oP "(?<=<td class=\"ctr2\">)[\d\.]+(?=</td>)")
-             if (( $(echo "$coverage_percentage < 80" | bc -l) )); then
+            coverage_report=$(cat target/site/jacoco/index.html)
+            coverage_percentage=$(echo "$coverage_report" | grep -oP "(?<=<td class=\"ctr2\">)[\d\.]+(?=</td>)")
+            if (( $(echo "$coverage_percentage < 80" | bc -l) )); then
               echo "Coverage threshold not met. Coverage percentage: $coverage_percentage%"
-              exit 1
-             fi
+              echo "::set-env name=COVERAGE_THRESHOLD_NOT_MET::true"
+            else
+              echo "::set-env name=COVERAGE_THRESHOLD_NOT_MET::false"
+            fi
+
+      - name: Push changes (if coverage threshold met)
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          if: env.COVERAGE_THRESHOLD_NOT_MET == 'false'
