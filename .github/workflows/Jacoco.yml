@@ -30,4 +30,11 @@ jobs:
         with:
           name: coverage-report
           path: target/site/jacoco
-
+      - name: Check coverage threshold
+        run: |
+             coverage_report=$(cat target/site/jacoco/index.html)
+             coverage_percentage=$(echo "$coverage_report" | grep -oP "(?<=<td class=\"ctr2\">)[\d\.]+(?=</td>)")
+             if (( $(echo "$coverage_percentage < 80" | bc -l) )); then
+              echo "Coverage threshold not met. Coverage percentage: $coverage_percentage%"
+              exit 1
+             fi
