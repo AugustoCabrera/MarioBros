@@ -1,4 +1,4 @@
-package com.AdeAyme.superMarioBros.model.testsModel;
+package com.AdeAyme.superMarioBros.modelTest;
 
 import com.AdeAyme.superMarioBros.manager.Camera;
 import com.AdeAyme.superMarioBros.manager.GameEngine;

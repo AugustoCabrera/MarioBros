@@ -1,15 +1,14 @@
 package com.AdeAyme.superMarioBros;
-import com.AdeAyme.superMarioBros.model.testsModel.FireFlowerTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        com.AdeAyme.superMarioBros.model.testsModel.BricksTest.class,
-        com.AdeAyme.superMarioBros.model.testsModel.CoinTest.class,
-        com.AdeAyme.superMarioBros.model.testsModel.FireFlowerTest.class,
-        com.AdeAyme.superMarioBros.model.testsModel.MarioTest.class,
-        com.AdeAyme.superMarioBros.model.testsModel.SuperMushroomTest.class
+        com.AdeAyme.superMarioBros.modelTest.BricksTest.class,
+        com.AdeAyme.superMarioBros.modelTest.CoinTest.class,
+        com.AdeAyme.superMarioBros.modelTest.FireFlowerTest.class,
+        com.AdeAyme.superMarioBros.modelTest.MarioTest.class,
+        com.AdeAyme.superMarioBros.modelTest.SuperMushroomTest.class
 })
 public class TestSuite {
 }
