@@ -1,4 +1,4 @@
-package com.AdeAyme.superMarioBros.manager;
+package com.AdeAyme.superMarioBros.controller;
 //enumerado de en que estado del juego estoy
 public enum GameStatus {
     GAME_OVER,

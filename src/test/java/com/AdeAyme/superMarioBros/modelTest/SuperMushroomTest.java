@@ -1,6 +1,6 @@
 package com.AdeAyme.superMarioBros.modelTest;
-import com.AdeAyme.superMarioBros.manager.GameEngine;
-import com.AdeAyme.superMarioBros.model.Difficulty;
+import com.AdeAyme.superMarioBros.controller.GameEngine;
+import com.AdeAyme.superMarioBros.controller.Difficulty;
 import com.AdeAyme.superMarioBros.model.hero.Mario;
 import com.AdeAyme.superMarioBros.model.prize.SuperMushroom;
 import org.junit.Test;

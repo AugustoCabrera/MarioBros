@@ -1,7 +1,7 @@
 package com.AdeAyme.superMarioBros.model.enemy;
 
-import com.AdeAyme.superMarioBros.model.Difficulty;
-import com.AdeAyme.superMarioBros.model.Observer;
+import com.AdeAyme.superMarioBros.controller.Difficulty;
+import com.AdeAyme.superMarioBros.controller.Observer;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

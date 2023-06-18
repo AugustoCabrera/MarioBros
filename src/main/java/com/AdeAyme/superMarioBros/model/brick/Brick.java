@@ -1,8 +1,7 @@
 package com.AdeAyme.superMarioBros.model.brick;
 
-import com.AdeAyme.superMarioBros.manager.GameEngine;
+import com.AdeAyme.superMarioBros.controller.GameEngine;
 import com.AdeAyme.superMarioBros.model.GameObject;
-import com.AdeAyme.superMarioBros.model.Map;
 import com.AdeAyme.superMarioBros.model.prize.Prize;
 
 import java.awt.image.BufferedImage;

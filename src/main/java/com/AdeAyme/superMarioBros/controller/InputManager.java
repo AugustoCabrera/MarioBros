@@ -1,4 +1,4 @@
-package com.AdeAyme.superMarioBros.manager;
+package com.AdeAyme.superMarioBros.controller;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

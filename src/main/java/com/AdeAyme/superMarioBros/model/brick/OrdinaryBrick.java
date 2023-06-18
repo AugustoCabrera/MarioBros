@@ -1,14 +1,12 @@
 package com.AdeAyme.superMarioBros.model.brick;
 
-import com.AdeAyme.superMarioBros.manager.GameEngine;
-import com.AdeAyme.superMarioBros.manager.MapManager;
-import com.AdeAyme.superMarioBros.model.Map;
+import com.AdeAyme.superMarioBros.controller.GameEngine;
+import com.AdeAyme.superMarioBros.controller.MapManager;
 import com.AdeAyme.superMarioBros.model.hero.MarioSuper;
 import com.AdeAyme.superMarioBros.model.prize.Prize;
 import com.AdeAyme.superMarioBros.view.Animation;
 import com.AdeAyme.superMarioBros.view.ImageLoader;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class OrdinaryBrick extends Brick {

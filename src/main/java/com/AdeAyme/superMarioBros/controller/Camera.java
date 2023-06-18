@@ -1,4 +1,4 @@
-package com.AdeAyme.superMarioBros.manager;
+package com.AdeAyme.superMarioBros.controller;
 
 public class Camera {
 

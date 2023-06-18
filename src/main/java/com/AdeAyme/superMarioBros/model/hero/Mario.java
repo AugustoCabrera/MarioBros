@@ -1,8 +1,8 @@
 package com.AdeAyme.superMarioBros.model.hero;
 
-import com.AdeAyme.superMarioBros.manager.Camera;
-import com.AdeAyme.superMarioBros.manager.GameEngine;
-import com.AdeAyme.superMarioBros.model.Difficulty;
+import com.AdeAyme.superMarioBros.controller.Camera;
+import com.AdeAyme.superMarioBros.controller.GameEngine;
+import com.AdeAyme.superMarioBros.controller.Difficulty;
 import com.AdeAyme.superMarioBros.view.Animation;
 import com.AdeAyme.superMarioBros.model.GameObject;
 import com.AdeAyme.superMarioBros.view.ImageLoader;

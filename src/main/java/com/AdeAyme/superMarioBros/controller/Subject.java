@@ -1,4 +1,6 @@
-package com.AdeAyme.superMarioBros.model;
+package com.AdeAyme.superMarioBros.controller;
+
+import com.AdeAyme.superMarioBros.controller.Observer;
 
 public interface Subject {
     void registerObserver(Observer observer);

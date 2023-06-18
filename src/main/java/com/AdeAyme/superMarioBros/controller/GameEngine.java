@@ -1,4 +1,4 @@
-package com.AdeAyme.superMarioBros.manager;
+package com.AdeAyme.superMarioBros.controller;
 
 import com.AdeAyme.superMarioBros.model.hero.Mario;
 import com.AdeAyme.superMarioBros.view.ImageLoader;

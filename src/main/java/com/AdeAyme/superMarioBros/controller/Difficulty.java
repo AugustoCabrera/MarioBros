@@ -1,4 +1,4 @@
-package com.AdeAyme.superMarioBros.model;
+package com.AdeAyme.superMarioBros.controller;
 
 import java.util.ArrayList;
 

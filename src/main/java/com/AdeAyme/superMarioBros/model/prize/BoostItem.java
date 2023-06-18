@@ -1,7 +1,6 @@
 package com.AdeAyme.superMarioBros.model.prize;
 
-import com.AdeAyme.superMarioBros.manager.GameEngine;
-import com.AdeAyme.superMarioBros.manager.MapManager;
+import com.AdeAyme.superMarioBros.controller.GameEngine;
 import com.AdeAyme.superMarioBros.model.GameObject;
 import com.AdeAyme.superMarioBros.model.hero.Mario;
 

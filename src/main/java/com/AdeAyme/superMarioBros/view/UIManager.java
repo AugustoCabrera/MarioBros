@@ -1,12 +1,11 @@
 package com.AdeAyme.superMarioBros.view;
 
-import com.AdeAyme.superMarioBros.manager.GameEngine;
-import com.AdeAyme.superMarioBros.manager.GameStatus;
+import com.AdeAyme.superMarioBros.controller.GameEngine;
+import com.AdeAyme.superMarioBros.controller.GameStatus;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 

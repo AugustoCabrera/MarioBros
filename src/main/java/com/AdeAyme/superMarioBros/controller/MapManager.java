@@ -1,6 +1,5 @@
-package com.AdeAyme.superMarioBros.manager;
+package com.AdeAyme.superMarioBros.controller;
 
-import com.AdeAyme.superMarioBros.model.Difficulty;
 import com.AdeAyme.superMarioBros.model.GameObject;
 import com.AdeAyme.superMarioBros.model.Map;
 import com.AdeAyme.superMarioBros.model.brick.Brick;

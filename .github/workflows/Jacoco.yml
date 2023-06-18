@@ -1,0 +1,31 @@
+name: JaCoCo Code Coverage
+
+on:
+  push:
+    branches: [ "Feature_NewCIMaven" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Run JaCoCo Report
+        run: mvn jacoco:report
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: target/site/jacoco
+

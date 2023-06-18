@@ -1,4 +1,4 @@
-package com.AdeAyme.superMarioBros.manager;
+package com.AdeAyme.superMarioBros.controller;
 //es solamente el enumerado de las Acciones por Boton
 public enum ButtonAction {
     JUMP,

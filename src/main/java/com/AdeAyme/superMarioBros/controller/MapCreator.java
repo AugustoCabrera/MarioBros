@@ -1,8 +1,6 @@
-package com.AdeAyme.superMarioBros.manager;
+package com.AdeAyme.superMarioBros.controller;
 
-import com.AdeAyme.superMarioBros.model.Difficulty;
 import com.AdeAyme.superMarioBros.model.EndFlag;
-import com.AdeAyme.superMarioBros.model.Observer;
 import com.AdeAyme.superMarioBros.model.brick.*;
 import com.AdeAyme.superMarioBros.model.prize.*;
 import com.AdeAyme.superMarioBros.view.ImageLoader;
