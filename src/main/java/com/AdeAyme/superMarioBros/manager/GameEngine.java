@@ -323,7 +323,7 @@ public class GameEngine implements Runnable {
     }
 
     public void playSuperMushroom() {
-        //soundManager.playSuperMushroom();
+        soundManager.playSuperMushroom();
     }
 
     public void playMarioDies() {
