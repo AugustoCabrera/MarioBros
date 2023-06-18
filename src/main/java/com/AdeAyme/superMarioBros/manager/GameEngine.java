@@ -23,18 +23,20 @@ public class GameEngine implements Runnable {
     private StartScreenSelection startScreenSelection = StartScreenSelection.START_GAME;
     private int selectedMap = 0;
 
-    //Constructor para uso en test
-    public GameEngine(String msj){
+    private boolean Test= false;
+
+    public GameEngine(String msj){           //Constructor para uso SOLO en test
         System.out.println(msj);
         this.mapManager= new MapManager();
         this.imageLoader= new ImageLoader();
         mapManager.createMap(imageLoader,"Map 1.png");
         this.soundManager=new SoundManager();
+        Test = true;
 
     }
     private GameEngine() {
         init();
-    }
+    }         //Constructor para uso generico del juego
 
     private void init() {
         imageLoader = new ImageLoader();
@@ -76,7 +78,9 @@ public class GameEngine implements Runnable {
 
     public void resetCamera(){
         camera = new Camera();
-        soundManager.restartBackground(); //vuelve a reproducir el Himno
+        if(!Test){
+            soundManager.restartBackground(); //vuelve a reproducir el Himno
+        }
     }
 
     public void selectMapViaMouse() {
@@ -105,7 +109,10 @@ public class GameEngine implements Runnable {
         boolean loaded = mapManager.createMap(imageLoader, path);
         if(loaded){
             setGameStatus(GameStatus.RUNNING);
-            soundManager.restartBackground(); //resetea el himno
+            if(!Test)
+            {
+                soundManager.restartBackground(); //resetea el himno
+            }
         }
 
         else
@@ -253,10 +260,14 @@ public class GameEngine implements Runnable {
     private void pauseGame() {
         if (gameStatus == GameStatus.RUNNING) {
             setGameStatus(GameStatus.PAUSED);
-            soundManager.pauseBackground();
+            if(!Test){
+                soundManager.pauseBackground();
+            }
         } else if (gameStatus == GameStatus.PAUSED) {
             setGameStatus(GameStatus.RUNNING);
-            soundManager.resumeBackground();
+            if(!Test){
+                soundManager.resumeBackground();
+            }
         }
     }
 
@@ -315,35 +326,51 @@ public class GameEngine implements Runnable {
     }
 
     public void playCoin() {
-        //soundManager.playCoin();
+        if(!Test){
+            soundManager.playCoin();
+        }
     }
 
     public void playOneUp() {
-        soundManager.playOneUp();
+        if (!Test) {
+            soundManager.playOneUp();
+        }
     }
 
     public void playSuperMushroom() {
-        soundManager.playSuperMushroom();
+        if (!Test){
+            soundManager.playSuperMushroom();
+        }
     }
 
     public void playMarioDies() {
-        soundManager.playMarioDies();
+        if (!Test){
+            soundManager.playMarioDies();
+        }
     }
 
     public void playJump() {
-        //soundManager.playJump();
+        if(!Test){
+            soundManager.playJump();
+        }
     }
 
     public void playFireFlower() {
-        soundManager.playFireFlower();
+        if(!Test){
+            soundManager.playFireFlower();
+        }
     }
 
     public void playFireball() {
-        soundManager.playFireball();
+        if(!Test){
+            soundManager.playFireball();
+        }
     }
 
     public void playStomp() {
-        soundManager.playStomp();
+        if(!Test){
+            soundManager.playStomp();
+        }
     }
 
     public MapManager getMapManager() {
