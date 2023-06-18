@@ -315,7 +315,7 @@ public class GameEngine implements Runnable {
     }
 
     public void playCoin() {
-        soundManager.playCoin();
+        //soundManager.playCoin();
     }
 
     public void playOneUp() {
@@ -323,7 +323,7 @@ public class GameEngine implements Runnable {
     }
 
     public void playSuperMushroom() {
-        soundManager.playSuperMushroom();
+        //soundManager.playSuperMushroom();
     }
 
     public void playMarioDies() {
@@ -331,7 +331,7 @@ public class GameEngine implements Runnable {
     }
 
     public void playJump() {
-        soundManager.playJump();
+        //soundManager.playJump();
     }
 
     public void playFireFlower() {
