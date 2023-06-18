@@ -28,16 +28,6 @@
     </dependencies>
 
     <build>
-
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-            </resource>
-            <resource>
-                <directory>src/resources/media</directory>
-            </resource>
-        </resources>
-
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
@@ -56,6 +46,11 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <additionalClasspathElements>
+                            <additionalClasspathElement>src/resources/media/audio</additionalClasspathElement>
+                        </additionalClasspathElements>
+                    </configuration>
                     <version>2.22.1</version>
                 </plugin>
                 <plugin>
