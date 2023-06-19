@@ -20,30 +20,41 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn -B package -Pcoverage
 
-      - name: Run JaCoCo Report
-        run: mvn jacoco:report
-
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v2
+      - name: Generate JaCoCo badge
+        id: jacoco
+        uses: cicirello/jacoco-badge-generator@v2
         with:
-          name: coverage-report
-          path: target/site/jacoco
+          badges-directory: badges
+          generate-branches-badge: true
+          generate-summary: true
 
-      - name: Check coverage threshold
+      - name: Log coverage percentages to workflow output
         run: |
-            coverage_report=$(cat target/site/jacoco/index.html)
-            coverage_percentage=$(echo "$coverage_report" | grep -oP "(?<=<td class=\"ctr2\">)[\d\.]+(?=</td>)")
-            if (( $(echo "$coverage_percentage < 80" | bc -l) )); then
-              echo "Coverage threshold not met. Coverage percentage: $coverage_percentage%"
-              echo "::set-env name=COVERAGE_THRESHOLD_NOT_MET::true"
-            else
-              echo "::set-env name=COVERAGE_THRESHOLD_NOT_MET::false"
-            fi
+          echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
+          echo "branches = ${{ steps.jacoco.outputs.branches }}"
 
-      - name: Push changes (if coverage threshold met)
-        uses: ad-m/github-push-action@master
+      - name: Upload JaCoCo coverage report as a workflow artifact
+        uses: actions/upload-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          if: env.COVERAGE_THRESHOLD_NOT_MET == 'false'
+            name: jacoco-report
+            path: target/site/jacoco/
+
+      - name: Comment on PR with coverage percentages
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+           REPORT=$(<badges/coverage-summary.json)
+           COVERAGE=$(jq -r '.coverage' <<< "$REPORT")%
+           BRANCHES=$(jq -r '.branches' <<< "$REPORT")%
+           NEWLINE=$'\n'
+           BODY="## JaCoCo Test Coverage Summary Statistics${NEWLINE} __Coverage:__ ${COVERAGE}${NEWLINE}* __Branches:__ ${BRANCHES}"
+           gh pr comment ${{github.event.pull_request.number}} -b "${BODY}"
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get the Coverage info
+        run: |
+            echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
+            echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
