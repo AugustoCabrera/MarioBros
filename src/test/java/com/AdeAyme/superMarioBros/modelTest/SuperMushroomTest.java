@@ -8,6 +8,13 @@ import static org.junit.Assert.*;
 
 public class SuperMushroomTest {
     @Test
+    public void createSuperMushroomTest(){
+        SuperMushroom mushroom =new SuperMushroom(0,0,null);
+        assertEquals(mushroom.getDimension().getHeight(), 48, 0.0);
+        assertEquals(mushroom.getDimension().getWidth(), 48, 0.0);
+        assertEquals(mushroom.getPoint(), 125);
+    }
+    @Test
     public void onTouchTest(){
         GameEngine engine = new GameEngine("CoinTest");
         Mario mario = new Mario(0, 0, new Difficulty());

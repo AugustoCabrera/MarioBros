@@ -29,6 +29,7 @@ public class GameEngine implements Runnable {
         System.out.println(msj);
         this.mapManager= new MapManager();
         this.imageLoader= new ImageLoader();
+        this.camera= new Camera();
         mapManager.createMap(imageLoader,"Map 1.png");
         this.soundManager=new SoundManager();
         Test = true;

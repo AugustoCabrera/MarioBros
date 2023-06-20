@@ -78,7 +78,7 @@ public class Mario extends GameObject{
 
         else{
             engine.shakeCamera();
-            marioForm = (MarioFormAll) marioForm.onTouchEnemy(engine.getImageLoader(), this);
+            marioForm = marioForm.onTouchEnemy(engine.getImageLoader(), this);
             return false;
         }
     }

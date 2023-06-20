@@ -1,6 +1,7 @@
 package com.AdeAyme.superMarioBros.modelTest;
 
 import com.AdeAyme.superMarioBros.controller.GameEngine;
+import com.AdeAyme.superMarioBros.model.EndFlag;
 import com.AdeAyme.superMarioBros.model.prize.Coin;
 import com.AdeAyme.superMarioBros.model.hero.Mario;
 import org.junit.Test;
@@ -8,6 +9,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CoinTest {
+    @Test
+    public void createCoinTest(){
+        Coin coin =new Coin(0,0,null,0);
+        assertEquals(coin.getVelX(),0,0.0);
+        assertEquals(coin.getVelY(),0,0.0);
+        assertTrue(coin.isFalling());
+        assertFalse(coin.isJumping());
+    }
     @Test
     public void onTouchTest(){
         GameEngine engine=new GameEngine("CoinTest");

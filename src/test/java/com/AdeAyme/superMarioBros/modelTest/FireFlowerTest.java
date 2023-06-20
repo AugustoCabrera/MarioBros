@@ -3,10 +3,17 @@ package com.AdeAyme.superMarioBros.modelTest;
 import com.AdeAyme.superMarioBros.controller.GameEngine;
 import com.AdeAyme.superMarioBros.model.hero.Mario;
 import com.AdeAyme.superMarioBros.model.prize.FireFlower;
+import com.AdeAyme.superMarioBros.model.prize.OneUpMushroom;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class FireFlowerTest {
+    @Test
+    public void createFireFlowerTest(){
+        OneUpMushroom upMushroom = new OneUpMushroom(0,0,null);
+        assertEquals(upMushroom.getDimension().getHeight(), 48, 0.0);
+        assertEquals(upMushroom.getDimension().getWidth(), 48, 0.0);
+    }
     @Test
     public void onTouchTest(){
         GameEngine engine = new GameEngine("CoinTest"); //creo una instancia de juego

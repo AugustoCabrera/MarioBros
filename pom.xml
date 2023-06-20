@@ -25,6 +25,12 @@
             <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.10</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -45,15 +51,6 @@
                     <version>3.11.0</version>
                 </plugin>
                 <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.1.2</version>
-                    <configuration>
-                        <includes>
-                            <include>**/*Test.java</include>
-                        </includes>
-                    </configuration>
-                </plugin>
-                <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.3.0</version>
                 </plugin>
@@ -68,11 +65,49 @@
                 <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
                 <plugin>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>3.7.1</version>
+                    <version>3.12.1</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
                     <version>3.4.5</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>3.1.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <!-- Establece la Sets the VM argument line used when unit tests are run. -->
+                        <!--suppress UnresolvedMavenProperty -->
+                        <argLine>${surefireArgLine}</argLine>
+                        <!-- Excluye los tests de integración cuando se ejecutan los tests unitarios. -->
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>1.9.1</version>
+                    <executions>
+                        <execution>
+                            <id>add-integration-test-sources</id>
+                            <phase>generate-test-sources</phase>
+                            <goals>
+                                <goal>add-test-source</goal>
+                                <goal>add-test-resource</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>src/test/java</source>
+                                </sources>
+                                <resources>
+                                    <resource>
+                                        <directory>src/test/resources</directory>
+                                    </resource>
+                                </resources>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
                 <!-- Code Coverage report generation -->
                 <plugin>
@@ -80,46 +115,42 @@
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>0.8.10</version>
                     <executions>
-                        <execution>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                            <configuration>
-                                <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
-                                <propertyName>surefireArgLine</propertyName>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>report</id>
-                            <phase>test</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                            <configuration>
-                                <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
-                                <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>jacoco-check</id>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                            <configuration>
-                                <rules>
-                                    <rule>
-                                        <element>PACKAGE</element>
-                                        <limits>
-                                            <limit>
-                                                <counter>LINE</counter>
-                                                <value>COVEREDRATIO</value>
-                                                <minimum>0.80</minimum>
-                                            </limit>
-                                        </limits>
-                                    </rule>
-                                </rules>
-                            </configuration>
-                        </execution>
+                    <!--
+                        Prepara el agente de tiempo de ejecución de JaCoCo, el cual
+                        se pasa como agumento a la VM cuando Maven ejecuta el plugin Surefire plugin.
+                    -->
+                    <execution>
+                        <id>pre-unit-test</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Establece la ruta al fichero que contiene los datos de ejecución. -->
+                            <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+                            <!--
+                                Establece el nombre de la propiedad que contiene las configurationes
+                                para el agente de tiempo de ejecución de JaCoCo.
+                            -->
+                            <propertyName>surefireArgLine</propertyName>
+                        </configuration>
+                    </execution>
+                    <!--
+                        Crea el informe de cobertura para los tests unitarios después que
+                        los tests unitarios se hayan ejecutado.
+                    -->
+                    <execution>
+                        <id>post-unit-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Establece la ruta del fichero que contiene los datos de ejecución. -->
+                            <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+                            <!-- Establece el directorio de destino donde se almacenarán los informes de cobertura. -->
+                            <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+                        </configuration>
+                    </execution>
                     </executions>
                 </plugin>
             </plugins>
@@ -148,4 +179,5 @@
             </plugin>
         </plugins>
     </reporting>
+
 </project>

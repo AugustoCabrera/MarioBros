@@ -35,11 +35,9 @@ public class SuperMushroom extends BoostItem implements MagicObject{
         BufferedImage[] rightFrames = imageLoader.getRightFrames(MarioForm.SUPER);
 
         Animation animation = new Animation(leftFrames, rightFrames);
-        // MarioForm newForm = new MarioForm(animation, true, true); // new MarioFire
 
-        MarioFormAll newForm =(MarioFormAll) new MarioSuper(animation, mario); // new MarioFire
+        MarioFormAll newForm = new MarioSuper(animation, mario); // new MarioFire
         mario.setMarioForm(newForm);
-
 
     }
 }

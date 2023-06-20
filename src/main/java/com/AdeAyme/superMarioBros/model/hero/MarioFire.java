@@ -16,7 +16,6 @@ public class MarioFire implements MarioFormAll {
         ImageLoader imageLoader = new ImageLoader();
         BufferedImage fireball = imageLoader.loadImage("/sprite.png");
         fireballStyle = imageLoader.getSubImage(fireball, 3, 4, 24, 24);
-
     }
 
     public BufferedImage getCurrentStyle(boolean toRight, boolean movingInX, boolean movingInY){
