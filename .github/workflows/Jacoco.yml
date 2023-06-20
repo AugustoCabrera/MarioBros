@@ -33,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: code-coverage-report-markdown
-          path: target/site/jacoco-aggregate/jacoco.xml
+          path: target/reports/jacoco.xml
           retention-days: 1
