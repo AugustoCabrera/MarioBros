@@ -14,5 +14,7 @@ public class FireballTest {
         assertFalse(fireball.isFalling());
         assertFalse(fireball.isJumping());
         assertEquals(fireball.getVelX(), 10,0.0);
+        Fireball fireball2 = new Fireball(0,0,null, false);
+        assertEquals(-5, fireball2.getVelX(),0.0);
     }
 }

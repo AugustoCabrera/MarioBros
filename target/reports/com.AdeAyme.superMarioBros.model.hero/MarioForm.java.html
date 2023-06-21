@@ -31,17 +31,17 @@ public class MarioForm {
 
 <span class="nc bnc" id="L32" title="All 4 branches missed.">        if(movingInY &amp;&amp; toRight){</span>
 <span class="nc" id="L33">            style = animation.getRightFrames()[0];</span>
-<span class="nc" id="L34">        }</span>
+        }
 <span class="nc bnc" id="L35" title="All 2 branches missed.">        else if(movingInY){</span>
 <span class="nc" id="L36">            style = animation.getLeftFrames()[0];</span>
-<span class="nc" id="L37">        }</span>
+        }
 <span class="nc bnc" id="L38" title="All 2 branches missed.">        else if(movingInX){</span>
 <span class="nc" id="L39">            style = animation.animate(5, toRight);</span>
-<span class="nc" id="L40">        }</span>
+        }
         else {
 <span class="nc bnc" id="L42" title="All 2 branches missed.">            if(toRight){</span>
 <span class="nc" id="L43">                style = animation.getRightFrames()[1];</span>
-<span class="nc" id="L44">            }</span>
+            }
             else
 <span class="nc" id="L46">                style = animation.getLeftFrames()[1];</span>
         }

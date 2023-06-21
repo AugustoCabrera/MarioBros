@@ -16,24 +16,24 @@ public class Animation {
 <span class="fc" id="L16">    }</span>
 
     public BufferedImage animate(int speed, boolean toRight){
-<span class="nc" id="L19">        count++;</span>
-<span class="nc bnc" id="L20" title="All 2 branches missed.">        BufferedImage[] frames = toRight ? rightFrames : leftFrames;</span>
+<span class="fc" id="L19">        count++;</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        BufferedImage[] frames = toRight ? rightFrames : leftFrames;</span>
 
-<span class="nc bnc" id="L22" title="All 2 branches missed.">        if(count &gt; speed){</span>
-<span class="nc" id="L23">            nextFrame(frames);</span>
-<span class="nc" id="L24">            count = 0;</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        if(count &gt; speed){</span>
+<span class="fc" id="L23">            nextFrame(frames);</span>
+<span class="fc" id="L24">            count = 0;</span>
         }
 
-<span class="nc" id="L27">        return currentFrame;</span>
+<span class="fc" id="L27">        return currentFrame;</span>
     }
 
     private void nextFrame(BufferedImage[] frames) {
-<span class="nc bnc" id="L31" title="All 2 branches missed.">        if(index + 3 &gt; frames.length)</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        if(index + 3 &gt; frames.length)</span>
 <span class="nc" id="L32">            index = 0;</span>
 
-<span class="nc" id="L34">        currentFrame = frames[index+2];</span>
-<span class="nc" id="L35">        index++;</span>
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L34">        currentFrame = frames[index+2];</span>
+<span class="fc" id="L35">        index++;</span>
+<span class="fc" id="L36">    }</span>
 
     public BufferedImage[] getLeftFrames() {
 <span class="fc" id="L39">        return leftFrames;</span>

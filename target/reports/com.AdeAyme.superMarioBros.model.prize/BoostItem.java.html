@@ -26,10 +26,10 @@ public abstract class BoostItem extends GameObject implements Prize{
 
     @Override
     public void updateLocation(){
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if(revealed){</span>
-<span class="nc" id="L30">            super.updateLocation();</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if(revealed){</span>
+<span class="fc" id="L30">            super.updateLocation();</span>
         }
-<span class="nc" id="L32">    }</span>
+<span class="fc" id="L32">    }</span>
 
     @Override
     public void draw(Graphics g){
@@ -40,9 +40,9 @@ public abstract class BoostItem extends GameObject implements Prize{
 
     @Override
     public void reveal(){
-<span class="nc" id="L43">        setY(getY()-48);</span>
-<span class="nc" id="L44">        revealed = true;</span>
-<span class="nc" id="L45">    }</span>
+<span class="fc" id="L43">        setY(getY()-48);</span>
+<span class="fc" id="L44">        revealed = true;</span>
+<span class="fc" id="L45">    }</span>
 
     public void setPoint(int point) {
 <span class="fc" id="L48">        this.point = point;</span>

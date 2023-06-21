@@ -37,8 +37,13 @@ public class MarioTest {
         Camera camara = new Camera();
         Mario mario= new Mario(0, 0, null);
         mario.move(true, camara);
-        assertEquals(mario.getVelX(), 5, 0.0);
+        assertEquals(5, mario.getVelX(), 0.0);
         assertTrue(mario.getToRight());
+        camara.setX(1);
+        mario.setX(2);
+        mario.move(false, camara);
+        assertEquals(-5, mario.getVelX(), 0.0);
+        assertFalse(mario.getToRight());
     }
     @Test
     public void onTouchEnemyTest(){
@@ -73,6 +78,14 @@ public class MarioTest {
         assertFalse(mario.isJumping());
         assertTrue(mario.isFalling());
         assertEquals(mario.getX(), 50, 0.0);
+    }
 
+    @Test
+    public void fireTest(){
+        Mario mario = new Mario(0,0,new Difficulty());
+        assertNull(mario.fire());
+        FireFlower flower = new FireFlower(0,0,null);
+        flower.onTouch(mario, new GameEngine("MarioTest"));
+        assertEquals(48,mario.fire().getY(),0.0);
     }
 }

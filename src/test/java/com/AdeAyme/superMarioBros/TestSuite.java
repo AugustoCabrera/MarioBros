@@ -16,7 +16,14 @@ import org.junit.runners.Suite;
         com.AdeAyme.superMarioBros.modelTest.MarioNormalTest.class,
         com.AdeAyme.superMarioBros.modelTest.MarioSuperTest.class,
         com.AdeAyme.superMarioBros.modelTest.OneUpMushroomTest.class,
-        com.AdeAyme.superMarioBros.modelTest.EndFlagTest.class
+        com.AdeAyme.superMarioBros.modelTest.EndFlagTest.class,
+        com.AdeAyme.superMarioBros.modelTest.BoostItemTest.class,
+        com.AdeAyme.superMarioBros.modelTest.GameObjectTest.class,
+        com.AdeAyme.superMarioBros.modelTest.MapTest.class,
+        com.AdeAyme.superMarioBros.viewTest.AnimationTest.class,
+        com.AdeAyme.superMarioBros.viewTest.UIManagerTest.class,
+        com.AdeAyme.superMarioBros.viewTest.MapSelectionItemTest.class,
+        com.AdeAyme.superMarioBros.viewTest.MapSelectionTest.class
 })
 public class TestSuite {
 }

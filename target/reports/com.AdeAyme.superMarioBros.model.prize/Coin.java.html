@@ -34,7 +34,7 @@ public class Coin extends GameObject implements Prize{
 
     @Override
     public void onTouch(Mario mario, GameEngine engine) {
-<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if(!acquired){</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if(!acquired){</span>
 <span class="fc" id="L38">            acquired = true;</span>
 <span class="fc" id="L39">            mario.acquirePoints(point);</span>
 <span class="fc" id="L40">            mario.acquireCoin();</span>
@@ -44,7 +44,7 @@ public class Coin extends GameObject implements Prize{
 
     @Override
     public void updateLocation(){
-<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if(revealed){</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        if(revealed){</span>
 <span class="fc" id="L48">            setY(getY() - 5);</span>
         }
 <span class="fc" id="L50">    }</span>
@@ -57,7 +57,7 @@ public class Coin extends GameObject implements Prize{
 <span class="nc" id="L57">    }</span>
 
     public int getRevealBoundary() {
-<span class="nc" id="L60">        return revealBoundary;</span>
+<span class="fc" id="L60">        return revealBoundary;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class MapSelection {
 
-    private ArrayList<String> maps = new ArrayList<>();
-    private MapSelectionItem[] mapSelectionItems;
+    private final ArrayList<String> maps = new ArrayList<>();
+    private final MapSelectionItem[] mapSelectionItems;
 
     public MapSelection(){
         getMaps();
@@ -61,6 +61,7 @@ public class MapSelection {
         for(MapSelectionItem item : mapSelectionItems) {
             Dimension dimension = item.getDimension();
             Point location = item.getLocation();
+            //System.out.println("x:"+mouseLocation.x+"    y:"+mouseLocation.y);
             boolean inX = location.x <= mouseLocation.x && location.x + dimension.width >= mouseLocation.x;
             boolean inY = location.y >= mouseLocation.y && location.y - dimension.height <= mouseLocation.y;
             if(inX && inY){

@@ -35,26 +35,26 @@ public class OrdinaryBrick extends Brick {
     @Override
     public Prize reveal(GameEngine engine){
 <span class="fc" id="L37">        MapManager manager = engine.getMapManager();</span>
-<span class="pc bpc" id="L38" title="1 of 2 branches missed.">        if(!(manager.getMario().getMarioForm() instanceof MarioSuper))</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if(!(manager.getMario().getMarioForm() instanceof MarioSuper))</span>
 <span class="fc" id="L39">            return null;</span>
-<span class="nc" id="L40">        breaking = true;</span>
-<span class="nc" id="L41">        manager.addRevealedBrick(this);</span>
+<span class="fc" id="L40">        breaking = true;</span>
+<span class="fc" id="L41">        manager.addRevealedBrick(this);</span>
 
-<span class="nc" id="L43">        double newX = getX() - 27, newY = getY() - 27;</span>
-<span class="nc" id="L44">        setLocation(newX, newY);</span>
+<span class="fc" id="L43">        double newX = getX() - 27, newY = getY() - 27;</span>
+<span class="fc" id="L44">        setLocation(newX, newY);</span>
 
-<span class="nc" id="L46">        return null;</span>
+<span class="fc" id="L46">        return null;</span>
     }
 
     public int getFrames(){
-<span class="nc" id="L50">        return frames;</span>
+<span class="fc" id="L50">        return frames;</span>
     }
 
     public void animate(){
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        if(breaking){</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if(breaking){</span>
 <span class="nc" id="L55">            setStyle(animation.animate(3, true));</span>
 <span class="nc" id="L56">            frames--;</span>
         }
-<span class="nc" id="L58">    }</span>
+<span class="fc" id="L58">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

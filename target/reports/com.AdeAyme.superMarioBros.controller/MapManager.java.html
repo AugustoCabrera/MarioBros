@@ -129,7 +129,7 @@ public class MapManager {
 <span class="nc" id="L129">                mario.setFalling(false);</span>
 <span class="nc" id="L130">                mario.setVelY(0);</span>
             }
-        }
+<span class="nc" id="L132">        }</span>
 
 <span class="nc bnc" id="L134" title="All 2 branches missed.">        for (Enemy enemy : enemies) {</span>
 <span class="nc" id="L135">            Rectangle enemyTopBounds = enemy.getTopBounds();</span>
@@ -138,7 +138,7 @@ public class MapManager {
 <span class="nc" id="L138">                toBeRemoved.add(enemy);</span>
 <span class="nc" id="L139">                engine.playStomp();</span>
             }
-        }
+<span class="nc" id="L141">        }</span>
 
 <span class="nc bnc" id="L143" title="All 2 branches missed.">        if (mario.getY() + mario.getDimension().height &gt;= map.getBottomBorder()) {</span>
 <span class="nc" id="L144">            mario.setY(map.getBottomBorder() - mario.getDimension().height);</span>
@@ -163,7 +163,7 @@ public class MapManager {
 <span class="nc bnc" id="L163" title="All 2 branches missed.">                if(prize != null)</span>
 <span class="nc" id="L164">                    map.addRevealedPrize(prize);</span>
             }
-        }
+<span class="nc" id="L166">        }</span>
 <span class="nc" id="L167">    }</span>
 
     private void checkMarioHorizontalCollision(GameEngine engine){
@@ -186,7 +186,7 @@ public class MapManager {
                 else
 <span class="nc" id="L187">                    mario.setX(brick.getX() + brick.getDimension().width);</span>
             }
-        }
+<span class="nc" id="L189">        }</span>
 
 <span class="nc bnc" id="L191" title="All 2 branches missed.">        for(Enemy enemy : enemies){</span>
 <span class="nc bnc" id="L192" title="All 2 branches missed.">            Rectangle enemyBounds = !toRight ? enemy.getRightBounds() : enemy.getLeftBounds();</span>
@@ -194,7 +194,7 @@ public class MapManager {
 <span class="nc" id="L194">                marioDies = mario.onTouchEnemy(engine , difficulty );</span>
 <span class="nc" id="L195">                toBeRemoved.add(enemy);</span>
             }
-        }
+<span class="nc" id="L197">        }</span>
 <span class="nc" id="L198">        removeObjects(toBeRemoved);</span>
 
 
@@ -237,7 +237,7 @@ public class MapManager {
 <span class="nc" id="L237">                    enemy.setY(brick.getY()-enemy.getDimension().height);</span>
 <span class="nc" id="L238">                    standsOnBrick = true;</span>
                 }
-            }
+<span class="nc" id="L240">            }</span>
 
 <span class="nc bnc" id="L242" title="All 2 branches missed.">            if(enemy.getY() + enemy.getDimension().height &gt; map.getBottomBorder()){</span>
 <span class="nc" id="L243">                enemy.setFalling(false);</span>
@@ -248,7 +248,7 @@ public class MapManager {
 <span class="nc bnc" id="L248" title="All 4 branches missed.">            if (!standsOnBrick &amp;&amp; enemy.getY() &lt; map.getBottomBorder()){</span>
 <span class="nc" id="L249">                enemy.setFalling(true);</span>
             }
-        }
+<span class="nc" id="L251">        }</span>
 <span class="nc" id="L252">    }</span>
 
     private void checkPrizeCollision() {
@@ -291,7 +291,7 @@ public class MapManager {
 <span class="nc" id="L291">                            boost.setVelX(-boost.getVelX());</span>
                         }
                     }
-                }
+<span class="nc" id="L294">                }</span>
 
 <span class="nc bnc" id="L296" title="All 2 branches missed.">                if (boost.getY() + boost.getDimension().height &gt; map.getBottomBorder()) {</span>
 <span class="nc" id="L297">                    boost.setFalling(false);</span>
@@ -302,7 +302,7 @@ public class MapManager {
                 }
 
             }
-        }
+<span class="nc" id="L305">        }</span>
 <span class="nc" id="L306">    }</span>
 
     private void checkPrizeContact(GameEngine engine) {
@@ -318,7 +318,7 @@ public class MapManager {
 <span class="nc bnc" id="L318" title="All 2 branches missed.">            } else if(prize instanceof Coin){</span>
 <span class="nc" id="L319">                prize.onTouch(getMario(), engine);</span>
             }
-        }
+<span class="nc" id="L321">        }</span>
 
 <span class="nc" id="L323">        removeObjects(toBeRemoved);</span>
 <span class="nc" id="L324">    }</span>
@@ -339,15 +339,15 @@ public class MapManager {
 <span class="nc" id="L339">                    toBeRemoved.add(enemy);</span>
 <span class="nc" id="L340">                    toBeRemoved.add(fireball);</span>
                 }
-            }
+<span class="nc" id="L342">            }</span>
 
 <span class="nc bnc" id="L344" title="All 2 branches missed.">            for(Brick brick : bricks){</span>
 <span class="nc" id="L345">                Rectangle brickBounds = brick.getBounds();</span>
 <span class="nc bnc" id="L346" title="All 2 branches missed.">                if (fireballBounds.intersects(brickBounds)) {</span>
 <span class="nc" id="L347">                    toBeRemoved.add(fireball);</span>
                 }
-            }
-        }
+<span class="nc" id="L349">            }</span>
+<span class="nc" id="L350">        }</span>
 
 <span class="nc" id="L352">        removeObjects(toBeRemoved);</span>
 <span class="nc" id="L353">    }</span>
@@ -359,19 +359,19 @@ public class MapManager {
 <span class="nc bnc" id="L359" title="All 2 branches missed.">        for(GameObject object : list){</span>
 <span class="nc bnc" id="L360" title="All 2 branches missed.">            if(object instanceof Fireball){</span>
 <span class="nc" id="L361">                map.removeFireball((Fireball)object);</span>
-<span class="nc" id="L362">            }</span>
+            }
 <span class="nc bnc" id="L363" title="All 2 branches missed.">            else if(object instanceof Enemy){</span>
 <span class="nc" id="L364">                map.removeEnemy((Enemy)object);</span>
-<span class="nc" id="L365">            }</span>
+            }
 <span class="nc bnc" id="L366" title="All 4 branches missed.">            else if(object instanceof Coin || object instanceof BoostItem){</span>
 <span class="nc" id="L367">                map.removePrize((Prize)object);</span>
             }
-        }
+<span class="nc" id="L369">        }</span>
 <span class="nc" id="L370">    }</span>
 
     public void addRevealedBrick(OrdinaryBrick ordinaryBrick) {
-<span class="nc" id="L373">        map.addRevealedBrick(ordinaryBrick);</span>
-<span class="nc" id="L374">    }</span>
+<span class="fc" id="L373">        map.addRevealedBrick(ordinaryBrick);</span>
+<span class="fc" id="L374">    }</span>
 
     public void updateTime(){
 <span class="nc bnc" id="L377" title="All 2 branches missed.">        if(map != null)</span>

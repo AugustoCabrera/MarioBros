@@ -20,9 +20,9 @@ public class ImageLoader {
 
         try {
 <span class="fc" id="L22">            imageToReturn = ImageIO.read(getClass().getResource(&quot;/media&quot; + path));</span>
-<span class="pc" id="L23">        } catch (IOException e) {</span>
+<span class="nc" id="L23">        } catch (IOException e) {</span>
 <span class="nc" id="L24">            e.printStackTrace();</span>
-        }
+<span class="fc" id="L25">        }</span>
 
 <span class="fc" id="L27">        return imageToReturn;</span>
     }
@@ -34,7 +34,7 @@ public class ImageLoader {
 <span class="nc" id="L34">            imageToReturn = ImageIO.read(file);</span>
 <span class="nc" id="L35">        } catch (IOException e) {</span>
 <span class="nc" id="L36">            e.printStackTrace();</span>
-        }
+<span class="nc" id="L37">        }</span>
 
 <span class="nc" id="L39">        return imageToReturn;</span>
     }
@@ -55,7 +55,7 @@ public class ImageLoader {
 <span class="fc" id="L55">            col = 4;</span>
 <span class="fc" id="L56">            width = 48;</span>
 <span class="fc" id="L57">            height = 96;</span>
-<span class="fc" id="L58">        }</span>
+        }
 <span class="fc bfc" id="L59" title="All 2 branches covered.">        else if(marioForm == 2){ //fire mario</span>
 <span class="fc" id="L60">            col = 7;</span>
 <span class="fc" id="L61">            width = 48;</span>
@@ -77,7 +77,7 @@ public class ImageLoader {
 <span class="fc" id="L77">            col = 5;</span>
 <span class="fc" id="L78">            width = 48;</span>
 <span class="fc" id="L79">            height = 96;</span>
-<span class="fc" id="L80">        }</span>
+        }
 <span class="fc bfc" id="L81" title="All 2 branches covered.">        else if(marioForm == 2){ //fire mario</span>
 <span class="fc" id="L82">            col = 8;</span>
 <span class="fc" id="L83">            width = 48;</span>

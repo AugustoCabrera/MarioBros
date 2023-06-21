@@ -24,7 +24,7 @@ public class FireFlowerTest {
         flower.onTouch(mario, engine);    //hago que mario agarre la flor
         assertEquals(48, mario.getDimension().getWidth(), 0.0); //verifico que el tamaño de mario aumento
         assertEquals(96, mario.getDimension().getHeight(), 0.0);
-        assertEquals(2, mario.getPoints());  //verifico que mario obtuvo 3 puntos
+        assertEquals(3, mario.getPoints());  //verifico que mario obtuvo 3 puntos
     }
 }
 

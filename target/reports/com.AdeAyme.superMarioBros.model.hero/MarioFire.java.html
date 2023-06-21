@@ -24,17 +24,17 @@ public class MarioFire implements MarioFormAll {
 
 <span class="nc bnc" id="L25" title="All 4 branches missed.">        if(movingInY &amp;&amp; toRight){</span>
 <span class="nc" id="L26">            style = animation.getRightFrames()[0];</span>
-<span class="nc" id="L27">        }</span>
+        }
 <span class="nc bnc" id="L28" title="All 2 branches missed.">        else if(movingInY){</span>
 <span class="nc" id="L29">            style = animation.getLeftFrames()[0];</span>
-<span class="nc" id="L30">        }</span>
+        }
 <span class="nc bnc" id="L31" title="All 2 branches missed.">        else if(movingInX){</span>
 <span class="nc" id="L32">            style = animation.animate(5, toRight);</span>
-<span class="nc" id="L33">        }</span>
+        }
         else {
 <span class="nc bnc" id="L35" title="All 2 branches missed.">            if(toRight){</span>
 <span class="nc" id="L36">                style = animation.getRightFrames()[1];</span>
-<span class="nc" id="L37">            }</span>
+            }
             else
 <span class="nc" id="L39">                style = animation.getLeftFrames()[1];</span>
         }
@@ -54,8 +54,7 @@ public class MarioFire implements MarioFormAll {
 
 
     public Fireball fire(boolean toRight, double x, double y) {
-
-<span class="nc" id="L58">            return new Fireball(x, y + 48, fireballStyle, toRight);</span>
+<span class="fc" id="L57">            return new Fireball(x, y + 48, fireballStyle, toRight);</span>
     }
 
 

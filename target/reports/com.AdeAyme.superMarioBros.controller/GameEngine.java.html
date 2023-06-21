@@ -114,7 +114,7 @@ public class GameEngine implements Runnable {
             {
 <span class="nc" id="L115">                soundManager.restartBackground(); //resetea el himno</span>
             }
-<span class="nc" id="L117">        }</span>
+        }
 
         else
 <span class="nc" id="L120">            setGameStatus(GameStatus.START_SCREEN);</span>
@@ -149,7 +149,7 @@ public class GameEngine implements Runnable {
 <span class="nc" id="L149">                timer += 1000;</span>
 <span class="nc" id="L150">                mapManager.updateTime();</span>
             }
-        }
+<span class="nc" id="L152">        }</span>
 <span class="nc" id="L153">    }</span>
 
     private void render() {
@@ -207,14 +207,14 @@ public class GameEngine implements Runnable {
 <span class="nc bnc" id="L207" title="All 2 branches missed.">            } else if (input == ButtonAction.GO_DOWN) {</span>
 <span class="nc" id="L208">                selectOption(false);</span>
             }
-<span class="nc" id="L210">        }</span>
+        }
 <span class="nc bnc" id="L211" title="All 2 branches missed.">        else if(gameStatus == GameStatus.MAP_SELECTION){</span>
 <span class="nc bnc" id="L212" title="All 2 branches missed.">            if(input == ButtonAction.SELECT){</span>
 <span class="nc" id="L213">                selectMapViaKeyboard();</span>
-<span class="nc" id="L214">            }</span>
+            }
 <span class="nc bnc" id="L215" title="All 2 branches missed.">            else if(input == ButtonAction.GO_UP){</span>
 <span class="nc" id="L216">                changeSelectedMap(true);</span>
-<span class="nc" id="L217">            }</span>
+            }
 <span class="nc bnc" id="L218" title="All 2 branches missed.">            else if(input == ButtonAction.GO_DOWN){</span>
 <span class="nc" id="L219">                changeSelectedMap(false);</span>
             }

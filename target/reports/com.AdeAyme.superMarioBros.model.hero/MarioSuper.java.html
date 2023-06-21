@@ -20,17 +20,17 @@ private Animation animation;
 
 <span class="nc bnc" id="L21" title="All 4 branches missed.">        if(movingInY &amp;&amp; toRight){</span>
 <span class="nc" id="L22">            style = animation.getRightFrames()[0];</span>
-<span class="nc" id="L23">        }</span>
+        }
 <span class="nc bnc" id="L24" title="All 2 branches missed.">        else if(movingInY){</span>
 <span class="nc" id="L25">            style = animation.getLeftFrames()[0];</span>
-<span class="nc" id="L26">        }</span>
+        }
 <span class="nc bnc" id="L27" title="All 2 branches missed.">        else if(movingInX){</span>
 <span class="nc" id="L28">            style = animation.animate(5, toRight);</span>
-<span class="nc" id="L29">        }</span>
+        }
         else {
 <span class="nc bnc" id="L31" title="All 2 branches missed.">            if(toRight){</span>
 <span class="nc" id="L32">                style = animation.getRightFrames()[1];</span>
-<span class="nc" id="L33">            }</span>
+            }
             else
 <span class="nc" id="L35">                style = animation.getLeftFrames()[1];</span>
         }

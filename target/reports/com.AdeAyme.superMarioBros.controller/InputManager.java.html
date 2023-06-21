@@ -25,24 +25,24 @@ public class InputManager implements KeyListener, MouseListener{
 <span class="nc" id="L25">                currentAction = ButtonAction.GO_UP;</span>
             else
 <span class="nc" id="L27">                currentAction = ButtonAction.JUMP;  //si ya estoy adentro del juego</span>
-<span class="nc" id="L28">        }</span>
+        }
 
 <span class="nc bnc" id="L30" title="All 2 branches missed.">        else if(keyCode == KeyEvent.VK_DOWN){</span>
 <span class="nc bnc" id="L31" title="All 4 branches missed.">            if(status == GameStatus.START_SCREEN || status == GameStatus.MAP_SELECTION) //Si el mapa todavia no se selecciono o todavia estoy en el menu</span>
 <span class="nc" id="L32">                currentAction = ButtonAction.GO_DOWN;</span>
-<span class="nc" id="L33">        }</span>
+        }
 
 <span class="nc bnc" id="L35" title="All 2 branches missed.">        else if (keyCode == KeyEvent.VK_RIGHT) {</span>
 <span class="nc" id="L36">            currentAction = ButtonAction.M_RIGHT;</span>
-<span class="nc" id="L37">        }</span>
+        }
 
 <span class="nc bnc" id="L39" title="All 2 branches missed.">        else if (keyCode == KeyEvent.VK_LEFT) {</span>
 <span class="nc" id="L40">            currentAction = ButtonAction.M_LEFT;</span>
-<span class="nc" id="L41">        }</span>
+        }
 
 <span class="nc bnc" id="L43" title="All 2 branches missed.">        else if (keyCode == KeyEvent.VK_ENTER) {</span>
 <span class="nc" id="L44">            currentAction = ButtonAction.SELECT;</span>
-<span class="nc" id="L45">        }</span>
+        }
 
 <span class="nc bnc" id="L47" title="All 2 branches missed.">        else if (keyCode == KeyEvent.VK_ESCAPE) {</span>
 <span class="nc bnc" id="L48" title="All 4 branches missed.">            if(status == GameStatus.RUNNING || status == GameStatus.PAUSED )</span>
@@ -50,7 +50,7 @@ public class InputManager implements KeyListener, MouseListener{
             else
 <span class="nc" id="L51">                currentAction = ButtonAction.GO_TO_START_SCREEN;</span>
 
-<span class="nc" id="L53">        }</span>
+        }
 
 <span class="nc bnc" id="L55" title="All 2 branches missed.">        else if (keyCode == KeyEvent.VK_SPACE){</span>
 <span class="nc" id="L56">            currentAction = ButtonAction.FIRE;</span>

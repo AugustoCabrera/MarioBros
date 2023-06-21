@@ -8,7 +8,7 @@ public enum StartScreenSelection {
     private final int lineNumber;
     StartScreenSelection(int lineNumber){ this.lineNumber = lineNumber; }
 
-    public StartScreenSelection getSelection(int number){
+    public static StartScreenSelection getSelection(int number){
         if(number == 0)
             return START_GAME;
         else if(number == 1)

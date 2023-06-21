@@ -9,6 +9,6 @@ public class KoopaTroopaTest {
         KoopaTroopa koopaTroopa = new KoopaTroopa(0,0,null);
         koopaTroopa.update();
         double speed=koopaTroopa.getVelX();
-        assertEquals(6, speed, 0.0);
+        assertEquals(5, speed, 0.0);
     }
 }

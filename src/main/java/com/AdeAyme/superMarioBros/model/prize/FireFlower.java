@@ -42,7 +42,4 @@ public class FireFlower extends BoostItem implements MagicObject{
 
     }
 
-    @Override
-    public void updateLocation(){}
-
 }

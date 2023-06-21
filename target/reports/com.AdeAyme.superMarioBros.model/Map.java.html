@@ -46,24 +46,24 @@ public class Map {
 <span class="fc" id="L46">    }</span>
 
     public ArrayList&lt;Enemy&gt; getEnemies() {
-<span class="nc" id="L49">        return enemies;</span>
+<span class="fc" id="L49">        return enemies;</span>
     }
 
     public ArrayList&lt;Fireball&gt; getFireballs() {
-<span class="nc" id="L53">        return fireballs;</span>
+<span class="fc" id="L53">        return fireballs;</span>
     }
 
     public ArrayList&lt;Prize&gt; getRevealedPrizes() {
-<span class="nc" id="L57">        return revealedPrizes;</span>
+<span class="fc" id="L57">        return revealedPrizes;</span>
     }
 
     public ArrayList&lt;Brick&gt; getAllBricks() {
-<span class="nc" id="L61">        ArrayList&lt;Brick&gt; allBricks = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L61">        ArrayList&lt;Brick&gt; allBricks = new ArrayList&lt;&gt;();</span>
 
-<span class="nc" id="L63">        allBricks.addAll(bricks);</span>
-<span class="nc" id="L64">        allBricks.addAll(groundBricks);</span>
+<span class="fc" id="L63">        allBricks.addAll(bricks);</span>
+<span class="fc" id="L64">        allBricks.addAll(groundBricks);</span>
 
-<span class="nc" id="L66">        return allBricks;</span>
+<span class="fc" id="L66">        return allBricks;</span>
     }
 
     public void addBrick(Brick brick) {
@@ -91,18 +91,18 @@ public class Map {
     private void drawFireballs(Graphics2D g2) {
 <span class="nc bnc" id="L92" title="All 2 branches missed.">        for(Fireball fireball : fireballs){</span>
 <span class="nc" id="L93">            fireball.draw(g2);</span>
-        }
+<span class="nc" id="L94">        }</span>
 <span class="nc" id="L95">    }</span>
 
     private void drawPrizes(Graphics2D g2) {
 <span class="nc bnc" id="L98" title="All 2 branches missed.">        for(Prize prize : revealedPrizes){</span>
 <span class="nc bnc" id="L99" title="All 2 branches missed.">            if(prize instanceof Coin){</span>
 <span class="nc" id="L100">                ((Coin) prize).draw(g2);</span>
-<span class="nc" id="L101">            }</span>
+            }
 <span class="nc bnc" id="L102" title="All 2 branches missed.">            else if(prize instanceof  BoostItem){</span>
 <span class="nc" id="L103">                ((BoostItem) prize).draw(g2);</span>
             }
-        }
+<span class="nc" id="L105">        }</span>
 <span class="nc" id="L106">    }</span>
 
     private void drawBackground(Graphics2D g2){
@@ -113,18 +113,18 @@ public class Map {
 <span class="nc bnc" id="L113" title="All 2 branches missed.">        for(Brick brick : bricks){</span>
 <span class="nc bnc" id="L114" title="All 2 branches missed.">            if(brick != null)</span>
 <span class="nc" id="L115">                brick.draw(g2);</span>
-        }
+<span class="nc" id="L116">        }</span>
 
 <span class="nc bnc" id="L118" title="All 2 branches missed.">        for(Brick brick : groundBricks){</span>
 <span class="nc" id="L119">            brick.draw(g2);</span>
-        }
+<span class="nc" id="L120">        }</span>
 <span class="nc" id="L121">    }</span>
 
     private void drawEnemies(Graphics2D g2) {
 <span class="nc bnc" id="L124" title="All 2 branches missed.">        for(Enemy enemy : enemies){</span>
 <span class="nc bnc" id="L125" title="All 2 branches missed.">            if(enemy != null)</span>
 <span class="nc" id="L126">                enemy.draw(g2);</span>
-        }
+<span class="nc" id="L127">        }</span>
 <span class="nc" id="L128">    }</span>
 
     private void drawMario(Graphics2D g2) {
@@ -132,78 +132,78 @@ public class Map {
 <span class="nc" id="L132">    }</span>
 
     public void updateLocations() {
-<span class="nc" id="L135">        mario.updateLocation();</span>
-<span class="nc bnc" id="L136" title="All 2 branches missed.">        for(Enemy enemy : enemies){</span>
-<span class="nc" id="L137">            enemy.updateLocation();</span>
-        }
+<span class="fc" id="L135">        mario.updateLocation();</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        for(Enemy enemy : enemies){</span>
+<span class="fc" id="L137">            enemy.updateLocation();</span>
+<span class="fc" id="L138">        }</span>
 
-<span class="nc bnc" id="L140" title="All 2 branches missed.">        for(Iterator&lt;Prize&gt; prizeIterator = revealedPrizes.iterator(); prizeIterator.hasNext();){</span>
-<span class="nc" id="L141">            Prize prize = prizeIterator.next();</span>
-<span class="nc bnc" id="L142" title="All 2 branches missed.">            if(prize instanceof Coin){</span>
-<span class="nc" id="L143">                ((Coin) prize).updateLocation();</span>
-<span class="nc bnc" id="L144" title="All 2 branches missed.">                if(((Coin) prize).getRevealBoundary() &gt; ((Coin) prize).getY()){</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">        for(Iterator&lt;Prize&gt; prizeIterator = revealedPrizes.iterator(); prizeIterator.hasNext();){</span>
+<span class="fc" id="L141">            Prize prize = prizeIterator.next();</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">            if(prize instanceof Coin){</span>
+<span class="fc" id="L143">                ((Coin) prize).updateLocation();</span>
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">                if(((Coin) prize).getRevealBoundary() &gt; ((Coin) prize).getY()){</span>
 <span class="nc" id="L145">                    prizeIterator.remove();</span>
                 }
-<span class="nc" id="L147">            }</span>
-<span class="nc bnc" id="L148" title="All 2 branches missed.">            else if(prize instanceof BoostItem){</span>
-<span class="nc" id="L149">                ((BoostItem) prize).updateLocation();</span>
             }
-        }
+<span class="pc bpc" id="L148" title="1 of 2 branches missed.">            else if(prize instanceof BoostItem){</span>
+<span class="fc" id="L149">                ((BoostItem) prize).updateLocation();</span>
+            }
+<span class="fc" id="L151">        }</span>
 
-<span class="nc bnc" id="L153" title="All 2 branches missed.">        for (Fireball fireball: fireballs) {</span>
-<span class="nc" id="L154">            fireball.updateLocation();</span>
-        }
+<span class="fc bfc" id="L153" title="All 2 branches covered.">        for (Fireball fireball: fireballs) {</span>
+<span class="fc" id="L154">            fireball.updateLocation();</span>
+<span class="fc" id="L155">        }</span>
 
-<span class="nc bnc" id="L157" title="All 2 branches missed.">        for(Iterator&lt;Brick&gt; brickIterator = revealedBricks.iterator(); brickIterator.hasNext();){</span>
+<span class="pc bpc" id="L157" title="1 of 2 branches missed.">        for(Iterator&lt;Brick&gt; brickIterator = revealedBricks.iterator(); brickIterator.hasNext();){</span>
 <span class="nc" id="L158">            OrdinaryBrick brick = (OrdinaryBrick)brickIterator.next();</span>
 <span class="nc" id="L159">            brick.animate();</span>
 <span class="nc bnc" id="L160" title="All 2 branches missed.">            if(brick.getFrames() &lt; 0){</span>
 <span class="nc" id="L161">                bricks.remove(brick);</span>
 <span class="nc" id="L162">                brickIterator.remove();</span>
             }
-        }
+<span class="nc" id="L164">        }</span>
 
-<span class="nc" id="L166">        endPoint.updateLocation();</span>
-<span class="nc" id="L167">    }</span>
+<span class="fc" id="L166">        endPoint.updateLocation();</span>
+<span class="fc" id="L167">    }</span>
 
     public double getBottomBorder() {
-<span class="nc" id="L170">        return bottomBorder;</span>
+<span class="fc" id="L170">        return bottomBorder;</span>
     }
 
     public void addRevealedPrize(Prize prize) {
-<span class="nc" id="L174">        revealedPrizes.add(prize);</span>
-<span class="nc" id="L175">    }</span>
+<span class="fc" id="L174">        revealedPrizes.add(prize);</span>
+<span class="fc" id="L175">    }</span>
 
     public void addFireball(Fireball fireball) {
-<span class="nc" id="L178">        fireballs.add(fireball);</span>
-<span class="nc" id="L179">    }</span>
+<span class="fc" id="L178">        fireballs.add(fireball);</span>
+<span class="fc" id="L179">    }</span>
 
     public void setEndPoint(EndFlag endPoint) {
 <span class="fc" id="L182">        this.endPoint = endPoint;</span>
 <span class="fc" id="L183">    }</span>
 
     public EndFlag getEndPoint() {
-<span class="nc" id="L186">        return endPoint;</span>
+<span class="fc" id="L186">        return endPoint;</span>
     }
 
     public void addRevealedBrick(OrdinaryBrick ordinaryBrick) {
-<span class="nc" id="L190">        revealedBricks.add(ordinaryBrick);</span>
-<span class="nc" id="L191">    }</span>
+<span class="fc" id="L190">        revealedBricks.add(ordinaryBrick);</span>
+<span class="fc" id="L191">    }</span>
 
     public void removeFireball(Fireball object) {
-<span class="nc" id="L194">        fireballs.remove(object);</span>
-<span class="nc" id="L195">    }</span>
+<span class="fc" id="L194">        fireballs.remove(object);</span>
+<span class="fc" id="L195">    }</span>
 
     public void removeEnemy(Enemy object) {
-<span class="nc" id="L198">        enemies.remove(object);</span>
-<span class="nc" id="L199">    }</span>
+<span class="fc" id="L198">        enemies.remove(object);</span>
+<span class="fc" id="L199">    }</span>
 
     public void removePrize(Prize object) {
-<span class="nc" id="L202">        revealedPrizes.remove(object);</span>
-<span class="nc" id="L203">    }</span>
+<span class="fc" id="L202">        revealedPrizes.remove(object);</span>
+<span class="fc" id="L203">    }</span>
 
     public String getPath() {
-<span class="nc" id="L206">        return path;</span>
+<span class="fc" id="L206">        return path;</span>
     }
 
     public void setPath(String path) {
@@ -211,15 +211,15 @@ public class Map {
 <span class="fc" id="L211">    }</span>
 
     public void updateTime(double passed){
-<span class="nc" id="L214">        remainingTime = remainingTime - passed;</span>
-<span class="nc" id="L215">    }</span>
+<span class="fc" id="L214">        remainingTime = remainingTime - passed;</span>
+<span class="fc" id="L215">    }</span>
 
     public boolean isTimeOver(){
-<span class="nc bnc" id="L218" title="All 2 branches missed.">        return remainingTime &lt;= 0;</span>
+<span class="fc bfc" id="L218" title="All 2 branches covered.">        return remainingTime &lt;= 0;</span>
     }
 
     public double getRemainingTime() {
-<span class="nc" id="L222">        return remainingTime;</span>
+<span class="fc" id="L222">        return remainingTime;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

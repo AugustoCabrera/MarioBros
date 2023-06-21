@@ -19,33 +19,33 @@ public class UIManager extends JPanel{
     private BufferedImage selectIcon;
     private MapSelection mapSelection;
 
-<span class="nc" id="L22">    public UIManager(GameEngine engine, int width, int height) {</span>
-<span class="nc" id="L23">        setPreferredSize(new Dimension(width, height));</span>
-<span class="nc" id="L24">        setMaximumSize(new Dimension(width, height));</span>
-<span class="nc" id="L25">        setMinimumSize(new Dimension(width, height));</span>
+<span class="fc" id="L22">    public UIManager(GameEngine engine, int width, int height) {</span>
+<span class="fc" id="L23">        setPreferredSize(new Dimension(width, height));</span>
+<span class="fc" id="L24">        setMaximumSize(new Dimension(width, height));</span>
+<span class="fc" id="L25">        setMinimumSize(new Dimension(width, height));</span>
 
-<span class="nc" id="L27">        this.engine = engine;</span>
-<span class="nc" id="L28">        ImageLoader loader = engine.getImageLoader();</span>
+<span class="fc" id="L27">        this.engine = engine;</span>
+<span class="fc" id="L28">        ImageLoader loader = engine.getImageLoader();</span>
 
-<span class="nc" id="L30">        mapSelection = new MapSelection();</span>
+<span class="fc" id="L30">        mapSelection = new MapSelection();</span>
 
-<span class="nc" id="L32">        BufferedImage sprite = loader.loadImage(&quot;/sprite.png&quot;);</span>
-<span class="nc" id="L33">        this.heartIcon = loader.loadImage(&quot;/heart-icon.png&quot;);</span>
-<span class="nc" id="L34">        this.coinIcon = loader.getSubImage(sprite, 1, 5, 48, 48);</span>
-<span class="nc" id="L35">        this.selectIcon = loader.loadImage(&quot;/select-icon.png&quot;);</span>
-<span class="nc" id="L36">        this.startScreenImage = loader.loadImage(&quot;/start-screen.png&quot;);</span>
-<span class="nc" id="L37">        this.helpScreenImage = loader.loadImage(&quot;/help-screen.png&quot;);</span>
-<span class="nc" id="L38">        this.aboutScreenImage = loader.loadImage(&quot;/about-screen.png&quot;);</span>
-<span class="nc" id="L39">        this.gameOverScreen = loader.loadImage(&quot;/game-over.png&quot;);</span>
+<span class="fc" id="L32">        BufferedImage sprite = loader.loadImage(&quot;/sprite.png&quot;);</span>
+<span class="fc" id="L33">        this.heartIcon = loader.loadImage(&quot;/heart-icon.png&quot;);</span>
+<span class="fc" id="L34">        this.coinIcon = loader.getSubImage(sprite, 1, 5, 48, 48);</span>
+<span class="fc" id="L35">        this.selectIcon = loader.loadImage(&quot;/select-icon.png&quot;);</span>
+<span class="fc" id="L36">        this.startScreenImage = loader.loadImage(&quot;/start-screen.png&quot;);</span>
+<span class="fc" id="L37">        this.helpScreenImage = loader.loadImage(&quot;/help-screen.png&quot;);</span>
+<span class="fc" id="L38">        this.aboutScreenImage = loader.loadImage(&quot;/about-screen.png&quot;);</span>
+<span class="fc" id="L39">        this.gameOverScreen = loader.loadImage(&quot;/game-over.png&quot;);</span>
 
         try {
-<span class="nc" id="L42">            InputStream in = getClass().getResourceAsStream(&quot;/media/font/mario-font.ttf&quot;);</span>
-<span class="nc" id="L43">            gameFont = Font.createFont(Font.TRUETYPE_FONT, in);</span>
+<span class="fc" id="L42">            InputStream in = getClass().getResourceAsStream(&quot;/media/font/mario-font.ttf&quot;);</span>
+<span class="fc" id="L43">            gameFont = Font.createFont(Font.TRUETYPE_FONT, in);</span>
 <span class="nc" id="L44">        } catch (FontFormatException | IOException e) {</span>
 <span class="nc" id="L45">            gameFont = new Font(&quot;Verdana&quot;, Font.PLAIN, 12);</span>
 <span class="nc" id="L46">            e.printStackTrace();</span>
-        }
-<span class="nc" id="L48">    }</span>
+<span class="fc" id="L47">        }</span>
+<span class="fc" id="L48">    }</span>
 
     @Override
     public void paintComponent(Graphics g){
@@ -56,19 +56,19 @@ public class UIManager extends JPanel{
 
 <span class="nc bnc" id="L57" title="All 2 branches missed.">        if(gameStatus == GameStatus.START_SCREEN){</span>
 <span class="nc" id="L58">            drawStartScreen(g2);</span>
-<span class="nc" id="L59">        }</span>
+        }
 <span class="nc bnc" id="L60" title="All 2 branches missed.">        else if(gameStatus == GameStatus.MAP_SELECTION){</span>
 <span class="nc" id="L61">            drawMapSelectionScreen(g2);</span>
-<span class="nc" id="L62">        }</span>
+        }
 <span class="nc bnc" id="L63" title="All 2 branches missed.">        else if(gameStatus == GameStatus.ABOUT_SCREEN){</span>
 <span class="nc" id="L64">            drawAboutScreen(g2);</span>
-<span class="nc" id="L65">        }</span>
+        }
 <span class="nc bnc" id="L66" title="All 2 branches missed.">        else if(gameStatus == GameStatus.HELP_SCREEN){</span>
 <span class="nc" id="L67">            drawHelpScreen(g2);</span>
-<span class="nc" id="L68">        }</span>
+        }
 <span class="nc bnc" id="L69" title="All 2 branches missed.">        else if(gameStatus == GameStatus.GAME_OVER){</span>
 <span class="nc" id="L70">            drawGameOverScreen(g2);</span>
-<span class="nc" id="L71">        }</span>
+        }
         else {
 <span class="nc" id="L73">            Point camLocation = engine.getCameraLocation();</span>
 <span class="nc" id="L74">            g2.translate(-camLocation.x, -camLocation.y);</span>
@@ -82,7 +82,7 @@ public class UIManager extends JPanel{
 
 <span class="nc bnc" id="L83" title="All 2 branches missed.">            if(gameStatus == GameStatus.PAUSED){</span>
 <span class="nc" id="L84">                drawPauseScreen(g2);</span>
-<span class="nc" id="L85">            }</span>
+            }
 <span class="nc bnc" id="L86" title="All 2 branches missed.">            else if(gameStatus == GameStatus.MISSION_PASSED){</span>
 <span class="nc" id="L87">                drawVictoryScreen(g2);</span>
             }

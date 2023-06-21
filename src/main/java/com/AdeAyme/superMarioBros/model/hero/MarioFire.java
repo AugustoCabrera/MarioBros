@@ -54,7 +54,6 @@ public class MarioFire implements MarioFormAll {
 
 
     public Fireball fire(boolean toRight, double x, double y) {
-
             return new Fireball(x, y + 48, fireballStyle, toRight);
     }
 

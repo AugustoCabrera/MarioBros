@@ -57,11 +57,11 @@ public class Mario extends GameObject{
 <span class="fc" id="L57">    }</span>
 
     public void move(boolean toRight, Camera camera) {
-<span class="pc bpc" id="L60" title="1 of 2 branches missed.">        if(toRight){</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        if(toRight){</span>
 <span class="fc" id="L61">            setVelX(5);</span>
-<span class="fc" id="L62">        }</span>
-<span class="nc bnc" id="L63" title="All 2 branches missed.">        else if(camera.getX() &lt; getX()){</span>
-<span class="nc" id="L64">            setVelX(-5);</span>
+        }
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        else if(camera.getX() &lt; getX()){</span>
+<span class="fc" id="L64">            setVelX(-5);</span>
         }
 
 <span class="fc" id="L67">        this.toRight = toRight;</span>
@@ -85,14 +85,14 @@ public class Mario extends GameObject{
 
     public Fireball fire(){
 
-<span class="nc bnc" id="L88" title="All 2 branches missed.">        if(marioForm instanceof  MarioFire){</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">        if(marioForm instanceof  MarioFire){</span>
 
-<span class="nc" id="L90">               MarioFire marioFire= (MarioFire) marioForm;</span>
+<span class="fc" id="L90">               MarioFire marioFire= (MarioFire) marioForm;</span>
 
-<span class="nc" id="L92">                 return marioFire.fire(toRight, getX(), getY());</span>
+<span class="fc" id="L92">                 return marioFire.fire(toRight, getX(), getY());</span>
         }
         else{
-<span class="nc" id="L95">                  return null;</span>
+<span class="fc" id="L95">                  return null;</span>
     }
     }
 
