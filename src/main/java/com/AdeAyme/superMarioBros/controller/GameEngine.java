@@ -58,7 +58,7 @@ public class GameEngine implements Runnable {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        start(); //llamo al run
+        if(!Test) start(); //llamo al run
     }
 
     private synchronized void start() {

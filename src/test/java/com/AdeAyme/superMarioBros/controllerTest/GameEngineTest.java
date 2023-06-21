@@ -16,8 +16,8 @@ public class GameEngineTest {
     @Test
     public void initTest(){
         GameEngine engine = new GameEngine("GameEngineTest");
-        //engine.initTest();
-
+        engine.initTest();
+        assertEquals(engine.getGameStatus(), GameStatus.START_SCREEN);
     }
 
 }
