@@ -10,7 +10,8 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "Feature_NewCIMaven" ]
+    branches: [ "Feature_NewCIMaven", "Develop" ]
+
 
 jobs:
   test:

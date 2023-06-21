@@ -1,0 +1,79 @@
+name: Build, Test, and Deploy
+
+on:
+  push:
+    branches: [ "Feature_NewCIMaven", "Develop" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build
+        run: mvn clean install
+
+  test:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build
+        run: mvn clean install
+
+      - name: Run Tests
+        run: mvn test
+
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          generate-branches-badge: true
+
+  deploy:
+    needs: test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build and Deploy
+        run: mvn clean install
+
+      - name: Construir y empaquetar con Maven
+        run: mvn package
+
+      - name: Guardar el ejecutable .jar como artefacto
+        uses: actions/upload-artifact@v2
+        with:
+          name: superMarioBros
+          path: target/superMarioBros.jar
+
