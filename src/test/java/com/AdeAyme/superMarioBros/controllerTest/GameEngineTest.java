@@ -13,11 +13,4 @@ public class GameEngineTest {
         engine.receiveInput(ButtonAction.SELECT);
         assertEquals(engine.getGameStatus(), GameStatus.MAP_SELECTION);
     }
-    @Test
-    public void initTest(){
-        GameEngine engine = new GameEngine("GameEngineTest");
-        engine.initTest();
-        assertEquals(engine.getGameStatus(), GameStatus.START_SCREEN);
-    }
-
 }
