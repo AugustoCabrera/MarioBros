@@ -49,6 +49,7 @@ public class MapManager {
 
     public void acquirePoints(int point) {
         map.getMario().acquirePoints(point);
+
     }
 
     public Mario getMario() {

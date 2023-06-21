@@ -21,12 +21,16 @@ public class Difficulty implements Subject {
         }
     }
 
+    public ArrayList<Observer> getObservers() {
+        return observers;
+    }
+
     public void notifyObserver() {
 
         System.out.println(observers.size());
 
         for (int i = 0; i < observers.size(); i++) {
-            Observer observer = (Observer) observers.get(i);
+            Observer observer = observers.get(i);
             observer.update();
         }
     }

@@ -25,6 +25,9 @@ public abstract class GameObject {
             setDimension(style.getWidth(), style.getHeight());
         }
 
+        //
+        System.out.println("LLEGUE1");
+
         setVelX(0);
         setVelY(0);
         setGravityAcc(0.38);

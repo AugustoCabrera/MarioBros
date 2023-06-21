@@ -27,8 +27,15 @@ public class KoopaTroopa extends Enemy implements Observer {
 
     @Override
     public void update() {
-        double speed = getVelX() + 2;
-        setVelX(speed);
+        if(getVelX()<0){
+            double speed = getVelX() - 2;
+            setVelX(speed);
+
+        }
+        else{
+            double speed = getVelX() + 2;
+            setVelX(speed);
+        }
     }
 
     public void setRightImage(BufferedImage rightImage) {

@@ -269,6 +269,7 @@ public class GameEngine implements Runnable {
                 soundManager.resumeBackground();
             }
         }
+
     }
 
     public void shakeCamera(){

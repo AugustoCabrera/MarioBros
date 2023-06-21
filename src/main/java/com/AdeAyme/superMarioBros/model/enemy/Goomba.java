@@ -11,6 +11,10 @@ public class Goomba extends Enemy implements Observer {
     private BufferedImage rightImage;
     private Difficulty difficulty;
 
+    /////////////
+
+    public int  conteo;
+
     public Goomba(double x, double y, BufferedImage style) {
         super(x, y, style);
         setVelX(3);
@@ -28,8 +32,15 @@ public class Goomba extends Enemy implements Observer {
 
     @Override
     public void update() {
-        double speed = getVelX() + 2;
-        setVelX(speed);
+        if(getVelX()<0){
+            double speed = getVelX() - 2;
+            setVelX(speed);
+
+        }
+        else{
+            double speed = getVelX() + 2;
+            setVelX(speed);
+        }
     }
 
     public void setRightImage(BufferedImage rightImage) {
