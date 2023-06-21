@@ -37,5 +37,5 @@ jobs:
       - name: Guardar el ejecutable .jar como artefacto
         uses: actions/upload-artifact@v2
         with:
-          name: my-app
-          path: target/my-app.jar
+          name: superMarioBros
+          path: target/superMarioBros.jar
