@@ -3,8 +3,9 @@ name: Build, Test, and Deploy
 on:
   push:
     branches:
+    - main
     - Develop
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
