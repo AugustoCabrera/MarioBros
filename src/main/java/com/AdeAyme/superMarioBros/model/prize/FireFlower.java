@@ -3,7 +3,6 @@ package com.AdeAyme.superMarioBros.model.prize;
 import com.AdeAyme.superMarioBros.controller.GameEngine;
 import com.AdeAyme.superMarioBros.model.hero.Mario;
 import com.AdeAyme.superMarioBros.model.hero.MarioFire;
-import com.AdeAyme.superMarioBros.model.hero.MarioForm;
 import com.AdeAyme.superMarioBros.model.hero.MarioFormAll;
 import com.AdeAyme.superMarioBros.view.Animation;
 import com.AdeAyme.superMarioBros.view.ImageLoader;
@@ -30,8 +29,8 @@ public class FireFlower extends BoostItem implements MagicObject{
     public void setChangeMarioForm(Mario mario) {
             ImageLoader imageLoader = new ImageLoader();
 
-            BufferedImage[] leftFrames = imageLoader.getLeftFrames(MarioForm.FIRE);
-            BufferedImage[] rightFrames = imageLoader.getRightFrames(MarioForm.FIRE);
+            BufferedImage[] leftFrames = imageLoader.getLeftFrames(Mario.FIRE);
+            BufferedImage[] rightFrames = imageLoader.getRightFrames(Mario.FIRE);
 
             Animation animation = new Animation(leftFrames, rightFrames);
            // MarioForm newForm = new MarioForm(animation, true, true); // new MarioFire

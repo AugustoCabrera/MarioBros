@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 
 public class Mario extends GameObject{
 
+    public static final int SMALL = 0, SUPER = 1, FIRE = 2;  //son enteros que se utilizan para delimitar que tipo de columna estoy trabajando en los marios
     private int remainingLives;
     private int coins;
     private int points;
@@ -29,8 +30,8 @@ public class Mario extends GameObject{
         invincibilityTimer = 0;
 
         ImageLoader imageLoader = new ImageLoader();
-        BufferedImage[] leftFrames = imageLoader.getLeftFrames(MarioForm.SMALL);
-        BufferedImage[] rightFrames = imageLoader.getRightFrames(MarioForm.SMALL);
+        BufferedImage[] leftFrames = imageLoader.getLeftFrames(SMALL);
+        BufferedImage[] rightFrames = imageLoader.getRightFrames(SMALL);
 
         Animation animation = new Animation(leftFrames, rightFrames);
         marioForm= new MarioNormal(animation, this);

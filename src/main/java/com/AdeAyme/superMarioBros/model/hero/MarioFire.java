@@ -44,8 +44,8 @@ public class MarioFire implements MarioFormAll {
 
     public MarioNormal onTouchEnemy(ImageLoader imageLoader , Mario mario){
 
-        BufferedImage[] leftFrames = imageLoader.getLeftFrames(MarioForm.SMALL);
-        BufferedImage[] rightFrames= imageLoader.getRightFrames(MarioForm.SMALL);
+        BufferedImage[] leftFrames = imageLoader.getLeftFrames(Mario.SMALL);
+        BufferedImage[] rightFrames= imageLoader.getRightFrames(Mario.SMALL);
 
         Animation newAnimation = new Animation(leftFrames, rightFrames);
         return new MarioNormal(newAnimation, mario);
