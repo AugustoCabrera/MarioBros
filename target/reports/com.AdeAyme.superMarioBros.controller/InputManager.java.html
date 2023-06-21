@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InputManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">my-app</a> &gt; <a href="index.source.html" class="el_package">com.AdeAyme.superMarioBros.controller</a> &gt; <span class="el_source">InputManager.java</span></div><h1>InputManager.java</h1><pre class="source lang-java linenums">package com.AdeAyme.superMarioBros.controller;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+
+public class InputManager implements KeyListener, MouseListener{
+
+    private GameEngine engine;
+
+<span class="nc" id="L13">    InputManager(GameEngine engine) {</span>
+<span class="nc" id="L14">        this.engine = engine; }</span>
+
+    @Override
+    public void keyPressed(KeyEvent event) {
+<span class="nc" id="L18">        int keyCode = event.getKeyCode();</span>
+<span class="nc" id="L19">        GameStatus status = engine.getGameStatus();</span>
+<span class="nc" id="L20">        ButtonAction currentAction = ButtonAction.NO_ACTION;</span>
+
+            //Pregunto si lo que se presiono es ← ↑ → ↓ SPACE SCAPE ENTER
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        if (keyCode == KeyEvent.VK_UP) {</span>
+<span class="nc bnc" id="L24" title="All 4 branches missed.">            if(status == GameStatus.START_SCREEN || status == GameStatus.MAP_SELECTION) //Si el mapa todavia no se selecciono o todavia estoy en el menu</span>
+<span class="nc" id="L25">                currentAction = ButtonAction.GO_UP;</span>
+            else
+<span class="nc" id="L27">                currentAction = ButtonAction.JUMP;  //si ya estoy adentro del juego</span>
+        }
+
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        else if(keyCode == KeyEvent.VK_DOWN){</span>
+<span class="nc bnc" id="L31" title="All 4 branches missed.">            if(status == GameStatus.START_SCREEN || status == GameStatus.MAP_SELECTION) //Si el mapa todavia no se selecciono o todavia estoy en el menu</span>
+<span class="nc" id="L32">                currentAction = ButtonAction.GO_DOWN;</span>
+        }
+
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        else if (keyCode == KeyEvent.VK_RIGHT) {</span>
+<span class="nc" id="L36">            currentAction = ButtonAction.M_RIGHT;</span>
+        }
+
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        else if (keyCode == KeyEvent.VK_LEFT) {</span>
+<span class="nc" id="L40">            currentAction = ButtonAction.M_LEFT;</span>
+        }
+
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        else if (keyCode == KeyEvent.VK_ENTER) {</span>
+<span class="nc" id="L44">            currentAction = ButtonAction.SELECT;</span>
+        }
+
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        else if (keyCode == KeyEvent.VK_ESCAPE) {</span>
+<span class="nc bnc" id="L48" title="All 4 branches missed.">            if(status == GameStatus.RUNNING || status == GameStatus.PAUSED )</span>
+<span class="nc" id="L49">                currentAction = ButtonAction.PAUSE_RESUME;</span>
+            else
+<span class="nc" id="L51">                currentAction = ButtonAction.GO_TO_START_SCREEN;</span>
+
+        }
+
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        else if (keyCode == KeyEvent.VK_SPACE){</span>
+<span class="nc" id="L56">            currentAction = ButtonAction.FIRE;</span>
+        }
+
+
+<span class="nc" id="L60">        notifyInput(currentAction);</span>
+<span class="nc" id="L61">    }</span>
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if(engine.getGameStatus() == GameStatus.MAP_SELECTION){  //el mouse solo sirve para cuando estoy en el menu</span>
+<span class="nc" id="L66">            engine.selectMapViaMouse();</span>
+        }
+<span class="nc" id="L68">    }</span>
+
+    @Override
+    public void keyReleased(KeyEvent event) {
+<span class="nc bnc" id="L72" title="All 4 branches missed.">        if(event.getKeyCode() == KeyEvent.VK_RIGHT || event.getKeyCode() == KeyEvent.VK_LEFT)</span>
+<span class="nc" id="L73">            notifyInput(ButtonAction.ACTION_COMPLETED);</span>
+<span class="nc" id="L74">    }</span>
+
+    private void notifyInput(ButtonAction action) {
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if(action != ButtonAction.NO_ACTION)</span>
+<span class="nc" id="L78">            engine.receiveInput(action);</span>
+<span class="nc" id="L79">    }</span>
+
+    @Override
+<span class="nc" id="L82">    public void keyTyped(KeyEvent arg0) {}</span>
+
+    @Override
+<span class="nc" id="L85">    public void mouseClicked(MouseEvent e) {}</span>
+
+    @Override
+<span class="nc" id="L88">    public void mouseReleased(MouseEvent e) {}</span>
+
+    @Override
+<span class="nc" id="L91">    public void mouseEntered(MouseEvent e) {}</span>
+
+    @Override
+<span class="nc" id="L94">    public void mouseExited(MouseEvent e) {}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Mario.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">my-app</a> &gt; <a href="index.source.html" class="el_package">com.AdeAyme.superMarioBros.model.hero</a> &gt; <span class="el_source">Mario.java</span></div><h1>Mario.java</h1><pre class="source lang-java linenums">package com.AdeAyme.superMarioBros.model.hero;
+
+import com.AdeAyme.superMarioBros.controller.Camera;
+import com.AdeAyme.superMarioBros.controller.GameEngine;
+import com.AdeAyme.superMarioBros.controller.Difficulty;
+import com.AdeAyme.superMarioBros.view.Animation;
+import com.AdeAyme.superMarioBros.model.GameObject;
+import com.AdeAyme.superMarioBros.view.ImageLoader;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
+public class Mario extends GameObject{
+
+    public static final int SMALL = 0, SUPER = 1, FIRE = 2;  //son enteros que se utilizan para delimitar que tipo de columna estoy trabajando en los marios
+    private int remainingLives;
+    private int coins;
+    private int points;
+    private double invincibilityTimer;
+    private MarioFormAll marioForm;
+<span class="fc" id="L21">    private boolean toRight = true;</span>
+    private Difficulty difficulty;
+    public Mario(double x, double y , Difficulty difficulty){
+<span class="fc" id="L24">        super(x, y, null);</span>
+<span class="fc" id="L25">        setDimension(48,48);</span>
+
+<span class="fc" id="L27">        remainingLives = 3;</span>
+<span class="fc" id="L28">        points = 0;</span>
+<span class="fc" id="L29">        coins = 0;</span>
+<span class="fc" id="L30">        invincibilityTimer = 0;</span>
+
+<span class="fc" id="L32">        ImageLoader imageLoader = new ImageLoader();</span>
+<span class="fc" id="L33">        BufferedImage[] leftFrames = imageLoader.getLeftFrames(SMALL);</span>
+<span class="fc" id="L34">        BufferedImage[] rightFrames = imageLoader.getRightFrames(SMALL);</span>
+
+<span class="fc" id="L36">        Animation animation = new Animation(leftFrames, rightFrames);</span>
+<span class="fc" id="L37">        marioForm= new MarioNormal(animation, this);</span>
+<span class="fc" id="L38">        setStyle(marioForm.getCurrentStyle(toRight, false, false));</span>
+<span class="fc" id="L39">        this.difficulty = difficulty;</span>
+<span class="fc" id="L40">    }</span>
+
+    @Override
+    public void draw(Graphics g){
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        boolean movingInX = (getVelX() != 0);</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        boolean movingInY = (getVelY() != 0);</span>
+
+<span class="nc" id="L47">        setStyle(marioForm.getCurrentStyle(toRight, movingInX, movingInY));</span>
+
+<span class="nc" id="L49">        super.draw(g);</span>
+<span class="nc" id="L50">    }</span>
+
+    public void jump(GameEngine engine) {
+<span class="pc bpc" id="L53" title="1 of 4 branches missed.">        if(!isJumping() &amp;&amp; !isFalling()){</span>
+<span class="fc" id="L54">            setJumping(true);</span>
+<span class="fc" id="L55">            setVelY(10);</span>
+<span class="fc" id="L56">            engine.playJump();</span>
+        }
+<span class="fc" id="L58">    }</span>
+
+    public void move(boolean toRight, Camera camera) {
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        if(toRight){</span>
+<span class="fc" id="L62">            setVelX(5);</span>
+        }
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        else if(camera.getX() &lt; getX()){</span>
+<span class="fc" id="L65">            setVelX(-5);</span>
+        }
+
+<span class="fc" id="L68">        this.toRight = toRight;</span>
+<span class="fc" id="L69">    }</span>
+
+    public boolean onTouchEnemy(GameEngine engine , Difficulty difficulty){
+
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        if(marioForm instanceof MarioNormal)</span>
+        {
+<span class="fc" id="L75">            remainingLives--;</span>
+<span class="fc" id="L76">            engine.playMarioDies();</span>
+<span class="fc" id="L77">            return true;</span>
+        }
+
+        else{
+<span class="fc" id="L81">            engine.shakeCamera();</span>
+<span class="fc" id="L82">            marioForm = marioForm.onTouchEnemy(engine.getImageLoader(), this);</span>
+<span class="fc" id="L83">            return false;</span>
+        }
+    }
+
+    public Fireball fire(){
+
+<span class="fc bfc" id="L89" title="All 2 branches covered.">        if(marioForm instanceof  MarioFire){</span>
+
+<span class="fc" id="L91">               MarioFire marioFire= (MarioFire) marioForm;</span>
+
+<span class="fc" id="L93">                 return marioFire.fire(toRight, getX(), getY());</span>
+        }
+        else{
+<span class="fc" id="L96">                  return null;</span>
+    }
+    }
+
+
+    public void acquireCoin() {
+<span class="fc" id="L102">        coins++;</span>
+<span class="fc" id="L103">    }</span>
+
+    public void acquirePoints(int point){
+
+<span class="fc" id="L107">        points = points + point;</span>
+
+<span class="fc bfc" id="L109" title="All 2 branches covered.">        if(points &gt; 50){</span>
+<span class="fc" id="L110">            difficulty.setDifficulty();</span>
+        }
+
+
+<span class="fc" id="L114">    }</span>
+
+    public int getRemainingLives() {
+<span class="fc" id="L117">        return remainingLives;</span>
+    }
+
+    public void setRemainingLives(int remainingLives) {
+<span class="fc" id="L121">        this.remainingLives = remainingLives;</span>
+<span class="fc" id="L122">    }</span>
+
+    public int getPoints() {
+<span class="fc" id="L125">        return points;</span>
+    }
+
+    public int getCoins() {
+<span class="fc" id="L129">        return coins;</span>
+    }
+
+    public MarioFormAll getMarioForm() {
+<span class="fc" id="L133">        return marioForm;</span>
+    }
+
+    public void setMarioForm(MarioFormAll marioForm) {
+<span class="fc" id="L137">        this.marioForm = marioForm;</span>
+<span class="fc" id="L138">    }</span>
+
+    public boolean getToRight() {
+<span class="fc" id="L141">        return toRight;</span>
+    }
+
+    public void resetLocation() {
+<span class="fc" id="L145">        setVelX(0);</span>
+<span class="fc" id="L146">        setVelY(0);</span>
+<span class="fc" id="L147">        setX(50);</span>
+<span class="fc" id="L148">        setJumping(false);</span>
+<span class="fc" id="L149">        setFalling(true);</span>
+<span class="fc" id="L150">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

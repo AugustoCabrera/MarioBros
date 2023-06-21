@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.AdeAyme.superMarioBros.TestSuite" time="11.19" tests="67" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\LENOVO\Desktop\Facultad\Ingenieria de Software\TP DEFINITIVO\superMarioBros\target\test-classes;C:\Users\LENOVO\Desktop\Facultad\Ingenieria de Software\TP DEFINITIVO\superMarioBros\target\classes;C:\Users\LENOVO\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\LENOVO\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.vm.vendor" value="Temurin"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="America/Buenos_Aires"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\LENOVO\AppData\Local\Temp\surefire1248505764440610310\surefirebooter-20230621164505766_3.jar C:\Users\LENOVO\AppData\Local\Temp\surefire1248505764440610310 2023-06-21T16-45-05_459-jvmRun1 surefire-20230621164505766_1tmp surefire_0-20230621164505766_2tmp"/>
+    <property name="surefire.test.class.path" value="C:\Users\LENOVO\Desktop\Facultad\Ingenieria de Software\TP DEFINITIVO\superMarioBros\target\test-classes;C:\Users\LENOVO\Desktop\Facultad\Ingenieria de Software\TP DEFINITIVO\superMarioBros\target\classes;C:\Users\LENOVO\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\LENOVO\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\LENOVO"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre"/>
+    <property name="basedir" value="C:\Users\LENOVO\Desktop\Facultad\Ingenieria de Software\TP DEFINITIVO\superMarioBros"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\LENOVO\AppData\Local\Temp\surefire1248505764440610310\surefirebooter-20230621164505766_3.jar;C:\\Users\\LENOVO\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.3\\org.jacoco.agent-0.8.3-runtime.jar"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\resources.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\rt.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\sunrsasign.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\jsse.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\jce.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\charsets.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\jfr.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_372-b07"/>
+    <property name="user.name" value="LENOVO"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\LENOVO\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\LENOVO\AppData\Local\Temp\"/>
+    <property name="java.version" value="1.8.0_372"/>
+    <property name="user.dir" value="C:\Users\LENOVO\Desktop\Facultad\Ingenieria de Software\TP DEFINITIVO\superMarioBros"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="user.language.format" value="es"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\apache-maven-3.9.2-bin\\bin;C:\Program Files\apache-maven-3.9.2-bin\apache-maven-3.9.2\bin;C:\Users\LENOVO\AppData\Local\Microsoft\WindowsApps;C:\Users\LENOVO\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\LENOVO\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Temurin"/>
+    <property name="java.vm.version" value="25.372-b07"/>
+    <property name="java.specification.maintenance.version" value="4"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="getPrizeTest" classname="com.AdeAyme.superMarioBros.modelTest.BricksTest" time="0.009"/>
+  <testcase name="revealTest" classname="com.AdeAyme.superMarioBros.modelTest.BricksTest" time="0.645">
+    <system-out><![CDATA[BrickTest
+El mapa esta creado!! 🕺
+NOTIFIQUE
+20
+]]></system-out>
+  </testcase>
+  <testcase name="isBreakableTest" classname="com.AdeAyme.superMarioBros.modelTest.BricksTest" time="0.011"/>
+  <testcase name="getFramesTest" classname="com.AdeAyme.superMarioBros.modelTest.BricksTest" time="0.009"/>
+  <testcase name="isEmptyTest" classname="com.AdeAyme.superMarioBros.modelTest.BricksTest" time="0.01"/>
+  <testcase name="animateTest" classname="com.AdeAyme.superMarioBros.modelTest.BricksTest" time="0.011"/>
+  <testcase name="revealTest" classname="com.AdeAyme.superMarioBros.modelTest.CoinTest" time="0"/>
+  <testcase name="updateLocationTest" classname="com.AdeAyme.superMarioBros.modelTest.CoinTest" time="0"/>
+  <testcase name="createCoinTest" classname="com.AdeAyme.superMarioBros.modelTest.CoinTest" time="0"/>
+  <testcase name="onTouchTest" classname="com.AdeAyme.superMarioBros.modelTest.CoinTest" time="0.699">
+    <system-out><![CDATA[CoinTest
+El mapa esta creado!! 🕺
+]]></system-out>
+  </testcase>
+  <testcase name="getRevealBoundaryTest" classname="com.AdeAyme.superMarioBros.modelTest.CoinTest" time="0"/>
+  <testcase name="onTouchTest" classname="com.AdeAyme.superMarioBros.modelTest.FireFlowerTest" time="0.669">
+    <system-out><![CDATA[CoinTest
+El mapa esta creado!! 🕺
+]]></system-out>
+  </testcase>
+  <testcase name="createFireFlowerTest" classname="com.AdeAyme.superMarioBros.modelTest.FireFlowerTest" time="0"/>
+  <testcase name="onTouchEnemyTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioTest" time="0.71">
+    <system-out><![CDATA[MarioTest
+El mapa esta creado!! 🕺
+NOTIFIQUE
+0
+NOTIFIQUE
+0
+]]></system-out>
+  </testcase>
+  <testcase name="fireTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioTest" time="0.801">
+    <system-out><![CDATA[MarioTest
+El mapa esta creado!! 🕺
+NOTIFIQUE
+0
+]]></system-out>
+  </testcase>
+  <testcase name="jumpTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioTest" time="0.626">
+    <system-out><![CDATA[MarioTest
+El mapa esta creado!! 🕺
+]]></system-out>
+  </testcase>
+  <testcase name="moveTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioTest" time="0.01"/>
+  <testcase name="createMarioTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioTest" time="0.009"/>
+  <testcase name="resetTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioTest" time="0.63">
+    <system-out><![CDATA[MarioTest
+El mapa esta creado!! 🕺
+]]></system-out>
+  </testcase>
+  <testcase name="onTouchTest" classname="com.AdeAyme.superMarioBros.modelTest.SuperMushroomTest" time="0.658">
+    <system-out><![CDATA[CoinTest
+El mapa esta creado!! 🕺
+NOTIFIQUE
+0
+]]></system-out>
+  </testcase>
+  <testcase name="createSuperMushroomTest" classname="com.AdeAyme.superMarioBros.modelTest.SuperMushroomTest" time="0"/>
+  <testcase name="updateTest" classname="com.AdeAyme.superMarioBros.modelTest.GoombaTest" time="0"/>
+  <testcase name="updateTest" classname="com.AdeAyme.superMarioBros.modelTest.KoopaTroopaTest" time="0"/>
+  <testcase name="createFireballTest" classname="com.AdeAyme.superMarioBros.modelTest.FireballTest" time="0"/>
+  <testcase name="onTouchEnemyTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioFireTest" time="0.036"/>
+  <testcase name="createMarioFireTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioFireTest" time="0.021"/>
+  <testcase name="onTouchEnemyTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioNormalTest" time="0.012">
+    <system-out><![CDATA[Error
+]]></system-out>
+  </testcase>
+  <testcase name="createMarioNormalTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioNormalTest" time="0.007"/>
+  <testcase name="onTouchEnemyTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioSuperTest" time="0.02"/>
+  <testcase name="createMarioSuperTest" classname="com.AdeAyme.superMarioBros.modelTest.MarioSuperTest" time="0.01"/>
+  <testcase name="createOneUpMushroomTest" classname="com.AdeAyme.superMarioBros.modelTest.OneUpMushroomTest" time="0"/>
+  <testcase name="onTouchTest" classname="com.AdeAyme.superMarioBros.modelTest.OneUpMushroomTest" time="0.648">
+    <system-out><![CDATA[OneUpMushroomTest
+El mapa esta creado!! 🕺
+NOTIFIQUE
+0
+]]></system-out>
+  </testcase>
+  <testcase name="updateLocationTest" classname="com.AdeAyme.superMarioBros.modelTest.EndFlagTest" time="0"/>
+  <testcase name="createEndFlagTest" classname="com.AdeAyme.superMarioBros.modelTest.EndFlagTest" time="0"/>
+  <testcase name="updateLocationTest" classname="com.AdeAyme.superMarioBros.modelTest.BoostItemTest" time="0"/>
+  <testcase name="reveal" classname="com.AdeAyme.superMarioBros.modelTest.BoostItemTest" time="0"/>
+  <testcase name="createBoostItemTest" classname="com.AdeAyme.superMarioBros.modelTest.BoostItemTest" time="0"/>
+  <testcase name="onTouchTest" classname="com.AdeAyme.superMarioBros.modelTest.BoostItemTest" time="0.73">
+    <system-out><![CDATA[CoinTest
+El mapa esta creado!! 🕺
+]]></system-out>
+  </testcase>
+  <testcase name="getPointTest" classname="com.AdeAyme.superMarioBros.modelTest.BoostItemTest" time="0"/>
+  <testcase name="createGameObjectTest" classname="com.AdeAyme.superMarioBros.modelTest.GameObjectTest" time="0.011"/>
+  <testcase name="updateLocationTest" classname="com.AdeAyme.superMarioBros.modelTest.GameObjectTest" time="0.009"/>
+  <testcase name="getGravityAccTest" classname="com.AdeAyme.superMarioBros.modelTest.GameObjectTest" time="0.008"/>
+  <testcase name="setDimensionTest" classname="com.AdeAyme.superMarioBros.modelTest.GameObjectTest" time="0.01"/>
+  <testcase name="updateTimeTest" classname="com.AdeAyme.superMarioBros.modelTest.MapTest" time="0.001"/>
+  <testcase name="updateLocationTest" classname="com.AdeAyme.superMarioBros.modelTest.MapTest" time="0.019"/>
+  <testcase name="addAndGetBricksTest" classname="com.AdeAyme.superMarioBros.modelTest.MapTest" time="0.009"/>
+  <testcase name="addAndGetEnemiesTest" classname="com.AdeAyme.superMarioBros.modelTest.MapTest" time="0"/>
+  <testcase name="setAndGetPathTest" classname="com.AdeAyme.superMarioBros.modelTest.MapTest" time="0"/>
+  <testcase name="getBottomBorderTest" classname="com.AdeAyme.superMarioBros.modelTest.MapTest" time="0"/>
+  <testcase name="isTimeOverTest" classname="com.AdeAyme.superMarioBros.modelTest.MapTest" time="0"/>
+  <testcase name="setAndGetEndPointTest" classname="com.AdeAyme.superMarioBros.modelTest.MapTest" time="0"/>
+  <testcase name="addGetAndRemoveRevealedPrizeTest" classname="com.AdeAyme.superMarioBros.modelTest.MapTest" time="0"/>
+  <testcase name="addGetAndRemoveFireballsTest" classname="com.AdeAyme.superMarioBros.modelTest.MapTest" time="0"/>
+  <testcase name="animateTest" classname="com.AdeAyme.superMarioBros.viewTest.AnimationTest" time="0.004"/>
+  <testcase name="selectMapViaMouseTest" classname="com.AdeAyme.superMarioBros.viewTest.UIManagerTest" time="0.97">
+    <system-out><![CDATA[UIManagerTest
+El mapa esta creado!! 🕺
+]]></system-out>
+  </testcase>
+  <testcase name="selectMapViaKeyboardTest" classname="com.AdeAyme.superMarioBros.viewTest.UIManagerTest" time="0.817">
+    <system-out><![CDATA[UIManagerTest
+El mapa esta creado!! 🕺
+]]></system-out>
+  </testcase>
+  <testcase name="changeSelectedMapTest" classname="com.AdeAyme.superMarioBros.viewTest.UIManagerTest" time="0.811">
+    <system-out><![CDATA[UIManagerTest
+El mapa esta creado!! 🕺
+]]></system-out>
+  </testcase>
+  <testcase name="creatUIManagerTest" classname="com.AdeAyme.superMarioBros.viewTest.UIManagerTest" time="0.777">
+    <system-out><![CDATA[UIManagerTest
+El mapa esta creado!! 🕺
+]]></system-out>
+  </testcase>
+  <testcase name="createMapSelectionItemTest" classname="com.AdeAyme.superMarioBros.viewTest.MapSelectionItemTest" time="0.012"/>
+  <testcase name="setNameTest" classname="com.AdeAyme.superMarioBros.viewTest.MapSelectionItemTest" time="0.012"/>
+  <testcase name="setDimensionTest" classname="com.AdeAyme.superMarioBros.viewTest.MapSelectionItemTest" time="0.012"/>
+  <testcase name="changeSelectedMapTest" classname="com.AdeAyme.superMarioBros.viewTest.MapSelectionTest" time="0.024"/>
+  <testcase name="selectMapIndexTest" classname="com.AdeAyme.superMarioBros.viewTest.MapSelectionTest" time="0.023"/>
+  <testcase name="selectMapMouseTest" classname="com.AdeAyme.superMarioBros.viewTest.MapSelectionTest" time="0.022"/>
+  <testcase name="moveCamTest" classname="com.AdeAyme.superMarioBros.controllerTest.CameraTest" time="0"/>
+  <testcase name="setAndGetYTest" classname="com.AdeAyme.superMarioBros.controllerTest.CameraTest" time="0"/>
+  <testcase name="receiveInputTest" classname="com.AdeAyme.superMarioBros.controllerTest.GameEngineTest" time="0.641">
+    <system-out><![CDATA[GameEngineTest
+El mapa esta creado!! 🕺
+]]></system-out>
+  </testcase>
+</testsuite>
