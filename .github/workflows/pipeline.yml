@@ -2,9 +2,12 @@ name: Build, Test, and Deploy
 
 on:
   push:
-    branches: [ "Develop" ]
+    branches:
+      - Develop
   merge:
-    branches: ["Develop", "main"]
+    branches:
+      - main
+      - Develop
 
 jobs:
   build:
