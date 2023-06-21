@@ -1,7 +1,9 @@
 com\AdeAyme\superMarioBros\modelTest\SuperMushroomTest.class
+com\AdeAyme\superMarioBros\controllerTest\GameEngineTest.class
 com\AdeAyme\superMarioBros\modelTest\GameObjectTest.class
 com\AdeAyme\superMarioBros\modelTest\FireFlowerTest.class
 com\AdeAyme\superMarioBros\modelTest\CoinTest.class
+com\AdeAyme\superMarioBros\controllerTest\CameraTest.class
 com\AdeAyme\superMarioBros\modelTest\BricksTest.class
 com\AdeAyme\superMarioBros\modelTest\MapTest.class
 com\AdeAyme\superMarioBros\viewTest\UIManagerTest.class
