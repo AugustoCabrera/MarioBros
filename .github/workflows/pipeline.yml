@@ -5,6 +5,10 @@ on:
     branches:
     - main
     - Develop
+  merge:
+    branches:
+    - main
+    - Develop
 
 jobs:
   build:
