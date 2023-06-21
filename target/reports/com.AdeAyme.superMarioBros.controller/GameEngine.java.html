@@ -195,9 +195,9 @@ public class GameEngine implements Runnable {
 
     public void receiveInput(ButtonAction input) {
 
-<span class="nc bnc" id="L198" title="All 2 branches missed.">        if (gameStatus == GameStatus.START_SCREEN) {</span>
-<span class="nc bnc" id="L199" title="All 4 branches missed.">            if (input == ButtonAction.SELECT &amp;&amp; startScreenSelection == StartScreenSelection.START_GAME) {</span>
-<span class="nc" id="L200">                startGame();</span>
+<span class="pc bpc" id="L198" title="1 of 2 branches missed.">        if (gameStatus == GameStatus.START_SCREEN) {</span>
+<span class="pc bpc" id="L199" title="2 of 4 branches missed.">            if (input == ButtonAction.SELECT &amp;&amp; startScreenSelection == StartScreenSelection.START_GAME) {</span>
+<span class="fc" id="L200">                startGame();</span>
 <span class="nc bnc" id="L201" title="All 4 branches missed.">            } else if (input == ButtonAction.SELECT &amp;&amp; startScreenSelection == StartScreenSelection.VIEW_ABOUT) {</span>
 <span class="nc" id="L202">                setGameStatus(GameStatus.ABOUT_SCREEN);</span>
 <span class="nc bnc" id="L203" title="All 4 branches missed.">            } else if (input == ButtonAction.SELECT &amp;&amp; startScreenSelection == StartScreenSelection.VIEW_HELP) {</span>
@@ -243,20 +243,20 @@ public class GameEngine implements Runnable {
 <span class="nc" id="L243">            reset();</span>
         }
 
-<span class="nc bnc" id="L246" title="All 2 branches missed.">        if(input == ButtonAction.GO_TO_START_SCREEN){</span>
+<span class="pc bpc" id="L246" title="1 of 2 branches missed.">        if(input == ButtonAction.GO_TO_START_SCREEN){</span>
 <span class="nc" id="L247">            setGameStatus(GameStatus.START_SCREEN);</span>
         }
-<span class="nc" id="L249">    }</span>
+<span class="fc" id="L249">    }</span>
 
     private void selectOption(boolean selectUp) {
 <span class="nc" id="L252">        startScreenSelection = startScreenSelection.select(selectUp);</span>
 <span class="nc" id="L253">    }</span>
 
     private void startGame() {
-<span class="nc bnc" id="L256" title="All 2 branches missed.">        if (gameStatus != GameStatus.GAME_OVER) {</span>
-<span class="nc" id="L257">            setGameStatus(GameStatus.MAP_SELECTION);</span>
+<span class="pc bpc" id="L256" title="1 of 2 branches missed.">        if (gameStatus != GameStatus.GAME_OVER) {</span>
+<span class="fc" id="L257">            setGameStatus(GameStatus.MAP_SELECTION);</span>
         }
-<span class="nc" id="L259">    }</span>
+<span class="fc" id="L259">    }</span>
 
     private void pauseGame() {
 <span class="nc bnc" id="L262" title="All 2 branches missed.">        if (gameStatus == GameStatus.RUNNING) {</span>
@@ -287,7 +287,7 @@ public class GameEngine implements Runnable {
     }
 
     public GameStatus getGameStatus() {
-<span class="nc" id="L290">        return gameStatus;</span>
+<span class="fc" id="L290">        return gameStatus;</span>
     }
 
     public StartScreenSelection getStartScreenSelection() {
@@ -295,8 +295,8 @@ public class GameEngine implements Runnable {
     }
 
     public void setGameStatus(GameStatus gameStatus) {
-<span class="nc" id="L298">        this.gameStatus = gameStatus;</span>
-<span class="nc" id="L299">    }</span>
+<span class="fc" id="L298">        this.gameStatus = gameStatus;</span>
+<span class="fc" id="L299">    }</span>
 
     public int getScore() {
 <span class="nc" id="L302">        return mapManager.getScore();</span>

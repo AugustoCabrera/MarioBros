@@ -1,4 +1,5 @@
 package com.AdeAyme.superMarioBros;
+import com.AdeAyme.superMarioBros.controllerTest.CameraTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -23,7 +24,9 @@ import org.junit.runners.Suite;
         com.AdeAyme.superMarioBros.viewTest.AnimationTest.class,
         com.AdeAyme.superMarioBros.viewTest.UIManagerTest.class,
         com.AdeAyme.superMarioBros.viewTest.MapSelectionItemTest.class,
-        com.AdeAyme.superMarioBros.viewTest.MapSelectionTest.class
+        com.AdeAyme.superMarioBros.viewTest.MapSelectionTest.class,
+        com.AdeAyme.superMarioBros.controllerTest.CameraTest.class,
+        com.AdeAyme.superMarioBros.controllerTest.GameEngineTest.class,
 })
 public class TestSuite {
 }

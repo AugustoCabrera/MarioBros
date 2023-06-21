@@ -9,9 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameEngine implements Runnable {
-
     private final static int WIDTH = 1268, HEIGHT = 708; //Dimensiones de la Ventana
-
     private MapManager mapManager;
     private UIManager uiManager;
     private SoundManager soundManager;
@@ -33,12 +31,13 @@ public class GameEngine implements Runnable {
         mapManager.createMap(imageLoader,"Map 1.png");
         this.soundManager=new SoundManager();
         Test = true;
-
     }
     private GameEngine() {
         init();
     }         //Constructor para uso generico del juego
-
+    public void initTest(){
+        if(Test) init();
+    }
     private void init() {
         imageLoader = new ImageLoader();
         InputManager inputManager = new InputManager(this);
