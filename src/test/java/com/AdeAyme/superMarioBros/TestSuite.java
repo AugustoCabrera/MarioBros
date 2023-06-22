@@ -1,4 +1,4 @@
-package com.aDeAymee.superMarioBros;
+package com.aDeAyme.superMarioBros;
 import com.aDeAyme.superMarioBros.controllerTest.CameraTest;
 import com.aDeAyme.superMarioBros.modelTest.*;
 import com.aDeAyme.superMarioBros.viewTest.UIManagerTest;
