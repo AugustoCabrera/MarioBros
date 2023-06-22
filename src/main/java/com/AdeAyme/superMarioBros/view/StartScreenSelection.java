@@ -1,14 +1,13 @@
 package com.aDeAyme.superMarioBros.view;
-
+//Enumerado de items de la pantalla principal
 public enum StartScreenSelection {
-    START_GAME(0),
-    VIEW_HELP(1),
-    VIEW_ABOUT(2);
-
-    private final int lineNumber;
+    START_GAME(0),      //Comienzar del juego
+    VIEW_HELP(1),       //Ayuda
+    VIEW_ABOUT(2);      //Sobre el juego
+    private final int lineNumber;   //Opcion actual (que se esta señalando)
     StartScreenSelection(int lineNumber){ this.lineNumber = lineNumber; }
 
-    public static StartScreenSelection getSelection(int number){
+    public static StartScreenSelection getSelection(int number){    //Devuelve la opcion elegida
         if(number == 0)
             return START_GAME;
         else if(number == 1)
@@ -18,7 +17,7 @@ public enum StartScreenSelection {
         else return null;
     }
 
-    public StartScreenSelection select(boolean toUp){
+    public StartScreenSelection select(boolean toUp){       //Selecciona una opcion
         int selection;
 
         if(lineNumber > -1 && lineNumber < 3){
@@ -35,5 +34,5 @@ public enum StartScreenSelection {
 
     public int getLineNumber() {
         return lineNumber;
-    }
+    }   //Devuelve la opcion sobre la que se señala
 }

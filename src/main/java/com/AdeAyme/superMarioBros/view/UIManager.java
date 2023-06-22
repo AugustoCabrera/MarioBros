@@ -1,25 +1,24 @@
 package com.aDeAyme.superMarioBros.view;
-
 import com.aDeAyme.superMarioBros.controller.GameEngine;
 import com.aDeAyme.superMarioBros.controller.GameStatus;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+//Administrador de las imagenes en el videojuego
 
 public class UIManager extends JPanel{
 
-    private GameEngine engine;
-    private Font gameFont;
-    private BufferedImage startScreenImage, aboutScreenImage, helpScreenImage, gameOverScreen;
-    private BufferedImage heartIcon;
-    private BufferedImage coinIcon;
-    private BufferedImage selectIcon;
-    private MapSelection MapSelection;
+    private GameEngine engine;  //Referencia al motor del videojuego
+    private Font gameFont;      //Fuente de letra del videojuego
+    private BufferedImage startScreenImage, aboutScreenImage, helpScreenImage, gameOverScreen;  //Imagenes de las pantallas de videojuego
+    private BufferedImage heartIcon;    //Icono de corazon en el juego (vidas)
+    private BufferedImage coinIcon;     //Icono de monedas en el juego
+    private BufferedImage selectIcon;   //Selector (hongo rojo)
+    private MapSelection MapSelection;  //Selector de mapas
 
-    public UIManager(GameEngine engine, int width, int height) {
+    public UIManager(GameEngine engine, int width, int height) {    //Establece todas las vistas del videojuego antes y durante la partida
         setPreferredSize(new Dimension(width, height));
         setMaximumSize(new Dimension(width, height));
         setMinimumSize(new Dimension(width, height));
@@ -48,7 +47,7 @@ public class UIManager extends JPanel{
     }
 
     @Override
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g){         //Dibujo de elementos el juego
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g.create();
@@ -91,14 +90,14 @@ public class UIManager extends JPanel{
         g2.dispose();
     }
 
-    private void drawRemainingTime(Graphics2D g2) {
+    private void drawRemainingTime(Graphics2D g2) {     //Dibujo del tiempo restante
         g2.setFont(gameFont.deriveFont(25f));
         g2.setColor(Color.WHITE);
         String displayedStr = "TIME: " + engine.getRemainingTime();
         g2.drawString(displayedStr, 750, 50);
     }
 
-    private void drawVictoryScreen(Graphics2D g2) {
+    private void drawVictoryScreen(Graphics2D g2) {     //Dibujo de la pantalla de victoria
         g2.setFont(gameFont.deriveFont(50f));
         g2.setColor(Color.WHITE);
         String displayedStr = "YOU WON!";
@@ -108,13 +107,13 @@ public class UIManager extends JPanel{
 
     private void drawHelpScreen(Graphics2D g2) {
         g2.drawImage(helpScreenImage, 0, 0, null);
-    }
+    }   //Dibujo de la pantalla de ayuda
 
     private void drawAboutScreen(Graphics2D g2) {
         g2.drawImage(aboutScreenImage, 0, 0, null);
-    }
+    }   //Dibujo de la pantalla de "sobre el juego"
 
-    private void drawGameOverScreen(Graphics2D g2) {
+    private void drawGameOverScreen(Graphics2D g2) {        //Dibujo de la pantalla de "partida terminada"
         g2.drawImage(gameOverScreen, 0, 0, null);
         g2.setFont(gameFont.deriveFont(50f));
         g2.setColor(new Color(130, 48, 48));
@@ -124,7 +123,7 @@ public class UIManager extends JPanel{
         g2.drawString(acquiredPoints, (getWidth()-stringLength)/2, getHeight()-stringHeight*2);
     }
 
-    private void drawPauseScreen(Graphics2D g2) {
+    private void drawPauseScreen(Graphics2D g2) {           //Dibujo de la pantalla de pausa
         g2.setFont(gameFont.deriveFont(50f));
         g2.setColor(Color.WHITE);
         String displayedStr = "PAUSED";
@@ -132,7 +131,7 @@ public class UIManager extends JPanel{
         g2.drawString(displayedStr, (getWidth()-stringLength)/2, getHeight()/2);
     }
 
-    private void drawAcquiredCoins(Graphics2D g2) {
+    private void drawAcquiredCoins(Graphics2D g2) {         //Dibujo del incremento de monedas
         g2.setFont(gameFont.deriveFont(30f));
         g2.setColor(Color.WHITE);
         String displayedStr = "" + engine.getCoins();
@@ -140,7 +139,7 @@ public class UIManager extends JPanel{
         g2.drawString(displayedStr, getWidth()-65, 50);
     }
 
-    private void drawRemainingLives(Graphics2D g2) {
+    private void drawRemainingLives(Graphics2D g2) {        //Dibujo de las vidas restantes
         g2.setFont(gameFont.deriveFont(30f));
         g2.setColor(Color.WHITE);
         String displayedStr = "" + engine.getRemainingLives();
@@ -148,7 +147,7 @@ public class UIManager extends JPanel{
         g2.drawString(displayedStr, 100, 50);
     }
 
-    private void drawPoints(Graphics2D g2){
+    private void drawPoints(Graphics2D g2){                 //Dibujo de los puntos
         g2.setFont(gameFont.deriveFont(25f));
         g2.setColor(Color.WHITE);
         String displayedStr = "Points: " + engine.getScore();
@@ -157,13 +156,13 @@ public class UIManager extends JPanel{
         g2.drawString(displayedStr, 300, 50);
     }
 
-    private void drawStartScreen(Graphics2D g2){
+    private void drawStartScreen(Graphics2D g2){            //Dibujo de la pantalla inicial
         int row = engine.getStartScreenSelection().getLineNumber();
         g2.drawImage(startScreenImage, 0, 0, null);
         g2.drawImage(selectIcon, 375, row * 70 + 440, null);
     }
 
-    private void drawMapSelectionScreen(Graphics2D g2){
+    private void drawMapSelectionScreen(Graphics2D g2){     //Dibujo de la pantalla de seleccion de mapas
         g2.setFont(gameFont.deriveFont(50f));
         g2.setColor(Color.WHITE);
         MapSelection.draw(g2);
@@ -174,13 +173,13 @@ public class UIManager extends JPanel{
 
     public String selectMapViaMouse(Point mouseLocation) {
         return MapSelection.selectMap(mouseLocation);
-    }
+    } //Seleccion de mapas mediante el mouse
 
     public String selectMapViaKeyboard(int index){
         return MapSelection.selectMap(index);
-    }
+    } //Seleccion de mapas mediante el teclado
 
     public int changeSelectedMap(int index, boolean up){
         return MapSelection.changeSelectedMap(index, up);
-    }
+    } //Cambio del mapa señalado
 }

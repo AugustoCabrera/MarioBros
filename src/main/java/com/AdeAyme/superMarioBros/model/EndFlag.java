@@ -1,17 +1,15 @@
 package com.aDeAyme.superMarioBros.model;
-
 import java.awt.image.BufferedImage;
+//Objeto bandera final
 
 public class EndFlag extends GameObject {
-
-    private boolean touched = false;
-
+    private boolean touched = false;        //Determina si la bandera fue tocada o no
     public EndFlag(double x, double y, BufferedImage style) {
         super(x, y, style);
     }
 
     @Override
-    public void updateLocation() {
+    public void updateLocation() {      //Actualiza su localizacion segun fue tocada o no
         if(touched){
             if(getY() + getDimension().getHeight() >= 576){
                 setFalling(false);
@@ -24,9 +22,9 @@ public class EndFlag extends GameObject {
 
     public boolean isTouched() {
         return touched;
-    }
+    }       //Determina si la bandera fue tocada o no
 
     public void setTouched(boolean touched) {
         this.touched = touched;
-    }
+    } //Establece si la bandera fue tocada
 }

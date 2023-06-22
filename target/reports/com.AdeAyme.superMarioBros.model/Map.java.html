@@ -1,225 +1,219 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Map.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">my-app</a> &gt; <a href="index.source.html" class="el_package">com.AdeAyme.superMarioBros.model</a> &gt; <span class="el_source">Map.java</span></div><h1>Map.java</h1><pre class="source lang-java linenums">package com.AdeAyme.superMarioBros.model;
-
-import com.AdeAyme.superMarioBros.model.brick.Brick;
-import com.AdeAyme.superMarioBros.model.brick.OrdinaryBrick;
-import com.AdeAyme.superMarioBros.model.enemy.Enemy;
-import com.AdeAyme.superMarioBros.model.hero.Fireball;
-import com.AdeAyme.superMarioBros.model.hero.Mario;
-import com.AdeAyme.superMarioBros.model.prize.BoostItem;
-import com.AdeAyme.superMarioBros.model.prize.Coin;
-import com.AdeAyme.superMarioBros.model.prize.Prize;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Map.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">my-app</a> &gt; <a href="index.source.html" class="el_package">com.aDeAyme.superMarioBros.model</a> &gt; <span class="el_source">Map.java</span></div><h1>Map.java</h1><pre class="source lang-java linenums">package com.aDeAyme.superMarioBros.model;
+import com.aDeAyme.superMarioBros.model.brick.Brick;
+import com.aDeAyme.superMarioBros.model.brick.OrdinaryBrick;
+import com.aDeAyme.superMarioBros.model.enemy.Enemy;
+import com.aDeAyme.superMarioBros.model.hero.Fireball;
+import com.aDeAyme.superMarioBros.model.hero.Mario;
+import com.aDeAyme.superMarioBros.model.prize.BoostItem;
+import com.aDeAyme.superMarioBros.model.prize.Coin;
+import com.aDeAyme.superMarioBros.model.prize.Prize;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Iterator;
+//Establece los elementos y comportamientos de los mapas en este videojuego
 
 public class Map {
+    private double remainingTime;   //Tiempo restante de jugabilidad
+    private Mario mario;            //Objeto Mario del mapa
+<span class="fc" id="L20">    private ArrayList&lt;Brick&gt; Bricks = new ArrayList&lt;&gt;();    //Lista de bloques del mapa</span>
+<span class="fc" id="L21">    private ArrayList&lt;Enemy&gt; enemies = new ArrayList&lt;&gt;();   //Lista de los enemigos del mapa</span>
+<span class="fc" id="L22">    private ArrayList&lt;Brick&gt; groundBricks = new ArrayList&lt;&gt;();      //Lista de los bloques &quot;suelo&quot; del mapa</span>
+<span class="fc" id="L23">    private ArrayList&lt;Prize&gt; revealedPrizes = new ArrayList&lt;&gt;();    //Lista de los premios revelados del mapa</span>
+<span class="fc" id="L24">    private ArrayList&lt;Brick&gt; revealedBricks = new ArrayList&lt;&gt;();    //Lista de los bloques sorpresa revelados del mapa</span>
+<span class="fc" id="L25">    private ArrayList&lt;Fireball&gt; Fireballs = new ArrayList&lt;&gt;();      //Lista de las bolas de fuego lanzadas en el mapa</span>
+    private EndFlag endPoint;       //Objeto bandera final del mapa
+    private BufferedImage backgroundImage;      //Imagen fondo del mapa
+<span class="fc" id="L28">    private double bottomBorder = 720 - 96;     //Borde inferior del mapa</span>
+    private String path;                        //Ubicacion del mapa en el proyecto
 
-    private double remainingTime;
-    private Mario mario;
-<span class="fc" id="L21">    private ArrayList&lt;Brick&gt; bricks = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L22">    private ArrayList&lt;Enemy&gt; enemies = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L23">    private ArrayList&lt;Brick&gt; groundBricks = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L24">    private ArrayList&lt;Prize&gt; revealedPrizes = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L25">    private ArrayList&lt;Brick&gt; revealedBricks = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L26">    private ArrayList&lt;Fireball&gt; fireballs = new ArrayList&lt;&gt;();</span>
-    private EndFlag endPoint;
-    private BufferedImage backgroundImage;
-<span class="fc" id="L29">    private double bottomBorder = 720 - 96;</span>
-    private String path;
-
-
-
-<span class="fc" id="L34">    public Map(double remainingTime, BufferedImage backgroundImage) {</span>
-<span class="fc" id="L35">        this.backgroundImage = backgroundImage;</span>
-<span class="fc" id="L36">        this.remainingTime = remainingTime;</span>
-<span class="fc" id="L37">    }</span>
-
+<span class="fc" id="L31">    public Map(double remainingTime, BufferedImage backgroundImage) {</span>
+<span class="fc" id="L32">        this.backgroundImage = backgroundImage;</span>
+<span class="fc" id="L33">        this.remainingTime = remainingTime;</span>
+<span class="fc" id="L34">    }</span>
 
     public Mario getMario() {
-<span class="fc" id="L41">        return mario;</span>
-    }
+<span class="nc" id="L37">        return mario;</span>
+    }       //Devuelve a Mario
 
     public void setMario(Mario mario) {
-<span class="fc" id="L45">        this.mario = mario;</span>
-<span class="fc" id="L46">    }</span>
+<span class="fc" id="L41">        this.mario = mario;</span>
+<span class="fc" id="L42">    }   //Establece el Mario del mapa</span>
 
     public ArrayList&lt;Enemy&gt; getEnemies() {
-<span class="fc" id="L49">        return enemies;</span>
-    }
+<span class="nc" id="L45">        return enemies;</span>
+    }   //Devuelve la lista de enemigos del mapa
 
     public ArrayList&lt;Fireball&gt; getFireballs() {
-<span class="fc" id="L53">        return fireballs;</span>
-    }
+<span class="nc" id="L49">        return Fireballs;</span>
+    }   //Devuelve la lista de bolas de fuego del mapa
 
     public ArrayList&lt;Prize&gt; getRevealedPrizes() {
-<span class="fc" id="L57">        return revealedPrizes;</span>
-    }
+<span class="nc" id="L53">        return revealedPrizes;</span>
+    }   //Devuelve la lista de premios revelados del mapa
 
-    public ArrayList&lt;Brick&gt; getAllBricks() {
-<span class="fc" id="L61">        ArrayList&lt;Brick&gt; allBricks = new ArrayList&lt;&gt;();</span>
-
-<span class="fc" id="L63">        allBricks.addAll(bricks);</span>
-<span class="fc" id="L64">        allBricks.addAll(groundBricks);</span>
-
-<span class="fc" id="L66">        return allBricks;</span>
+    public ArrayList&lt;Brick&gt; getAllBricks() {    //Devuelve la lista de todos los bloques del mapa
+<span class="nc" id="L57">        ArrayList&lt;Brick&gt; allBricks = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L58">        allBricks.addAll(Bricks);</span>
+<span class="nc" id="L59">        allBricks.addAll(groundBricks);</span>
+<span class="nc" id="L60">        return allBricks;</span>
     }
 
     public void addBrick(Brick brick) {
-<span class="fc" id="L70">        this.bricks.add(brick);</span>
-<span class="fc" id="L71">    }</span>
+<span class="fc" id="L64">        this.Bricks.add(brick);</span>
+<span class="fc" id="L65">    }   //Devuelve la lista de los bloques del mapa</span>
 
     public void addGroundBrick(Brick brick) {
-<span class="fc" id="L74">        this.groundBricks.add(brick);</span>
-<span class="fc" id="L75">    }</span>
+<span class="fc" id="L68">        this.groundBricks.add(brick);</span>
+<span class="fc" id="L69">    }   //Devuelve la lista de los bloques &quot;suelo&quot; del mapa</span>
 
     public void addEnemy(Enemy enemy) {
-<span class="fc" id="L78">        this.enemies.add(enemy);</span>
-<span class="fc" id="L79">    }</span>
+<span class="fc" id="L72">        this.enemies.add(enemy);</span>
+<span class="fc" id="L73">    } //Agrega un enemigo a la lista del mapa</span>
 
-    public void drawMap(Graphics2D g2){
-<span class="nc" id="L82">        drawBackground(g2);</span>
-<span class="nc" id="L83">        drawPrizes(g2);</span>
-<span class="nc" id="L84">        drawBricks(g2);</span>
-<span class="nc" id="L85">        drawEnemies(g2);</span>
-<span class="nc" id="L86">        drawFireballs(g2);</span>
-<span class="nc" id="L87">        drawMario(g2);</span>
-<span class="nc" id="L88">        endPoint.draw(g2);</span>
+    public void drawMap(Graphics2D g2){     //Dibuja el mapa con sus elementos
+<span class="nc" id="L76">        drawBackground(g2);</span>
+<span class="nc" id="L77">        drawPrizes(g2);</span>
+<span class="nc" id="L78">        drawBricks(g2);</span>
+<span class="nc" id="L79">        drawEnemies(g2);</span>
+<span class="nc" id="L80">        drawFireballs(g2);</span>
+<span class="nc" id="L81">        drawMario(g2);</span>
+<span class="nc" id="L82">        endPoint.draw(g2);</span>
+<span class="nc" id="L83">    }</span>
+
+    private void drawFireballs(Graphics2D g2) {     //Dibuja las bolas de fuego cuando son disparadas
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        for(Fireball fireball : Fireballs){</span>
+<span class="nc" id="L87">            fireball.draw(g2);</span>
+<span class="nc" id="L88">        }</span>
 <span class="nc" id="L89">    }</span>
 
-    private void drawFireballs(Graphics2D g2) {
-<span class="nc bnc" id="L92" title="All 2 branches missed.">        for(Fireball fireball : fireballs){</span>
-<span class="nc" id="L93">            fireball.draw(g2);</span>
-<span class="nc" id="L94">        }</span>
-<span class="nc" id="L95">    }</span>
-
-    private void drawPrizes(Graphics2D g2) {
-<span class="nc bnc" id="L98" title="All 2 branches missed.">        for(Prize prize : revealedPrizes){</span>
-<span class="nc bnc" id="L99" title="All 2 branches missed.">            if(prize instanceof Coin){</span>
-<span class="nc" id="L100">                ((Coin) prize).draw(g2);</span>
+    private void drawPrizes(Graphics2D g2) {        //Dibuja los premios cuando son revelados
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        for(Prize prize : revealedPrizes){</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">            if(prize instanceof Coin){</span>
+<span class="nc" id="L94">                ((Coin) prize).draw(g2);</span>
             }
-<span class="nc bnc" id="L102" title="All 2 branches missed.">            else if(prize instanceof  BoostItem){</span>
-<span class="nc" id="L103">                ((BoostItem) prize).draw(g2);</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">            else if(prize instanceof BoostItem){</span>
+<span class="nc" id="L97">                ((BoostItem) prize).draw(g2);</span>
             }
-<span class="nc" id="L105">        }</span>
-<span class="nc" id="L106">    }</span>
+<span class="nc" id="L99">        }</span>
+<span class="nc" id="L100">    }</span>
 
     private void drawBackground(Graphics2D g2){
-<span class="nc" id="L109">        g2.drawImage(backgroundImage, 0, 0, null);</span>
-<span class="nc" id="L110">    }</span>
+<span class="nc" id="L103">        g2.drawImage(backgroundImage, 0, 0, null);</span>
+<span class="nc" id="L104">    }   //Dibuja el fondo del mapa</span>
 
-    private void drawBricks(Graphics2D g2) {
-<span class="nc bnc" id="L113" title="All 2 branches missed.">        for(Brick brick : bricks){</span>
-<span class="nc bnc" id="L114" title="All 2 branches missed.">            if(brick != null)</span>
-<span class="nc" id="L115">                brick.draw(g2);</span>
-<span class="nc" id="L116">        }</span>
+    private void drawBricks(Graphics2D g2) {    //Dibuja los bloques del mapa
+<span class="nc bnc" id="L107" title="All 2 branches missed.">        for(Brick brick : Bricks){</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">            if(brick != null)</span>
+<span class="nc" id="L109">                brick.draw(g2);</span>
+<span class="nc" id="L110">        }</span>
 
-<span class="nc bnc" id="L118" title="All 2 branches missed.">        for(Brick brick : groundBricks){</span>
-<span class="nc" id="L119">            brick.draw(g2);</span>
-<span class="nc" id="L120">        }</span>
-<span class="nc" id="L121">    }</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">        for(Brick brick : groundBricks){        //Dibuja los bloques &quot;suelo&quot; del mapa</span>
+<span class="nc" id="L113">            brick.draw(g2);</span>
+<span class="nc" id="L114">        }</span>
+<span class="nc" id="L115">    }</span>
 
-    private void drawEnemies(Graphics2D g2) {
-<span class="nc bnc" id="L124" title="All 2 branches missed.">        for(Enemy enemy : enemies){</span>
-<span class="nc bnc" id="L125" title="All 2 branches missed.">            if(enemy != null)</span>
-<span class="nc" id="L126">                enemy.draw(g2);</span>
-<span class="nc" id="L127">        }</span>
-<span class="nc" id="L128">    }</span>
+    private void drawEnemies(Graphics2D g2) {   //Dibuja los enemigos del mapa
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        for(Enemy enemy : enemies){</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">            if(enemy != null)</span>
+<span class="nc" id="L120">                enemy.draw(g2);</span>
+<span class="nc" id="L121">        }</span>
+<span class="nc" id="L122">    }</span>
 
     private void drawMario(Graphics2D g2) {
-<span class="nc" id="L131">        mario.draw(g2);</span>
-<span class="nc" id="L132">    }</span>
+<span class="nc" id="L125">        mario.draw(g2);</span>
+<span class="nc" id="L126">    }   //Dibuja a Mario</span>
 
-    public void updateLocations() {
-<span class="fc" id="L135">        mario.updateLocation();</span>
-<span class="fc bfc" id="L136" title="All 2 branches covered.">        for(Enemy enemy : enemies){</span>
-<span class="fc" id="L137">            enemy.updateLocation();</span>
-<span class="fc" id="L138">        }</span>
+    public void updateLocations() {         //Actualiza la localizacion de los elementos del mapa
+<span class="nc" id="L129">        mario.updateLocation();</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">        for(Enemy enemy : enemies){</span>
+<span class="nc" id="L131">            enemy.updateLocation();</span>
+<span class="nc" id="L132">        }</span>
 
-<span class="fc bfc" id="L140" title="All 2 branches covered.">        for(Iterator&lt;Prize&gt; prizeIterator = revealedPrizes.iterator(); prizeIterator.hasNext();){</span>
-<span class="fc" id="L141">            Prize prize = prizeIterator.next();</span>
-<span class="fc bfc" id="L142" title="All 2 branches covered.">            if(prize instanceof Coin){</span>
-<span class="fc" id="L143">                ((Coin) prize).updateLocation();</span>
-<span class="pc bpc" id="L144" title="1 of 2 branches missed.">                if(((Coin) prize).getRevealBoundary() &gt; ((Coin) prize).getY()){</span>
-<span class="nc" id="L145">                    prizeIterator.remove();</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">        for(Iterator&lt;Prize&gt; prizeIterator = revealedPrizes.iterator(); prizeIterator.hasNext();){</span>
+<span class="nc" id="L135">            Prize prize = prizeIterator.next();</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">            if(prize instanceof Coin){</span>
+<span class="nc" id="L137">                ((Coin) prize).updateLocation();</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">                if(((Coin) prize).getRevealBoundary() &gt; ((Coin) prize).getY()){</span>
+<span class="nc" id="L139">                    prizeIterator.remove();</span>
                 }
             }
-<span class="pc bpc" id="L148" title="1 of 2 branches missed.">            else if(prize instanceof BoostItem){</span>
-<span class="fc" id="L149">                ((BoostItem) prize).updateLocation();</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">            else if(prize instanceof BoostItem){</span>
+<span class="nc" id="L143">                ((BoostItem) prize).updateLocation();</span>
             }
-<span class="fc" id="L151">        }</span>
+<span class="nc" id="L145">        }</span>
 
-<span class="fc bfc" id="L153" title="All 2 branches covered.">        for (Fireball fireball: fireballs) {</span>
-<span class="fc" id="L154">            fireball.updateLocation();</span>
-<span class="fc" id="L155">        }</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        for (Fireball fireball: Fireballs) {</span>
+<span class="nc" id="L148">            fireball.updateLocation();</span>
+<span class="nc" id="L149">        }</span>
 
-<span class="pc bpc" id="L157" title="1 of 2 branches missed.">        for(Iterator&lt;Brick&gt; brickIterator = revealedBricks.iterator(); brickIterator.hasNext();){</span>
-<span class="nc" id="L158">            OrdinaryBrick brick = (OrdinaryBrick)brickIterator.next();</span>
-<span class="nc" id="L159">            brick.animate();</span>
-<span class="nc bnc" id="L160" title="All 2 branches missed.">            if(brick.getFrames() &lt; 0){</span>
-<span class="nc" id="L161">                bricks.remove(brick);</span>
-<span class="nc" id="L162">                brickIterator.remove();</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        for(Iterator&lt;Brick&gt; brickIterator = revealedBricks.iterator(); brickIterator.hasNext();){</span>
+<span class="nc" id="L152">            OrdinaryBrick brick = (OrdinaryBrick)brickIterator.next();</span>
+<span class="nc" id="L153">            brick.animate();</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">            if(brick.getFrames() &lt; 0){</span>
+<span class="nc" id="L155">                Bricks.remove(brick);</span>
+<span class="nc" id="L156">                brickIterator.remove();</span>
             }
-<span class="nc" id="L164">        }</span>
+<span class="nc" id="L158">        }</span>
 
-<span class="fc" id="L166">        endPoint.updateLocation();</span>
-<span class="fc" id="L167">    }</span>
+<span class="nc" id="L160">        endPoint.updateLocation();</span>
+<span class="nc" id="L161">    }</span>
 
     public double getBottomBorder() {
-<span class="fc" id="L170">        return bottomBorder;</span>
-    }
+<span class="nc" id="L164">        return bottomBorder;</span>
+    }   //Devuelve el borde inferior del mapa
 
     public void addRevealedPrize(Prize prize) {
-<span class="fc" id="L174">        revealedPrizes.add(prize);</span>
-<span class="fc" id="L175">    }</span>
+<span class="nc" id="L168">        revealedPrizes.add(prize);</span>
+<span class="nc" id="L169">    }   //Agrega un premio revelado a la lista del mapa</span>
 
     public void addFireball(Fireball fireball) {
-<span class="fc" id="L178">        fireballs.add(fireball);</span>
-<span class="fc" id="L179">    }</span>
+<span class="nc" id="L172">        Fireballs.add(fireball);</span>
+<span class="nc" id="L173">    }   //Agrega una bola de fuego lanzada a la lista del mapa</span>
 
     public void setEndPoint(EndFlag endPoint) {
-<span class="fc" id="L182">        this.endPoint = endPoint;</span>
-<span class="fc" id="L183">    }</span>
+<span class="fc" id="L176">        this.endPoint = endPoint;</span>
+<span class="fc" id="L177">    }   //Establece la bandera final del mapa</span>
 
     public EndFlag getEndPoint() {
-<span class="fc" id="L186">        return endPoint;</span>
-    }
+<span class="nc" id="L180">        return endPoint;</span>
+    }   //Devuelve la bandera finald el mapa
 
-    public void addRevealedBrick(OrdinaryBrick ordinaryBrick) {
-<span class="fc" id="L190">        revealedBricks.add(ordinaryBrick);</span>
-<span class="fc" id="L191">    }</span>
+    public void addRevealedBrick(OrdinaryBrick OrdinaryBrick) {
+<span class="nc" id="L184">        revealedBricks.add(OrdinaryBrick);</span>
+<span class="nc" id="L185">    }   //Agrega un bloque revelado a la lista del mapa</span>
 
     public void removeFireball(Fireball object) {
-<span class="fc" id="L194">        fireballs.remove(object);</span>
-<span class="fc" id="L195">    }</span>
+<span class="nc" id="L188">        Fireballs.remove(object);</span>
+<span class="nc" id="L189">    } //Elimina una determinada bola de fuego del mapa</span>
 
     public void removeEnemy(Enemy object) {
-<span class="fc" id="L198">        enemies.remove(object);</span>
-<span class="fc" id="L199">    }</span>
+<span class="nc" id="L192">        enemies.remove(object);</span>
+<span class="nc" id="L193">    }   //Elimina un determinado enemigo del mapa</span>
 
     public void removePrize(Prize object) {
-<span class="fc" id="L202">        revealedPrizes.remove(object);</span>
-<span class="fc" id="L203">    }</span>
+<span class="nc" id="L196">        revealedPrizes.remove(object);</span>
+<span class="nc" id="L197">    }   //Elimina un determinado premio del mapa</span>
 
     public String getPath() {
-<span class="fc" id="L206">        return path;</span>
-    }
+<span class="nc" id="L200">        return path;</span>
+    }   //Devuelve la localizacion de los mapas en el proyecto
 
     public void setPath(String path) {
-<span class="fc" id="L210">        this.path = path;</span>
-<span class="fc" id="L211">    }</span>
+<span class="fc" id="L204">        this.path = path;</span>
+<span class="fc" id="L205">    }   //Determina la localizacion de los mapas en el proyecto</span>
 
     public void updateTime(double passed){
-<span class="fc" id="L214">        remainingTime = remainingTime - passed;</span>
-<span class="fc" id="L215">    }</span>
+<span class="nc" id="L208">        remainingTime = remainingTime - passed;</span>
+<span class="nc" id="L209">    }   //Actualiza el tiempo restantes de jugabilidad</span>
 
     public boolean isTimeOver(){
-<span class="fc bfc" id="L218" title="All 2 branches covered.">        return remainingTime &lt;= 0;</span>
-    }
+<span class="nc bnc" id="L212" title="All 2 branches missed.">        return remainingTime &lt;= 0;</span>
+    }   //Determina si el tiempo termino o no
 
     public double getRemainingTime() {
-<span class="fc" id="L222">        return remainingTime;</span>
-    }
+<span class="nc" id="L216">        return remainingTime;</span>
+    }   //Devuelve el tiempo restante de jugabilidad
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

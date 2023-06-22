@@ -10,7 +10,7 @@ public class GameObjectTest {
     //Utilizo algunos test de Mario y se crean objetos FireFlowr debido a que extienden de BoostItem
     @Test
     public void createGameObjectTest(){
-       mario_test mario=new mario_test();
+       MarioTest mario=new MarioTest();
        mario.createMarioTest();
     }
     @Test

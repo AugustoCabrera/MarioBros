@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.AdeAyme.superMarioBros.controllerTest.CameraTest" time="0.083" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.aDeAyme.superMarioBros.controllerTest.CameraTest" time="0.12" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\LENOVO\AppData\Local\Temp\surefire1248505764440610310\surefirebooter-20230621164505766_3.jar C:\Users\LENOVO\AppData\Local\Temp\surefire1248505764440610310 2023-06-21T16-45-05_459-jvmRun1 surefire-20230621164505766_1tmp surefire_0-20230621164505766_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\LENOVO\AppData\Local\Temp\surefire6387824264336753536\surefirebooter-20230622152853963_3.jar C:\Users\LENOVO\AppData\Local\Temp\surefire6387824264336753536 2023-06-22T15-28-53_454-jvmRun1 surefire-20230622152853963_1tmp surefire_0-20230622152853963_2tmp"/>
     <property name="surefire.test.class.path" value="C:\Users\LENOVO\Desktop\Facultad\Ingenieria de Software\TP DEFINITIVO\superMarioBros\target\test-classes;C:\Users\LENOVO\Desktop\Facultad\Ingenieria de Software\TP DEFINITIVO\superMarioBros\target\classes;C:\Users\LENOVO\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\LENOVO\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\LENOVO"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\LENOVO\AppData\Local\Temp\surefire1248505764440610310\surefirebooter-20230621164505766_3.jar;C:\\Users\\LENOVO\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.3\\org.jacoco.agent-0.8.3-runtime.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\LENOVO\AppData\Local\Temp\surefire6387824264336753536\surefirebooter-20230622152853963_3.jar;C:\\Users\\LENOVO\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.3\\org.jacoco.agent-0.8.3-runtime.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\resources.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\rt.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\sunrsasign.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\jsse.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\jce.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\charsets.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\lib\jfr.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.372.7-hotspot\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -62,6 +62,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="moveCamTest" classname="com.AdeAyme.superMarioBros.controllerTest.CameraTest" time="0.005"/>
-  <testcase name="setAndGetYTest" classname="com.AdeAyme.superMarioBros.controllerTest.CameraTest" time="0"/>
+  <testcase name="moveCamTest" classname="com.aDeAyme.superMarioBros.controllerTest.CameraTest" time="0.013"/>
+  <testcase name="setAndGetYTest" classname="com.aDeAyme.superMarioBros.controllerTest.CameraTest" time="0"/>
 </testsuite>

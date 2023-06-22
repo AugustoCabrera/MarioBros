@@ -1,43 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SuperMushroom.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">my-app</a> &gt; <a href="index.source.html" class="el_package">com.AdeAyme.superMarioBros.model.prize</a> &gt; <span class="el_source">SuperMushroom.java</span></div><h1>SuperMushroom.java</h1><pre class="source lang-java linenums">package com.AdeAyme.superMarioBros.model.prize;
-
-import com.AdeAyme.superMarioBros.controller.GameEngine;
-import com.AdeAyme.superMarioBros.model.hero.Mario;
-import com.AdeAyme.superMarioBros.model.hero.MarioSuper;
-import com.AdeAyme.superMarioBros.model.hero.MarioFormAll;
-import com.AdeAyme.superMarioBros.view.Animation;
-import com.AdeAyme.superMarioBros.view.ImageLoader;
-
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SuperMushroom.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">my-app</a> &gt; <a href="index.source.html" class="el_package">com.aDeAyme.superMarioBros.model.prize</a> &gt; <span class="el_source">SuperMushroom.java</span></div><h1>SuperMushroom.java</h1><pre class="source lang-java linenums">package com.aDeAyme.superMarioBros.model.prize;
+import com.aDeAyme.superMarioBros.controller.GameEngine;
+import com.aDeAyme.superMarioBros.model.hero.Mario;
+import com.aDeAyme.superMarioBros.model.hero.MarioSuper;
+import com.aDeAyme.superMarioBros.model.hero.MarioFormAll;
+import com.aDeAyme.superMarioBros.view.Animation;
+import com.aDeAyme.superMarioBros.view.ImageLoader;
 import java.awt.image.BufferedImage;
-
-public class SuperMushroom extends BoostItem implements MagicObject{
-
+//Objeto hongo rojo del mapa. Al tocarlo, cambia la forma de Mario (de MarioNormal a MarioSuper)
+public class SuperMushroom extends BoostItem implements MagicObject {
     public SuperMushroom(double x, double y, BufferedImage style) {
-<span class="fc" id="L15">        super(x, y, style);</span>
-<span class="fc" id="L16">        setPoint(125);</span>
-<span class="fc" id="L17">    }</span>
+<span class="fc" id="L12">        super(x, y, style);</span>
+<span class="fc" id="L13">        setPoint(125);      //Aumenta en 125 los puntos de Mario al tocarlo</span>
+<span class="fc" id="L14">    }</span>
 
     @Override
-    public void onTouch(Mario mario, GameEngine engine) {
-
-<span class="fc" id="L22">        mario.acquirePoints(getPoint());</span>
-<span class="fc" id="L23">        setChangeMarioForm(mario);</span>
-<span class="fc" id="L24">        engine.playSuperMushroom();</span>
-<span class="fc" id="L25">        }</span>
-
-    //borre el isFire(): if(!mario.getMarioForm().isFire()){
+    public void onTouch(Mario mario, GameEngine engine) {   //Establece que el hongo fue tomado por Mario
+<span class="fc" id="L18">        mario.acquirePoints(getPoint());</span>
+<span class="fc" id="L19">        setChangeMarioForm(mario);</span>
+<span class="fc" id="L20">        engine.playSuperMushroom();</span>
+<span class="fc" id="L21">        }</span>
 
     @Override
-    public void setChangeMarioForm(Mario mario) {
-<span class="fc" id="L31">        ImageLoader imageLoader = new ImageLoader();</span>
+    public void setChangeMarioForm(Mario mario) {       //Establece el cambio de la forma de Mario
+<span class="fc" id="L25">        ImageLoader ImageLoader = new ImageLoader();</span>
 
-<span class="fc" id="L33">        BufferedImage[] leftFrames = imageLoader.getLeftFrames(Mario.SUPER);</span>
-<span class="fc" id="L34">        BufferedImage[] rightFrames = imageLoader.getRightFrames(Mario.SUPER);</span>
+<span class="fc" id="L27">        BufferedImage[] leftFrames = ImageLoader.getLeftFrames(Mario.SUPER);</span>
+<span class="fc" id="L28">        BufferedImage[] rightFrames = ImageLoader.getRightFrames(Mario.SUPER);</span>
 
-<span class="fc" id="L36">        Animation animation = new Animation(leftFrames, rightFrames);</span>
+<span class="fc" id="L30">        Animation animation = new Animation(leftFrames, rightFrames);</span>
 
-<span class="fc" id="L38">        MarioFormAll newForm = new MarioSuper(animation, mario); // new MarioFire</span>
-<span class="fc" id="L39">        mario.setMarioForm(newForm);</span>
-
-<span class="fc" id="L41">    }</span>
+<span class="fc" id="L32">        MarioFormAll newForm = new MarioSuper(animation, mario);</span>
+<span class="fc" id="L33">        mario.setMarioForm(newForm);</span>
+<span class="fc" id="L34">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

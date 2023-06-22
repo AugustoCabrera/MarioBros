@@ -4,7 +4,7 @@ import com.aDeAyme.superMarioBros.controller.GameEngine;
 import com.aDeAyme.superMarioBros.controller.GameStatus;
 import org.junit.Test;
 import static org.junit.Assert.*;
-public class gameEngineTest {
+public class GameEngineTest {
     @Test
     public void receiveInputTest(){
         GameEngine engine = new GameEngine("GameEngineTest");

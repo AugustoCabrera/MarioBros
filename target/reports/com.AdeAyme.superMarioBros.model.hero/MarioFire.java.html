@@ -1,62 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MarioFire.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">my-app</a> &gt; <a href="index.source.html" class="el_package">com.AdeAyme.superMarioBros.model.hero</a> &gt; <span class="el_source">MarioFire.java</span></div><h1>MarioFire.java</h1><pre class="source lang-java linenums">package com.AdeAyme.superMarioBros.model.hero;
-
-import com.AdeAyme.superMarioBros.view.Animation;
-import com.AdeAyme.superMarioBros.view.ImageLoader;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MarioFire.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">my-app</a> &gt; <a href="index.source.html" class="el_package">com.aDeAyme.superMarioBros.model.hero</a> &gt; <span class="el_source">MarioFire.java</span></div><h1>MarioFire.java</h1><pre class="source lang-java linenums">package com.aDeAyme.superMarioBros.model.hero;
+import com.aDeAyme.superMarioBros.view.Animation;
+import com.aDeAyme.superMarioBros.view.ImageLoader;
 
 import java.awt.image.BufferedImage;
 
+//Forma de Mario en fuego. Se establece cuando Mario toca una flor de fuego en la partida
 public class MarioFire implements MarioFormAll {
 
-    private BufferedImage fireballStyle;
-    private Animation animation;
+    private BufferedImage fireballStyle;    //Imagen de la bola de fuego
+    private Animation animation;            //Animacion de MarioFire
 
-<span class="fc" id="L13">    public MarioFire(Animation animation , Mario mario) {</span>
+<span class="fc" id="L13">    public MarioFire(Animation animation , Mario mario) {       //Establece la vista de MarioFire</span>
 <span class="fc" id="L14">        mario.setDimension(48, 96);</span>
 <span class="fc" id="L15">        this.animation=animation;</span>
-<span class="fc" id="L16">        ImageLoader imageLoader = new ImageLoader();</span>
-<span class="fc" id="L17">        BufferedImage fireball = imageLoader.loadImage(&quot;/sprite.png&quot;);</span>
-<span class="fc" id="L18">        fireballStyle = imageLoader.getSubImage(fireball, 3, 4, 24, 24);</span>
+<span class="fc" id="L16">        ImageLoader ImageLoader = new ImageLoader();</span>
+<span class="fc" id="L17">        BufferedImage fireball = ImageLoader.loadImage(&quot;/sprite.png&quot;);</span>
+<span class="fc" id="L18">        fireballStyle = ImageLoader.getSubImage(fireball, 3, 4, 24, 24);</span>
 <span class="fc" id="L19">    }</span>
 
-    public BufferedImage getCurrentStyle(boolean toRight, boolean movingInX, boolean movingInY){
-        //bufferedImage es la imagen con TODOS los estilos de mario
+    public BufferedImage getCurrentStyle(boolean toRight, boolean movingInX, boolean movingInY){ //Cambia la vista de la animacion segun como se mueva en el mapa
         BufferedImage style;
 
-<span class="nc bnc" id="L25" title="All 4 branches missed.">        if(movingInY &amp;&amp; toRight){</span>
-<span class="nc" id="L26">            style = animation.getRightFrames()[0];</span>
+        //con los metodos getRigthFrames obtengo las imagenes de la columna 1 (o sea movimiento a la derecha)
+        //con los metodos getLeftFrames obtengo las imagenes de la columna 0 (o sea movimiento a la izquierda)
+
+<span class="nc bnc" id="L27" title="All 4 branches missed.">        if(movingInY &amp;&amp; toRight){</span>
+<span class="nc" id="L28">            style = animation.getRightFrames()[0];</span>
         }
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        else if(movingInY){</span>
-<span class="nc" id="L29">            style = animation.getLeftFrames()[0];</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        else if(movingInY){</span>
+<span class="nc" id="L31">            style = animation.getLeftFrames()[0];</span>
         }
-<span class="nc bnc" id="L31" title="All 2 branches missed.">        else if(movingInX){</span>
-<span class="nc" id="L32">            style = animation.animate(5, toRight);</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        else if(movingInX){</span>
+<span class="nc" id="L34">            style = animation.animate(5, toRight);</span>
         }
         else {
-<span class="nc bnc" id="L35" title="All 2 branches missed.">            if(toRight){</span>
-<span class="nc" id="L36">                style = animation.getRightFrames()[1];</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            if(toRight){</span>
+<span class="nc" id="L38">                style = animation.getRightFrames()[1];</span>
             }
             else
-<span class="nc" id="L39">                style = animation.getLeftFrames()[1];</span>
+<span class="nc" id="L41">                style = animation.getLeftFrames()[1];</span>
         }
 
-<span class="nc" id="L42">        return style;</span>
+<span class="nc" id="L44">        return style;</span>
     }
 
-    public MarioNormal onTouchEnemy(ImageLoader imageLoader , Mario mario){
+    public MarioNormal onTouchEnemy(ImageLoader ImageLoader, Mario mario){ //Cambia a MarioNormal cuando toca a un enemigo
 
-<span class="fc" id="L47">        BufferedImage[] leftFrames = imageLoader.getLeftFrames(Mario.SMALL);</span>
-<span class="fc" id="L48">        BufferedImage[] rightFrames= imageLoader.getRightFrames(Mario.SMALL);</span>
+<span class="fc" id="L49">        BufferedImage[] leftFrames = ImageLoader.getLeftFrames(Mario.SMALL);</span>
+<span class="fc" id="L50">        BufferedImage[] rightFrames= ImageLoader.getRightFrames(Mario.SMALL);</span>
 
-<span class="fc" id="L50">        Animation newAnimation = new Animation(leftFrames, rightFrames);</span>
-<span class="fc" id="L51">        return new MarioNormal(newAnimation, mario);</span>
-
+<span class="fc" id="L52">        Animation newAnimation = new Animation(leftFrames, rightFrames);</span>
+<span class="fc" id="L53">        return new MarioNormal(newAnimation, mario);</span>
     }
 
-
-    public Fireball fire(boolean toRight, double x, double y) {
-<span class="fc" id="L57">            return new Fireball(x, y + 48, fireballStyle, toRight);</span>
+    public Fireball fire(boolean toRight, double x, double y) {             //Dispara bolas de fuego
+<span class="nc" id="L57">            return new Fireball(x, y + 48, fireballStyle, toRight);</span>
     }
-
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

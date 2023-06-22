@@ -1,23 +1,21 @@
 package com.aDeAyme.superMarioBros.view;
-
 import java.awt.*;
 import java.util.ArrayList;
-
+//Selector de mapas del videojuego
 public class MapSelection {
-
-    private final ArrayList<String> maps = new ArrayList<>();
-    private final map_selection_item[] map_selection_items;
+    private final ArrayList<String> maps = new ArrayList<>();   //Lista de mapas
+    private final MapSelectionItem[] MapSelectionItems;         //Items de mapas
 
     public MapSelection(){
         getMaps();
-        this.map_selection_items = createItems(this.maps);
+        this.MapSelectionItems = createItems(this.maps);
     }
 
-    public void draw(Graphics g){
+    public void draw(Graphics g){       //Dibuja la pantalla de seleccion de mapas
         g.setColor(Color.BLACK);
         g.fillRect(0,0, 1280, 720);
 
-        if(map_selection_items == null){
+        if(MapSelectionItems == null){
             System.out.println(1);
             return;
         }
@@ -27,7 +25,7 @@ public class MapSelection {
         g.setColor(Color.YELLOW);
         g.drawString(title, x_location, 150);
 
-        for(map_selection_item item : map_selection_items){
+        for(MapSelectionItem item : MapSelectionItems){
             g.setColor(Color.WHITE);
             int width = g.getFontMetrics().stringWidth(item.getName().split("[.]")[0]);
             int height = g.getFontMetrics().getHeight();
@@ -37,31 +35,30 @@ public class MapSelection {
         }
     }
 
-    private void getMaps(){
+    private void getMaps(){         //Devuelve los mapas
         //TODO: read from file
         maps.add("Map 1.png");
         maps.add("Map 2.png");
     }
 
-    private map_selection_item[] createItems(ArrayList<String> maps){
+    private MapSelectionItem[] createItems(ArrayList<String> maps){     //Crea los items de los mapas
         if(maps == null)
             return null;
 
         int defaultGridSize = 100;
-        map_selection_item[] items = new map_selection_item[maps.size()];
+        MapSelectionItem[] items = new MapSelectionItem[maps.size()];
         for (int i = 0; i < items.length; i++) {
             Point location = new Point(0, (i+1)*defaultGridSize+200);
-            items[i] = new map_selection_item(maps.get(i), location);
+            items[i] = new MapSelectionItem(maps.get(i), location);
         }
 
         return items;
     }
 
-    public String selectMap(Point mouseLocation) {
-        for(map_selection_item item : map_selection_items) {
+    public String selectMap(Point mouseLocation) {      //Elige un mapa de la lista de items mediante el mouse
+        for(MapSelectionItem item : MapSelectionItems) {
             Dimension dimension = item.getDimension();
             Point location = item.getLocation();
-            //System.out.println("x:"+mouseLocation.x+"    y:"+mouseLocation.y);
             boolean inX = location.x <= mouseLocation.x && location.x + dimension.width >= mouseLocation.x;
             boolean inY = location.y >= mouseLocation.y && location.y - dimension.height <= mouseLocation.y;
             if(inX && inY){
@@ -71,21 +68,21 @@ public class MapSelection {
         return null;
     }
 
-    public String selectMap(int index){
-        if(index < map_selection_items.length && index > -1)
-            return map_selection_items[index].getName();
+    public String selectMap(int index){             //Elige un mapa de la lista de items mediante el uso del teclado
+        if(index < MapSelectionItems.length && index > -1)
+            return MapSelectionItems[index].getName();
         return null;
     }
 
-    public int changeSelectedMap(int index, boolean up) {
+    public int changeSelectedMap(int index, boolean up) {   //Cambia la seleccion del mapa
         if(up){
             if(index <= 0)
-                return map_selection_items.length - 1;
+                return MapSelectionItems.length - 1;
             else
                 return index - 1;
         }
         else{
-            if(index >= map_selection_items.length - 1)
+            if(index >= MapSelectionItems.length - 1)
                 return 0;
             else
                 return index + 1;
