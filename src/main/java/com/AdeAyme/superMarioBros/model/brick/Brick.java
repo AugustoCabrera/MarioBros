@@ -16,23 +16,23 @@ public abstract class Brick extends GameObject {
 
     public boolean isBreakable() {
         return breakable;
-    }
+    } //Determina si un bloque se puede romper o no
 
     public void setBreakable(boolean breakable) {
         this.breakable = breakable;
-    }
+    }   //Establece si el bloque puede romperse o no
 
     public boolean isEmpty() {
         return empty;
-    }
+    }   //Determina si un bloque esta vacio o no
 
     public void setEmpty(boolean empty) {
         this.empty = empty;
-    }
+    }   //Establece si el bloque esta vacio o no
 
-    public Prize reveal(GameEngine engine){ return null;}
+    public Prize reveal(GameEngine engine){ return null;}   //Revela el premio de un bloque (se sobreescribe para el bloque sorpresa)
 
     public Prize getPrize() {
         return null;
-    }
+    }   //Devuelve el premio de un bloque (se sobreescribe para el bloque sorpresa)
 }
