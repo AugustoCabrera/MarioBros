@@ -1,25 +1,26 @@
 package com.aDeAyme.superMarioBros.model.hero;
 
-import com.aDeAyme.superMarioBros.controller.camera;
-import com.aDeAyme.superMarioBros.controller.game_engine;
-import com.aDeAyme.superMarioBros.view.animation;
-import com.aDeAyme.superMarioBros.model.game_object;
-import com.aDeAyme.superMarioBros.view.image_loader;
+import com.aDeAyme.superMarioBros.controller.Camera;
+import com.aDeAyme.superMarioBros.controller.Difficulty;
+import com.aDeAyme.superMarioBros.controller.GameEngine;
+import com.aDeAyme.superMarioBros.view.Animation;
+import com.aDeAyme.superMarioBros.model.GameObject;
+import com.aDeAyme.superMarioBros.view.ImageLoader;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class mario extends game_object {
+public class Mario extends GameObject {
 
     public static final int SMALL = 0, SUPER = 1, FIRE = 2;  //son enteros que se utilizan para delimitar que tipo de columna estoy trabajando en los marios
     private int remainingLives;
     private int coins;
     private int points;
     private double invincibilityTimer;
-    private mario_form_all marioForm;
+    private MarioFormAll marioForm;
     private boolean toRight = true;
-    private com.aDeAyme.superMarioBros.controller.difficulty difficulty;
-    public mario(double x, double y , com.aDeAyme.superMarioBros.controller.difficulty difficulty){
+    private Difficulty difficulty;
+    public Mario(double x, double y , Difficulty difficulty){
         super(x, y, null);
         setDimension(48,48);
 
@@ -28,12 +29,12 @@ public class mario extends game_object {
         coins = 0;
         invincibilityTimer = 0;
 
-        image_loader image_loader = new image_loader();
-        BufferedImage[] leftFrames = image_loader.getLeftFrames(SMALL);
-        BufferedImage[] rightFrames = image_loader.getRightFrames(SMALL);
+        ImageLoader ImageLoader = new ImageLoader();
+        BufferedImage[] leftFrames = ImageLoader.getLeftFrames(SMALL);
+        BufferedImage[] rightFrames = ImageLoader.getRightFrames(SMALL);
 
-        animation animation = new animation(leftFrames, rightFrames);
-        marioForm= new mario_normal(animation, this);
+        Animation animation = new Animation(leftFrames, rightFrames);
+        marioForm= new MarioNormal(animation, this);
         setStyle(marioForm.getCurrentStyle(toRight, false, false));
         this.difficulty = difficulty;
     }
@@ -48,7 +49,7 @@ public class mario extends game_object {
         super.draw(g);
     }
 
-    public void jump(game_engine engine) {
+    public void jump(GameEngine engine) {
         if(!isJumping() && !isFalling()){
             setJumping(true);
             setVelY(10);
@@ -56,7 +57,7 @@ public class mario extends game_object {
         }
     }
 
-    public void move(boolean toRight, camera camera) {
+    public void move(boolean toRight, Camera camera) {
         if(toRight){
             setVelX(5);
         }
@@ -67,9 +68,9 @@ public class mario extends game_object {
         this.toRight = toRight;
     }
 
-    public boolean onTouchEnemy(game_engine engine , com.aDeAyme.superMarioBros.controller.difficulty difficulty){
+    public boolean onTouchEnemy(GameEngine engine , Difficulty difficulty){
 
-        if(marioForm instanceof mario_normal)
+        if(marioForm instanceof MarioNormal)
         {
             remainingLives--;
             engine.playMarioDies();
@@ -83,13 +84,13 @@ public class mario extends game_object {
         }
     }
 
-    public fireball fire(){
+    public Fireball fire(){
 
-        if(marioForm instanceof mario_fire){
+        if(marioForm instanceof MarioFire){
 
-               mario_fire mario_fire = (mario_fire) marioForm;
+               MarioFire MarioFire = (MarioFire) marioForm;
 
-                 return mario_fire.fire(toRight, getX(), getY());
+                 return MarioFire.fire(toRight, getX(), getY());
         }
         else{
                   return null;
@@ -128,11 +129,11 @@ public class mario extends game_object {
         return coins;
     }
 
-    public mario_form_all getMarioForm() {
+    public MarioFormAll getMarioForm() {
         return marioForm;
     }
 
-    public void setMarioForm(mario_form_all marioForm) {
+    public void setMarioForm(MarioFormAll marioForm) {
         this.marioForm = marioForm;
     }
 

@@ -1,18 +1,15 @@
 package com.aDeAyme.superMarioBros.model.brick;
-
-import com.aDeAyme.superMarioBros.controller.game_engine;
-import com.aDeAyme.superMarioBros.model.game_object;
-import com.aDeAyme.superMarioBros.model.prize.prize;
+import com.aDeAyme.superMarioBros.controller.GameEngine;
+import com.aDeAyme.superMarioBros.model.GameObject;
+import com.aDeAyme.superMarioBros.model.prize.Prize;
 
 import java.awt.image.BufferedImage;
 
-public abstract class brick extends game_object {
-
-    private boolean breakable;
-
-    private boolean empty;
-
-    public brick(double x, double y, BufferedImage style){
+//Clase abstracta de los bloques existentes en el mapa
+public abstract class Brick extends GameObject {
+    private boolean breakable;      //Determina si se puede romper o no
+    private boolean empty;      //Determina si esta vacio o no
+    public Brick(double x, double y, BufferedImage style){
         super(x, y, style);
         setDimension(48, 48);
     }
@@ -33,9 +30,9 @@ public abstract class brick extends game_object {
         this.empty = empty;
     }
 
-    public prize reveal(game_engine engine){ return null;}
+    public Prize reveal(GameEngine engine){ return null;}
 
-    public prize getPrize() {
+    public Prize getPrize() {
         return null;
     }
 }

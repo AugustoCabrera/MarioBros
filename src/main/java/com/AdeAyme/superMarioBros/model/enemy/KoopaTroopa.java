@@ -6,19 +6,14 @@ import com.aDeAyme.superMarioBros.controller.Observer;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Goomba extends Enemy implements Observer {
+public class KoopaTroopa extends Enemy implements Observer {
 
     private BufferedImage rightImage;
     private Difficulty difficulty;
 
-    /////////////
-
-    public int  conteo;
-
-    public Goomba(double x, double y, BufferedImage style) {
+    public KoopaTroopa(double x, double y, BufferedImage style) {
         super(x, y, style);
         setVelX(3);
-
     }
 
     @Override

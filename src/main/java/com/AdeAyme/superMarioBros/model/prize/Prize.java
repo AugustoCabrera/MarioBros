@@ -1,11 +1,11 @@
 package com.aDeAyme.superMarioBros.model.prize;
 
-import com.aDeAyme.superMarioBros.controller.game_engine;
-import com.aDeAyme.superMarioBros.model.hero.mario;
+import com.aDeAyme.superMarioBros.controller.GameEngine;
+import com.aDeAyme.superMarioBros.model.hero.Mario;
 
 import java.awt.*;
 
-public interface prize {
+public interface Prize {
 
     int getPoint();
 
@@ -13,6 +13,6 @@ public interface prize {
 
     Rectangle getBounds();
 
-    void onTouch(mario mario, game_engine engine);
+    void onTouch(Mario mario, GameEngine engine);
 
 }

@@ -14,7 +14,7 @@ public class map_selection_item {
         this.location = location;
         this.name = map;
 
-        image_loader loader = new image_loader();
+        ImageLoader loader = new ImageLoader();
         this.image = loader.loadImage("/maps/" + map);
 
         this.dimension = new Dimension();

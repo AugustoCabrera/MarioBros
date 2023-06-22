@@ -1,6 +1,6 @@
 package com.aDeAyme.superMarioBros.modelTest;
-import com.aDeAyme.superMarioBros.model.prize.coin;
-import com.aDeAyme.superMarioBros.model.prize.fire_flower;
+import com.aDeAyme.superMarioBros.model.prize.Coin;
+import com.aDeAyme.superMarioBros.model.prize.FireFlower;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,12 +18,12 @@ public class boostItem_test {
     }
     @Test
     public void getPointTest(){
-        coin coin = new coin(0,0, null, 20);
+        Coin coin = new Coin(0,0, null, 20);
         assertEquals(20, coin.getPoint(),0.0);
     }
     @Test
     public void updateLocationTest(){
-        fire_flower flower = new fire_flower(7,0, null);
+        FireFlower flower = new FireFlower(7,0, null);
         flower.setVelX(2);
         flower.updateLocation();
         assertEquals(7, flower.getX(),0.0);
@@ -33,7 +33,7 @@ public class boostItem_test {
     }
     @Test
     public void reveal(){
-        fire_flower flower = new fire_flower(2,0, null);
+        FireFlower flower = new FireFlower(2,0, null);
         flower.reveal();
         assertEquals(-48, flower.getY(),0.0);
         flower.setVelX(2);

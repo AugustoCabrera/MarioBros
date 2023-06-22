@@ -1,0 +1,19 @@
+package com.aDeAyme.superMarioBros.model.hero;
+
+import com.aDeAyme.superMarioBros.view.ImageLoader;
+
+import java.awt.image.BufferedImage;
+
+public interface MarioFormAll {
+
+    //agregar BallFire solo en IsFire
+
+    public BufferedImage getCurrentStyle(boolean toRight, boolean movingInX, boolean movingInY);
+    public MarioFormAll onTouchEnemy(ImageLoader ImageLoader, Mario mario);
+
+  //  public
+
+
+
+
+}

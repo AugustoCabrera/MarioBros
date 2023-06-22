@@ -1,13 +1,13 @@
 package com.aDeAyme.superMarioBros.controller;
 
 //Realiza el seguimiento de Mario a lo largo del juego
-public class camera {
+public class Camera {
 
     private double x, y;     //Posiciones en eje cartesiano
     private int frameNumber; //Controla el número de fotogramas
     private boolean shaking; //Determina si la camara debe o no (true o false respectivamente) "sacudirse"
 
-    public camera(){
+    public Camera(){
         this.x = 0;
         this.y = 0;
         this.frameNumber = 25;

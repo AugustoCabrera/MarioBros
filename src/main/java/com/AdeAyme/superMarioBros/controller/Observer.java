@@ -1,5 +1,6 @@
 package com.aDeAyme.superMarioBros.controller;
 
-public interface observer {
-    void update();
+//Interfaz de observador del paton Observer
+public interface Observer {
+    void update();  //Metodo de actualizacion que deben implementar los observadores
 }
