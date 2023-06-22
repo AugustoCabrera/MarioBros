@@ -91,4 +91,8 @@ public class SoundManager {
         Clip clip = getClip(loadAudio("marioDies"));
         clip.start();
     }
+
+    public void playFireFlower() {
+
+    }
 }
