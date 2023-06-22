@@ -1,21 +1,20 @@
-package com.AdeAyme.superMarioBros.model.enemy;
+package com.aDeAyme.superMarioBros.model.enemy;
 
-import com.AdeAyme.superMarioBros.controller.Difficulty;
-import com.AdeAyme.superMarioBros.controller.Observer;
+import com.aDeAyme.superMarioBros.controller.observer;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Goomba extends Enemy implements Observer {
+public class goomba extends enemy implements observer {
 
     private BufferedImage rightImage;
-    private Difficulty difficulty;
+    private com.aDeAyme.superMarioBros.controller.difficulty difficulty;
 
     /////////////
 
     public int  conteo;
 
-    public Goomba(double x, double y, BufferedImage style) {
+    public goomba(double x, double y, BufferedImage style) {
         super(x, y, style);
         setVelX(3);
 
@@ -33,12 +32,12 @@ public class Goomba extends Enemy implements Observer {
     @Override
     public void update() {
         if(getVelX()<0){
-            double speed = getVelX() - 2;
+            double speed = getVelX() - 1;
             setVelX(speed);
 
         }
         else{
-            double speed = getVelX() + 2;
+            double speed = getVelX() + 1;
             setVelX(speed);
         }
     }

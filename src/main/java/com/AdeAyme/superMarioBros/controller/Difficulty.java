@@ -1,44 +1,35 @@
-package com.AdeAyme.superMarioBros.controller;
-
+package com.aDeAyme.superMarioBros.controller;
 import java.util.ArrayList;
-
-public class Difficulty implements Subject {
-
-    private ArrayList<Observer> observers;
-
-    public Difficulty() {
-        this.observers = new ArrayList<Observer>();
+//Sujeto del patron Observer. Observa la cantidad de puntos que gana Mario e informa a sus observadores suscriptos
+public class difficulty implements subject {
+    private ArrayList<observer> observers;      //Colleccion de observadores del patron Observer
+    public difficulty() {
+        this.observers = new ArrayList<>();
     }
 
-    public void registerObserver(Observer o) {
+    //Realiza la suscripcion de un observador a la lista de observadores
+    public void registerObserver(observer o) {
         observers.add(o);
     }
 
-    public void removeObserver(Observer o) {
+    //Realiza la desuscripcion de un observador a la lista de observadores
+    public void removeObserver(observer o) {
         int i = observers.size();
         if (i >= 0) {
             observers.remove(i);
         }
     }
 
-    public ArrayList<Observer> getObservers() {
-        return observers;
-    }
-
+    //Realiza la notificacion de una actualizacion a los observadores de la lista
     public void notifyObserver() {
-
-        System.out.println(observers.size());
-
         for (int i = 0; i < observers.size(); i++) {
-            Observer observer = observers.get(i);
+            observer observer = observers.get(i);
             observer.update();
         }
     }
 
+    //Realiza la llamada al metodo que se encarga a notificar a los observadores
     public void setDifficulty(){
-        System.out.println("NOTIFIQUE");
         notifyObserver();
     }
-
-
 }

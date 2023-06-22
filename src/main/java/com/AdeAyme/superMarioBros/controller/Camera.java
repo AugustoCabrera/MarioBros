@@ -1,12 +1,13 @@
-package com.AdeAyme.superMarioBros.controller;
+package com.aDeAyme.superMarioBros.controller;
 
-public class Camera {
+//Realiza el seguimiento de Mario a lo largo del juego
+public class camera {
 
-    private double x, y;
-    private int frameNumber;
-    private boolean shaking;
+    private double x, y;     //Posiciones en eje cartesiano
+    private int frameNumber; //Controla el número de fotogramas
+    private boolean shaking; //Determina si la camara debe o no (true o false respectivamente) "sacudirse"
 
-    public Camera(){
+    public camera(){
         this.x = 0;
         this.y = 0;
         this.frameNumber = 25;
@@ -15,25 +16,26 @@ public class Camera {
 
     public double getX() {
         return x;
-    }
+    }           //Devuelve la posicion en el eje x
 
     public void setX(double x) {
         this.x = x;
-    }
+    }   //Determina la posicion en el eje x
 
     public double getY() {
         return y;
-    }
+    }           //Devuelve la posicion en el eje y
 
     public void setY(double y) {
         this.y = y;
-    }
+    }   //Determina la posicion en el eje y
 
+    //Activa el modo "sacudir"
     public void shakeCamera() {
-        shaking = true; //Activo el Modo "Temblar"
+        shaking = true;
         frameNumber = 60;
     }
-    //metodo para mover la camara cuando se sale del Up Mushroom
+    //Determina la dirección de movimiento horizontal durante la animacion de "sacudida" de la camara
     public void moveCam(double xAmount, double yAmount){
         if(shaking && frameNumber > 0){
             int direction = (frameNumber%2 == 0)? 1 : -1;

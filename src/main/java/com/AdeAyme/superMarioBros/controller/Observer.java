@@ -1,5 +1,5 @@
-package com.AdeAyme.superMarioBros.controller;
+package com.aDeAyme.superMarioBros.controller;
 
-public interface Observer {
+public interface observer {
     void update();
 }

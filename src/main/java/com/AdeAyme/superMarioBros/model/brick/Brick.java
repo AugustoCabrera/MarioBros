@@ -1,18 +1,18 @@
-package com.AdeAyme.superMarioBros.model.brick;
+package com.aDeAyme.superMarioBros.model.brick;
 
-import com.AdeAyme.superMarioBros.controller.GameEngine;
-import com.AdeAyme.superMarioBros.model.GameObject;
-import com.AdeAyme.superMarioBros.model.prize.Prize;
+import com.aDeAyme.superMarioBros.controller.game_engine;
+import com.aDeAyme.superMarioBros.model.game_object;
+import com.aDeAyme.superMarioBros.model.prize.prize;
 
 import java.awt.image.BufferedImage;
 
-public abstract class Brick extends GameObject{
+public abstract class brick extends game_object {
 
     private boolean breakable;
 
     private boolean empty;
 
-    public Brick(double x, double y, BufferedImage style){
+    public brick(double x, double y, BufferedImage style){
         super(x, y, style);
         setDimension(48, 48);
     }
@@ -33,9 +33,9 @@ public abstract class Brick extends GameObject{
         this.empty = empty;
     }
 
-    public Prize reveal(GameEngine engine){ return null;}
+    public prize reveal(game_engine engine){ return null;}
 
-    public Prize getPrize() {
+    public prize getPrize() {
         return null;
     }
 }

@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="superMarioBros" />
-        <module name="my-app" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="my-app" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

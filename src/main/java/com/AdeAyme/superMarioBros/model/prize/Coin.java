@@ -1,20 +1,20 @@
-package com.AdeAyme.superMarioBros.model.prize;
+package com.aDeAyme.superMarioBros.model.prize;
 
-import com.AdeAyme.superMarioBros.controller.GameEngine;
-import com.AdeAyme.superMarioBros.model.GameObject;
-import com.AdeAyme.superMarioBros.model.hero.Mario;
+import com.aDeAyme.superMarioBros.controller.game_engine;
+import com.aDeAyme.superMarioBros.model.game_object;
+import com.aDeAyme.superMarioBros.model.hero.mario;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 
-public class Coin extends GameObject implements Prize{
+public class coin extends game_object implements prize {
 
     private int point;
     private boolean revealed, acquired = false;
     private int revealBoundary;
 
-    public Coin(double x, double y, BufferedImage style, int point){
+    public coin(double x, double y, BufferedImage style, int point){
         super(x, y, style);
         this.point = point;
         revealed = false;
@@ -33,7 +33,7 @@ public class Coin extends GameObject implements Prize{
     }
 
     @Override
-    public void onTouch(Mario mario, GameEngine engine) {
+    public void onTouch(mario mario, game_engine engine) {
         if(!acquired){
             acquired = true;
             mario.acquirePoints(point);

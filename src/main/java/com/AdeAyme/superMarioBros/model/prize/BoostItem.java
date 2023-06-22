@@ -1,23 +1,23 @@
-package com.AdeAyme.superMarioBros.model.prize;
+package com.aDeAyme.superMarioBros.model.prize;
 
-import com.AdeAyme.superMarioBros.controller.GameEngine;
-import com.AdeAyme.superMarioBros.model.GameObject;
-import com.AdeAyme.superMarioBros.model.hero.Mario;
+import com.aDeAyme.superMarioBros.controller.game_engine;
+import com.aDeAyme.superMarioBros.model.game_object;
+import com.aDeAyme.superMarioBros.model.hero.mario;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public abstract class BoostItem extends GameObject implements Prize{
+public abstract class boostItem extends game_object implements prize {
 
     private boolean revealed = false;
     private int point;
 
-    public BoostItem(double x, double y, BufferedImage style) {
+    public boostItem(double x, double y, BufferedImage style) {
         super(x, y, style);
         setDimension(48, 48);
     }
 
-    public abstract void onTouch(Mario mario, GameEngine engine);
+    public abstract void onTouch(mario mario, game_engine engine);
 
     @Override
     public int getPoint() {

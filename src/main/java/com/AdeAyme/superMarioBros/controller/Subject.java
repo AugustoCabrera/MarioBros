@@ -1,9 +1,7 @@
-package com.AdeAyme.superMarioBros.controller;
+package com.aDeAyme.superMarioBros.controller;
 
-import com.AdeAyme.superMarioBros.controller.Observer;
-
-public interface Subject {
-    void registerObserver(Observer observer);
-    void removeObserver(Observer observer);
+public interface subject {
+    void registerObserver(observer observer);
+    void removeObserver(observer observer);
     void notifyObserver();
 }

@@ -1,64 +1,63 @@
-package com.AdeAyme.superMarioBros.model;
+package com.aDeAyme.superMarioBros.model;
 
-import com.AdeAyme.superMarioBros.model.brick.Brick;
-import com.AdeAyme.superMarioBros.model.brick.OrdinaryBrick;
-import com.AdeAyme.superMarioBros.model.enemy.Enemy;
-import com.AdeAyme.superMarioBros.model.hero.Fireball;
-import com.AdeAyme.superMarioBros.model.hero.Mario;
-import com.AdeAyme.superMarioBros.model.prize.BoostItem;
-import com.AdeAyme.superMarioBros.model.prize.Coin;
-import com.AdeAyme.superMarioBros.model.prize.Prize;
+import com.aDeAyme.superMarioBros.model.brick.brick;
+import com.aDeAyme.superMarioBros.model.brick.ordinary_brick;
+import com.aDeAyme.superMarioBros.model.enemy.enemy;
+import com.aDeAyme.superMarioBros.model.hero.fireball;
+import com.aDeAyme.superMarioBros.model.prize.boostItem;
+import com.aDeAyme.superMarioBros.model.prize.coin;
+import com.aDeAyme.superMarioBros.model.prize.prize;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Map {
+public class map {
 
     private double remainingTime;
-    private Mario mario;
-    private ArrayList<Brick> bricks = new ArrayList<>();
-    private ArrayList<Enemy> enemies = new ArrayList<>();
-    private ArrayList<Brick> groundBricks = new ArrayList<>();
-    private ArrayList<Prize> revealedPrizes = new ArrayList<>();
-    private ArrayList<Brick> revealedBricks = new ArrayList<>();
-    private ArrayList<Fireball> fireballs = new ArrayList<>();
-    private EndFlag endPoint;
+    private com.aDeAyme.superMarioBros.model.hero.mario mario;
+    private ArrayList<brick> bricks = new ArrayList<>();
+    private ArrayList<enemy> enemies = new ArrayList<>();
+    private ArrayList<brick> groundBricks = new ArrayList<>();
+    private ArrayList<prize> revealedPrizes = new ArrayList<>();
+    private ArrayList<brick> revealedBricks = new ArrayList<>();
+    private ArrayList<fireball> fireballs = new ArrayList<>();
+    private end_flag endPoint;
     private BufferedImage backgroundImage;
     private double bottomBorder = 720 - 96;
     private String path;
 
 
 
-    public Map(double remainingTime, BufferedImage backgroundImage) {
+    public map(double remainingTime, BufferedImage backgroundImage) {
         this.backgroundImage = backgroundImage;
         this.remainingTime = remainingTime;
     }
 
 
-    public Mario getMario() {
+    public com.aDeAyme.superMarioBros.model.hero.mario getMario() {
         return mario;
     }
 
-    public void setMario(Mario mario) {
+    public void setMario(com.aDeAyme.superMarioBros.model.hero.mario mario) {
         this.mario = mario;
     }
 
-    public ArrayList<Enemy> getEnemies() {
+    public ArrayList<enemy> getEnemies() {
         return enemies;
     }
 
-    public ArrayList<Fireball> getFireballs() {
+    public ArrayList<fireball> getFireballs() {
         return fireballs;
     }
 
-    public ArrayList<Prize> getRevealedPrizes() {
+    public ArrayList<prize> getRevealedPrizes() {
         return revealedPrizes;
     }
 
-    public ArrayList<Brick> getAllBricks() {
-        ArrayList<Brick> allBricks = new ArrayList<>();
+    public ArrayList<brick> getAllBricks() {
+        ArrayList<brick> allBricks = new ArrayList<>();
 
         allBricks.addAll(bricks);
         allBricks.addAll(groundBricks);
@@ -66,15 +65,15 @@ public class Map {
         return allBricks;
     }
 
-    public void addBrick(Brick brick) {
+    public void addBrick(brick brick) {
         this.bricks.add(brick);
     }
 
-    public void addGroundBrick(Brick brick) {
+    public void addGroundBrick(brick brick) {
         this.groundBricks.add(brick);
     }
 
-    public void addEnemy(Enemy enemy) {
+    public void addEnemy(enemy enemy) {
         this.enemies.add(enemy);
     }
 
@@ -89,18 +88,18 @@ public class Map {
     }
 
     private void drawFireballs(Graphics2D g2) {
-        for(Fireball fireball : fireballs){
+        for(com.aDeAyme.superMarioBros.model.hero.fireball fireball : fireballs){
             fireball.draw(g2);
         }
     }
 
     private void drawPrizes(Graphics2D g2) {
-        for(Prize prize : revealedPrizes){
-            if(prize instanceof Coin){
-                ((Coin) prize).draw(g2);
+        for(com.aDeAyme.superMarioBros.model.prize.prize prize : revealedPrizes){
+            if(prize instanceof coin){
+                ((coin) prize).draw(g2);
             }
-            else if(prize instanceof  BoostItem){
-                ((BoostItem) prize).draw(g2);
+            else if(prize instanceof boostItem){
+                ((boostItem) prize).draw(g2);
             }
         }
     }
@@ -110,18 +109,18 @@ public class Map {
     }
 
     private void drawBricks(Graphics2D g2) {
-        for(Brick brick : bricks){
+        for(com.aDeAyme.superMarioBros.model.brick.brick brick : bricks){
             if(brick != null)
                 brick.draw(g2);
         }
 
-        for(Brick brick : groundBricks){
+        for(com.aDeAyme.superMarioBros.model.brick.brick brick : groundBricks){
             brick.draw(g2);
         }
     }
 
     private void drawEnemies(Graphics2D g2) {
-        for(Enemy enemy : enemies){
+        for(com.aDeAyme.superMarioBros.model.enemy.enemy enemy : enemies){
             if(enemy != null)
                 enemy.draw(g2);
         }
@@ -133,29 +132,29 @@ public class Map {
 
     public void updateLocations() {
         mario.updateLocation();
-        for(Enemy enemy : enemies){
+        for(com.aDeAyme.superMarioBros.model.enemy.enemy enemy : enemies){
             enemy.updateLocation();
         }
 
-        for(Iterator<Prize> prizeIterator = revealedPrizes.iterator(); prizeIterator.hasNext();){
-            Prize prize = prizeIterator.next();
-            if(prize instanceof Coin){
-                ((Coin) prize).updateLocation();
-                if(((Coin) prize).getRevealBoundary() > ((Coin) prize).getY()){
+        for(Iterator<prize> prizeIterator = revealedPrizes.iterator(); prizeIterator.hasNext();){
+            prize prize = prizeIterator.next();
+            if(prize instanceof coin){
+                ((coin) prize).updateLocation();
+                if(((coin) prize).getRevealBoundary() > ((coin) prize).getY()){
                     prizeIterator.remove();
                 }
             }
-            else if(prize instanceof BoostItem){
-                ((BoostItem) prize).updateLocation();
+            else if(prize instanceof boostItem){
+                ((boostItem) prize).updateLocation();
             }
         }
 
-        for (Fireball fireball: fireballs) {
+        for (com.aDeAyme.superMarioBros.model.hero.fireball fireball: fireballs) {
             fireball.updateLocation();
         }
 
-        for(Iterator<Brick> brickIterator = revealedBricks.iterator(); brickIterator.hasNext();){
-            OrdinaryBrick brick = (OrdinaryBrick)brickIterator.next();
+        for(Iterator<brick> brickIterator = revealedBricks.iterator(); brickIterator.hasNext();){
+            ordinary_brick brick = (ordinary_brick)brickIterator.next();
             brick.animate();
             if(brick.getFrames() < 0){
                 bricks.remove(brick);
@@ -170,35 +169,35 @@ public class Map {
         return bottomBorder;
     }
 
-    public void addRevealedPrize(Prize prize) {
+    public void addRevealedPrize(prize prize) {
         revealedPrizes.add(prize);
     }
 
-    public void addFireball(Fireball fireball) {
+    public void addFireball(fireball fireball) {
         fireballs.add(fireball);
     }
 
-    public void setEndPoint(EndFlag endPoint) {
+    public void setEndPoint(end_flag endPoint) {
         this.endPoint = endPoint;
     }
 
-    public EndFlag getEndPoint() {
+    public end_flag getEndPoint() {
         return endPoint;
     }
 
-    public void addRevealedBrick(OrdinaryBrick ordinaryBrick) {
-        revealedBricks.add(ordinaryBrick);
+    public void addRevealedBrick(ordinary_brick ordinary_brick) {
+        revealedBricks.add(ordinary_brick);
     }
 
-    public void removeFireball(Fireball object) {
+    public void removeFireball(fireball object) {
         fireballs.remove(object);
     }
 
-    public void removeEnemy(Enemy object) {
+    public void removeEnemy(enemy object) {
         enemies.remove(object);
     }
 
-    public void removePrize(Prize object) {
+    public void removePrize(prize object) {
         revealedPrizes.remove(object);
     }
 

@@ -1,14 +1,14 @@
-package com.AdeAyme.superMarioBros.view;
+package com.aDeAyme.superMarioBros.view;
 
 import java.awt.image.BufferedImage;
 
-public class Animation {
+public class animation {
 
     private int index = 0, count = 0;
     private BufferedImage[] leftFrames, rightFrames;
     private BufferedImage currentFrame;
 
-    public Animation(BufferedImage[] leftFrames, BufferedImage[] rightFrames){
+    public animation(BufferedImage[] leftFrames, BufferedImage[] rightFrames){
         this.leftFrames = leftFrames;
         this.rightFrames = rightFrames;
 

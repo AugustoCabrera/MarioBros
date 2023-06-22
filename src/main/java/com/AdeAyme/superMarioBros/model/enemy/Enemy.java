@@ -1,13 +1,13 @@
-package com.AdeAyme.superMarioBros.model.enemy;
+package com.aDeAyme.superMarioBros.model.enemy;
 
-import com.AdeAyme.superMarioBros.model.GameObject;
+import com.aDeAyme.superMarioBros.model.game_object;
 
 import java.awt.image.BufferedImage;
 
 
-public abstract class Enemy extends GameObject  {
+public abstract class enemy extends game_object {
 
-    public Enemy(double x, double y, BufferedImage style) {
+    public enemy(double x, double y, BufferedImage style) {
         super(x, y, style);
         setFalling(false);
         setJumping(false);
